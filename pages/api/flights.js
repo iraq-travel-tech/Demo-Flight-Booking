@@ -7,11 +7,15 @@ export default (req, res) => {
   let filteredData = flights;
 
   if (from) {
-    filteredData = filteredData.filter((flight) => flight.from === from);
+    filteredData = filteredData.filter(
+      (flight) => flight.from.toLowerCase() === from.toLowerCase()
+    );
   }
 
   if (to) {
-    filteredData = filteredData.filter((flight) => flight.to === to);
+    filteredData = filteredData.filter(
+      (flight) => flight.to.toLowerCase() === to.toLowerCase()
+    );
   }
 
   if (departure) {

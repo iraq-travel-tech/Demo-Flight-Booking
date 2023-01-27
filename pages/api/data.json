@@ -1,0 +1,210 @@
+[
+  {
+    "from": "New York",
+    "to": "Paris",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "5",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "London",
+    "to": "Sydney",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "1",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "Rio de Janeiro",
+    "to": "London",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "3",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "Bangkok",
+    "to": "Singapore",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "9",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "Beijing",
+    "to": "Moscow",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "1",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "New York",
+    "to": "Sydney",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "4",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "Sydney",
+    "to": "Dubai",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "5",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  },
+  {
+    "from": "Moscow",
+    "to": "Johannesburg",
+    "departure": {
+      "airportCode": "JFK",
+      "time": "13:00"
+    },
+    "arrival": {
+      "airportCode": "LHR",
+      "time": "16:20"
+    },
+    "airline": {
+      "name": "British Airways",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqkEID68ScB-monhOMeddWlgAiqfr20QkyiENlgRY6&s"
+    },
+    "duration": "7H 20M",
+    "stops": "6",
+    "price": "450$",
+    "passengers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "class": "Economy",
+    "tripType": "Round trip"
+  }
+]

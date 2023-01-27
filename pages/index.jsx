@@ -1,87 +1,75 @@
 import TopHomePage from "@/components/other/TopHomePage";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import FlightOptions from "@/components/home/FlightOptions";
 
 export default function index() {
   const [TripType, setTripType] = useState(0);
+  const [Data, setData] = useState(null);
   const tripType = ["round trip", "one way trip"];
   const tripClass = ["economy class"];
   const passengerNumber = [1, 2, 3, 4, 5];
 
+  const [FromTrip, setFromTrip] = useState("");
+  const [ToTrip, setToTrip] = useState("");
+  const [Stops, setStops] = useState(0);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/flights")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
   return (
     <div>
       <TopHomePage />
+      <FlightOptions
+        setFromTrip={setFromTrip}
+        setToTrip={setToTrip}
+        FromTrip={FromTrip}
+        ToTrip={ToTrip}
+        TripType={TripType}
+        setTripType={setTripType}
+        tripType={tripType}
+        tripClass={tripClass}
+        passengerNumber={passengerNumber}
+        Stops={Stops}
+        setStops={setStops}
+      />
 
-      <div className="sm:-top-12 -top-[5.6em] relative">
-        <div className="xl:max-w-6xl lg:max-w-4xl sm:max-w-3xl sm:py-4 sm:hidden p-3 sm:mx-auto mx-7 bg-white relative rounded-xl shadow-xl flex gap-4">
-          {["Round Trip", "one way trip"].map((i, index) => (
-            <div
-              onClick={() => setTripType(index)}
-              key={index}
-              className={`py-2 px-2 text-black text-center w-full rounded-xl cursor-pointer bg-white transition-all relative ${
-                index === TripType && "!text-white"
-              }`}
-            >
-              <span className="z-20 relative">{i}</span>
-              {index === TripType && (
-                <motion.div
-                  layoutId="byrebibnebiwb"
-                  className="bg-blue-600 rounded-xl absolute inset-0 z-10"
-                ></motion.div>
-              )}
+      <div className="flex overflow-hidden sm:mx-10 mx-2 flex-col">
+        {Data &&
+          Data.map((flight, index) => (
+            <div className="p-3 bg-white border-b border-dashed flex items-center justify-around rounded-xl relative">
+              <div>
+                <div className="absolute h-10 w-10 -left-5 bg-[#ECF2FA] rounded-full -top-5"></div>
+                <div className="absolute h-10 w-10 -right-5 bg-[#ECF2FA] rounded-full -top-5"></div>
+              </div>
+              <img
+                src={flight.airline.logo}
+                className="sm:w-[5em] object-contain sm:h-[5em] w-[2em] h-[2em] "
+              ></img>
+
+              <div className="flex flex-col text-center">
+                <div className="text-2xl">JFK</div>
+                <div className="text-zinc-700">13:00</div>
+              </div>
+              <div className="flex flex-col text-center">
+                <div className="text-sm uppercase text-zinc-700">
+                  EMARETS airline
+                </div>
+                <div className="text-yellow-600 uppercase">11h 20m</div>
+
+                <div className="uppercase text-sm text-zinc-700">non-stop</div>
+              </div>
+
+              <div className="flex flex-col text-center">
+                <div className="text-2xl">BOM</div>
+                <div className="text-zinc-700">14:20</div>
+              </div>
+
+              <div className="text-3xl">250$</div>
             </div>
           ))}
-        </div>
-        <div className="xl:max-w-6xl sm:mt-0 mt-3 lg:max-w-4xl sm:max-w-3xl sm:py-4 px-4 py-5 sm:mx-auto mx-7 bg-white relative rounded-xl shadow-xl sm:gap-2 flex flex-col">
-          <div className="flex sm:flex-col flex-col-reverse gap-3">
-            <div className="flex mt-5 sm:mt-0   sm:flex-row flex-col gap-5">
-              <select className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer sm:block hidden">
-                {tripType.map((i, index) => (
-                  <option key={index} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-              <select className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer">
-                {tripClass.map((i, index) => (
-                  <option key={index} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-              <select className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer">
-                {passengerNumber.map((i, index) => (
-                  <option key={index} value={i}>
-                    {i} passenger
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex md:flex-row flex-col gap-5">
-              <div className="flex sm:flex-row flex-col flex-1 gap-5">
-                <input
-                  className="flex-1 p-3 bg-zinc-100 border rounded-xl text-lg"
-                  placeholder="From"
-                />
-                <input
-                  className="flex-1 p-3 bg-zinc-100 border rounded-xl text-lg"
-                  placeholder="To"
-                />
-              </div>
-              <div className="sm:flex hidden flex-1 gap-5">
-                <input
-                  className="flex-1 p-3 bg-zinc-100 border rounded-xl text-lg"
-                  placeholder="Date"
-                />
-              </div>
-            </div>
-          </div>
-
-          <button className="sm:w-max py-2 px-4 mt-4 rounded-xl font-bold active:scale-95 active:bg-blue-700 transition-all bg-blue-600 text-white">
-            Search for flights
-          </button>
-        </div>
       </div>
     </div>
   );

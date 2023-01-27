@@ -1,1178 +1,1106 @@
 {
-	"CatalogOfferingsResponse": {
-	  "CatalogOfferings": {
-		"id": "s1",
-		"Identifier": {
-		  "value": "56e2956a-9a99-47a2-82a9-18113a191c72",
-		  "authority": "Travelport"
-		},
-		"DefaultCurrency": {
-		  "code": "GBP"
-		},
-		"CatalogOffering": [
-		  {
-			"@type": "CatalogOffering",
-			"id": "o0",
-			"ProductOptions": [
-			  {
-				"@type": "ProductOptions",
-				"sequence": 1,
-				"Product": [
-				  {
-					"@type": "ProductAir",
-					"id": "p0",
-					"totalDuration": "P0DT5H25M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT1H5M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAX1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAZ1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  }
-						]
-					  }
-					]
-				  },
-				  {
-					"@type": "ProductAir",
-					"id": "p1",
-					"totalDuration": "P0DT11H30M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT7H10M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAb1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAZ1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  }
-						]
-					  }
-					]
-				  },
-				  {
-					"@type": "ProductAir",
-					"id": "p2",
-					"totalDuration": "P0DT11H55M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT7H35M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAX1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAd1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LSXEQ1",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "1146891",
-							  "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
-							  "name": "ECONOMY PLUS",
-							  "tier": 3
-							}
-						  }
-						]
-					  }
-					]
-				  }
-				]
-			  }
-			],
-			"Price": {
-			  "@type": "Price",
-			  "currencyCode": "GBP",
-			  "Base": 139,
-			  "TotalTaxes": 85.7,
-			  "TotalPrice": 224.7
-			},
-			"TermsAndConditions": {
-			  "@type": "TermsAndConditions",
-			  "validatingCarrier": "RJ",
-			  "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
-			  "BaggageAllowance": [
-				{
-				  "@type": "BaggageAllowance",
-				  "ProductRef": [
-					"p0"
-				  ],
-				  "BaggageItem": [
-					{
-					  "@type": "BaggageItem",
-					  "quantity": 2
-					}
-				  ]
-				}
-			  ]
-			}
-		  },
-		  {
-			"@type": "CatalogOffering",
-			"id": "o1",
-			"ProductOptions": [
-			  {
-				"@type": "ProductOptions",
-				"sequence": 1,
-				"Product": [
-				  {
-					"@type": "ProductAir",
-					"id": "p0",
-					"totalDuration": "P0DT19H20M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT15H45M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAf1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAh1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NOIQ",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "164604",
-							  "BrandRef": "FYA1UXVqWDKAH3vNfAAAAA==",
-							  "name": "Economy Saver",
-							  "tier": 2
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "L",
-							"cabin": "Economy",
-							"fareBasisCode": "LOLB",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "164604",
-							  "BrandRef": "FYA1UXVqWDKAJ3vNfAAAAA==",
-							  "name": "Economy Saver",
-							  "tier": 2
-							}
-						  }
-						]
-					  }
-					]
-				  }
-				]
-			  }
-			],
-			"Price": {
-			  "@type": "Price",
-			  "currencyCode": "GBP",
-			  "Base": 153,
-			  "TotalTaxes": 116.8,
-			  "TotalPrice": 269.8
-			},
-			"TermsAndConditions": {
-			  "@type": "TermsAndConditions",
-			  "validatingCarrier": "ME",
-			  "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
-			  "BaggageAllowance": [
-				{
-				  "@type": "BaggageAllowance",
-				  "ProductRef": [
-					"p0"
-				  ],
-				  "BaggageItem": [
-					{
-					  "@type": "BaggageItem",
-					  "quantity": 1
-					}
-				  ]
-				}
-			  ]
-			}
-		  },
-		  {
-			"@type": "CatalogOffering",
-			"id": "o2",
-			"ProductOptions": [
-			  {
-				"@type": "ProductOptions",
-				"sequence": 1,
-				"Product": [
-				  {
-					"@type": "ProductAir",
-					"id": "p0",
-					"totalDuration": "P0DT13H30M0S",
-					"Quantity": 2,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT8H30M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAj1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAl1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "S",
-							"cabin": "Economy",
-							"fareBasisCode": "SRIMSO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "BrandRef": "FYA1UXVqWDKAL3vNfAAAAA=="
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "W",
-							"cabin": "Economy",
-							"fareBasisCode": "WLRIEGO",
-							"privateFareInd": true,
-							"Brand": {
-							  "@type": "Brand",
-							  "BrandRef": "FYA1UXVqWDKAN3vNfAAAAA=="
-							}
-						  }
-						]
-					  }
-					]
-				  }
-				]
-			  }
-			],
-			"Price": {
-			  "@type": "Price",
-			  "currencyCode": "GBP",
-			  "Base": 127,
-			  "TotalTaxes": 180.9,
-			  "TotalPrice": 307.9
-			},
-			"TermsAndConditions": {
-			  "@type": "TermsAndConditions",
-			  "validatingCarrier": "MS",
-			  "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
-			  "BaggageAllowance": [
-				{
-				  "@type": "BaggageAllowance",
-				  "ProductRef": [
-					"p0"
-				  ],
-				  "BaggageItem": [
-					{
-					  "@type": "BaggageItem",
-					  "quantity": 2
-					}
-				  ]
-				}
-			  ]
-			}
-		  },
-		  {
-			"@type": "CatalogOffering",
-			"id": "o3",
-			"ProductOptions": [
-			  {
-				"@type": "ProductOptions",
-				"sequence": 1,
-				"Product": [
-				  {
-					"@type": "ProductAir",
-					"id": "p0",
-					"totalDuration": "P0DT15H5M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT8H35M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAp1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAP3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAP3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  }
-						]
-					  }
-					]
-				  }
-				]
-			  }
-			],
-			"Price": {
-			  "@type": "Price",
-			  "currencyCode": "GBP",
-			  "Base": 195,
-			  "TotalTaxes": 135.2,
-			  "TotalPrice": 330.2
-			},
-			"TermsAndConditions": {
-			  "@type": "TermsAndConditions",
-			  "validatingCarrier": "QR",
-			  "ExpiryDate": "2023-01-29T23:59:00.000+00:00"
-			}
-		  },
-		  {
-			"@type": "CatalogOffering",
-			"id": "o4",
-			"ProductOptions": [
-			  {
-				"@type": "ProductOptions",
-				"sequence": 1,
-				"Product": [
-				  {
-					"@type": "ProductAir",
-					"id": "p0",
-					"totalDuration": "P0DT8H25M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT1H55M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAr1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  }
-						]
-					  }
-					]
-				  },
-				  {
-					"@type": "ProductAir",
-					"id": "p1",
-					"totalDuration": "P0DT13H55M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT7H25M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAt1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAv1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  }
-						]
-					  }
-					]
-				  },
-				  {
-					"@type": "ProductAir",
-					"id": "p2",
-					"totalDuration": "P0DT14H50M0S",
-					"Quantity": 9,
-					"FlightSegment": [
-					  {
-						"@type": "FlightSegment",
-						"sequence": 1,
-						"connectionDuration": "PT8H20M",
-						"boundFlightsInd": true,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
-						}
-					  },
-					  {
-						"@type": "FlightSegment",
-						"sequence": 2,
-						"Flight": {
-						  "@type": "FlightID",
-						  "FlightRef": "FYA1UXVqWDKAx1vNfAAAAA=="
-						}
-					  }
-					],
-					"PassengerFlight": [
-					  {
-						"@type": "PassengerFlight",
-						"passengerQuantity": 1,
-						"passengerTypeCode": "ADT",
-						"FlightProduct": [
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  1
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  },
-						  {
-							"@type": "FlightProduct",
-							"segmentSequence": [
-							  2
-							],
-							"classOfService": "N",
-							"cabin": "Economy",
-							"fareBasisCode": "NJR0R1RO",
-							"privateFareInd": false,
-							"Brand": {
-							  "@type": "Brand",
-							  "id": "942195",
-							  "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
-							  "name": "ECONOMY CLASSIC",
-							  "tier": 2
-							}
-						  }
-						]
-					  }
-					]
-				  }
-				]
-			  }
-			],
-			"Price": {
-			  "@type": "Price",
-			  "currencyCode": "GBP",
-			  "Base": 195,
-			  "TotalTaxes": 135.2,
-			  "TotalPrice": 330.2
-			},
-			"TermsAndConditions": {
-			  "@type": "TermsAndConditions",
-			  "validatingCarrier": "QR",
-			  "ExpiryDate": "2023-01-29T23:59:00.000+00:00"
-			}
-		  }
-		]
-	  },
-	  "transactionId": "F32712900A0D6A95211FCEF9D66B6B17",
-	  "Result": {
-		"@type": "Result",
-		"Error": [
-		  {
-			"@type": "Error",
-			"StatusCode": 15017,
-			"Message": " [ACH] Provider error: No flight records found for this date or market."
-		  },
-		  {
-			"@type": "Error",
-			"StatusCode": 14,
-			"Message": " [RCH - BN] Provider error: PricePoints are not supported for RCH."
-		  },
-		  {
-			"@type": "Error",
-			"StatusCode": 14,
-			"Message": " [RCH - DB] Provider error: PricePoints are not supported for RCH."
-		  },
-		  {
-			"@type": "Error",
-			"StatusCode": 14,
-			"Message": " [RCH - TL] Provider error: PricePoints are not supported for RCH."
-		  }
-		],
-		"Warning": [
-		  {
-			"@type": "Warning",
-			"StatusCode": 4039,
-			"Message": "\"Result size exceeded the maximum allowable and some results were discarded. It may be necessary to narrow your search using search modifiers.\""
-		  }
-		]
-	  },
-	  "ReferenceList": [
-		{
-		  "@type": "ReferenceListFlight",
-		  "Flight": [
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAX1vNfAAAAA==",
-			  "distance": 492,
-			  "duration": "PT1H45M",
-			  "carrier": "RJ",
-			  "number": "811",
-			  "equipment": [
-				"E95"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "07:40:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "AMM",
-				"date": "2023-01-29",
-				"time": "09:25:00.000+02:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAZ1vNfAAAAA==",
-			  "distance": 755,
-			  "duration": "PT2H35M",
-			  "carrier": "RJ",
-			  "number": "165",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "AMM",
-				"date": "2023-01-29",
-				"time": "10:30:00.000+02:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-29",
-				"time": "13:05:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAb1vNfAAAAA==",
-			  "distance": 492,
-			  "duration": "PT1H45M",
-			  "carrier": "RJ",
-			  "number": "817",
-			  "equipment": [
-				"E95"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "01:35:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "AMM",
-				"date": "2023-01-29",
-				"time": "03:20:00.000+02:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAd1vNfAAAAA==",
-			  "distance": 755,
-			  "duration": "PT2H35M",
-			  "carrier": "RJ",
-			  "number": "167",
-			  "equipment": [
-				"787"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "AMM",
-				"date": "2023-01-29",
-				"time": "17:00:00.000+02:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-29",
-				"time": "19:35:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAf1vNfAAAAA==",
-			  "distance": 506,
-			  "duration": "PT1H35M",
-			  "carrier": "ME",
-			  "number": "323",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "16:00:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "BEY",
-				"date": "2023-01-29",
-				"time": "16:35:00.000+02:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAh1vNfAAAAA==",
-			  "distance": 615,
-			  "duration": "PT2H",
-			  "carrier": "ME",
-			  "number": "265",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BEY",
-				"date": "2023-01-30",
-				"time": "08:20:00.000+02:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-30",
-				"time": "11:20:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAj1vNfAAAAA==",
-			  "distance": 785,
-			  "duration": "PT2H35M",
-			  "carrier": "MS",
-			  "number": "628",
-			  "equipment": [
-				"223"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "04:20:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "CAI",
-				"date": "2023-01-29",
-				"time": "05:55:00.000+02:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAl1vNfAAAAA==",
-			  "distance": 768,
-			  "duration": "PT2H25M",
-			  "carrier": "MS",
-			  "number": "735",
-			  "equipment": [
-				"738"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "CAI",
-				"date": "2023-01-29",
-				"time": "14:25:00.000+02:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-29",
-				"time": "17:50:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAn1vNfAAAAA==",
-			  "distance": 709,
-			  "duration": "PT2H",
-			  "carrier": "QR",
-			  "number": "459",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "04:00:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "DOH",
-				"date": "2023-01-29",
-				"time": "06:00:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAp1vNfAAAAA==",
-			  "distance": 1697,
-			  "duration": "PT4H30M",
-			  "carrier": "QR",
-			  "number": "243",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "DOH",
-				"date": "2023-01-29",
-				"time": "14:35:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "SAW",
-				"date": "2023-01-29",
-				"time": "19:05:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAr1vNfAAAAA==",
-			  "distance": 1697,
-			  "duration": "PT4H30M",
-			  "carrier": "QR",
-			  "number": "239",
-			  "equipment": [
-				"77W"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "DOH",
-				"date": "2023-01-29",
-				"time": "07:55:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-29",
-				"time": "12:25:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAt1vNfAAAAA==",
-			  "distance": 709,
-			  "duration": "PT2H",
-			  "carrier": "QR",
-			  "number": "443",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "BGW",
-				"date": "2023-01-29",
-				"time": "22:30:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "DOH",
-				"date": "2023-01-30",
-				"time": "00:30:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAv1vNfAAAAA==",
-			  "distance": 1697,
-			  "duration": "PT4H30M",
-			  "carrier": "QR",
-			  "number": "239",
-			  "equipment": [
-				"77W"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "DOH",
-				"date": "2023-01-30",
-				"time": "07:55:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-30",
-				"time": "12:25:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAx1vNfAAAAA==",
-			  "distance": 1697,
-			  "duration": "PT4H30M",
-			  "carrier": "QR",
-			  "number": "245",
-			  "equipment": [
-				"77W"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "DOH",
-				"date": "2023-01-29",
-				"time": "14:20:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "IST",
-				"date": "2023-01-29",
-				"time": "18:50:00.000+03:00"
-			  }
-			},
-			{
-			  "@type": "Flight",
-			  "id": "FYA1UXVqWDKAz1vNfAAAAA==",
-			  "distance": 1697,
-			  "duration": "PT4H30M",
-			  "carrier": "QR",
-			  "number": "243",
-			  "equipment": [
-				"320"
-			  ],
-			  "Departure": {
-				"@type": "Departure",
-				"location": "DOH",
-				"date": "2023-01-30",
-				"time": "14:35:00.000+03:00"
-			  },
-			  "Arrival": {
-				"@type": "Arrival",
-				"location": "SAW",
-				"date": "2023-01-30",
-				"time": "19:05:00.000+03:00"
-			  }
-			}
-		  ]
-		}
-	  ]
-	}
+  "CatalogOfferingsResponse": {
+    "CatalogOfferings": {
+      "id": "s1",
+      "Identifier": {
+        "value": "56e2956a-9a99-47a2-82a9-18113a191c72",
+        "authority": "Travelport"
+      },
+      "DefaultCurrency": {
+        "code": "GBP"
+      },
+      "CatalogOffering": [
+        {
+          "@type": "CatalogOffering",
+          "id": "o0",
+          "ProductOptions": [
+            {
+              "@type": "ProductOptions",
+              "sequence": 1,
+              "Product": [
+                {
+                  "@type": "ProductAir",
+                  "id": "p0",
+                  "totalDuration": "P0DT5H25M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT1H5M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAX1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAZ1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@type": "ProductAir",
+                  "id": "p1",
+                  "totalDuration": "P0DT11H30M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT7H10M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAb1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAZ1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@type": "ProductAir",
+                  "id": "p2",
+                  "totalDuration": "P0DT11H55M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT7H35M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAX1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAd1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LSXEQ1",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "1146891",
+                            "BrandRef": "FYA1UXVqWDKAF3vNfAAAAA==",
+                            "name": "ECONOMY PLUS",
+                            "tier": 3
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Price": {
+            "@type": "Price",
+            "currencyCode": "GBP",
+            "Base": 139,
+            "TotalTaxes": 85.7,
+            "TotalPrice": 224.7
+          },
+          "TermsAndConditions": {
+            "@type": "TermsAndConditions",
+            "validatingCarrier": "RJ",
+            "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowance",
+                "ProductRef": ["p0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "@type": "CatalogOffering",
+          "id": "o1",
+          "ProductOptions": [
+            {
+              "@type": "ProductOptions",
+              "sequence": 1,
+              "Product": [
+                {
+                  "@type": "ProductAir",
+                  "id": "p0",
+                  "totalDuration": "P0DT19H20M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT15H45M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAf1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAh1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NOIQ",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "164604",
+                            "BrandRef": "FYA1UXVqWDKAH3vNfAAAAA==",
+                            "name": "Economy Saver",
+                            "tier": 2
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "L",
+                          "cabin": "Economy",
+                          "fareBasisCode": "LOLB",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "164604",
+                            "BrandRef": "FYA1UXVqWDKAJ3vNfAAAAA==",
+                            "name": "Economy Saver",
+                            "tier": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Price": {
+            "@type": "Price",
+            "currencyCode": "GBP",
+            "Base": 153,
+            "TotalTaxes": 116.8,
+            "TotalPrice": 269.8
+          },
+          "TermsAndConditions": {
+            "@type": "TermsAndConditions",
+            "validatingCarrier": "ME",
+            "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowance",
+                "ProductRef": ["p0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "@type": "CatalogOffering",
+          "id": "o2",
+          "ProductOptions": [
+            {
+              "@type": "ProductOptions",
+              "sequence": 1,
+              "Product": [
+                {
+                  "@type": "ProductAir",
+                  "id": "p0",
+                  "totalDuration": "P0DT13H30M0S",
+                  "Quantity": 2,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT8H30M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAj1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAl1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "S",
+                          "cabin": "Economy",
+                          "fareBasisCode": "SRIMSO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "BrandRef": "FYA1UXVqWDKAL3vNfAAAAA=="
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "W",
+                          "cabin": "Economy",
+                          "fareBasisCode": "WLRIEGO",
+                          "privateFareInd": true,
+                          "Brand": {
+                            "@type": "Brand",
+                            "BrandRef": "FYA1UXVqWDKAN3vNfAAAAA=="
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Price": {
+            "@type": "Price",
+            "currencyCode": "GBP",
+            "Base": 127,
+            "TotalTaxes": 180.9,
+            "TotalPrice": 307.9
+          },
+          "TermsAndConditions": {
+            "@type": "TermsAndConditions",
+            "validatingCarrier": "MS",
+            "ExpiryDate": "2023-01-29T23:59:00.000+00:00",
+            "BaggageAllowance": [
+              {
+                "@type": "BaggageAllowance",
+                "ProductRef": ["p0"],
+                "BaggageItem": [
+                  {
+                    "@type": "BaggageItem",
+                    "quantity": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "@type": "CatalogOffering",
+          "id": "o3",
+          "ProductOptions": [
+            {
+              "@type": "ProductOptions",
+              "sequence": 1,
+              "Product": [
+                {
+                  "@type": "ProductAir",
+                  "id": "p0",
+                  "totalDuration": "P0DT15H5M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT8H35M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAp1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAP3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAP3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Price": {
+            "@type": "Price",
+            "currencyCode": "GBP",
+            "Base": 195,
+            "TotalTaxes": 135.2,
+            "TotalPrice": 330.2
+          },
+          "TermsAndConditions": {
+            "@type": "TermsAndConditions",
+            "validatingCarrier": "QR",
+            "ExpiryDate": "2023-01-29T23:59:00.000+00:00"
+          }
+        },
+        {
+          "@type": "CatalogOffering",
+          "id": "o4",
+          "ProductOptions": [
+            {
+              "@type": "ProductOptions",
+              "sequence": 1,
+              "Product": [
+                {
+                  "@type": "ProductAir",
+                  "id": "p0",
+                  "totalDuration": "P0DT8H25M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT1H55M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAr1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@type": "ProductAir",
+                  "id": "p1",
+                  "totalDuration": "P0DT13H55M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT7H25M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAt1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAv1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@type": "ProductAir",
+                  "id": "p2",
+                  "totalDuration": "P0DT14H50M0S",
+                  "Quantity": 9,
+                  "FlightSegment": [
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 1,
+                      "connectionDuration": "PT8H20M",
+                      "boundFlightsInd": true,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAn1vNfAAAAA=="
+                      }
+                    },
+                    {
+                      "@type": "FlightSegment",
+                      "sequence": 2,
+                      "Flight": {
+                        "@type": "FlightID",
+                        "FlightRef": "FYA1UXVqWDKAx1vNfAAAAA=="
+                      }
+                    }
+                  ],
+                  "PassengerFlight": [
+                    {
+                      "@type": "PassengerFlight",
+                      "passengerQuantity": 1,
+                      "passengerTypeCode": "ADT",
+                      "FlightProduct": [
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [1],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        },
+                        {
+                          "@type": "FlightProduct",
+                          "segmentSequence": [2],
+                          "classOfService": "N",
+                          "cabin": "Economy",
+                          "fareBasisCode": "NJR0R1RO",
+                          "privateFareInd": false,
+                          "Brand": {
+                            "@type": "Brand",
+                            "id": "942195",
+                            "BrandRef": "FYA1UXVqWDKAR3vNfAAAAA==",
+                            "name": "ECONOMY CLASSIC",
+                            "tier": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Price": {
+            "@type": "Price",
+            "currencyCode": "GBP",
+            "Base": 195,
+            "TotalTaxes": 135.2,
+            "TotalPrice": 330.2
+          },
+          "TermsAndConditions": {
+            "@type": "TermsAndConditions",
+            "validatingCarrier": "QR",
+            "ExpiryDate": "2023-01-29T23:59:00.000+00:00"
+          }
+        }
+      ]
+    },
+    "transactionId": "F32712900A0D6A95211FCEF9D66B6B17",
+    "Result": {
+      "@type": "Result",
+      "Error": [
+        {
+          "@type": "Error",
+          "StatusCode": 15017,
+          "Message": " [ACH] Provider error: No flight records found for this date or market."
+        },
+        {
+          "@type": "Error",
+          "StatusCode": 14,
+          "Message": " [RCH - BN] Provider error: PricePoints are not supported for RCH."
+        },
+        {
+          "@type": "Error",
+          "StatusCode": 14,
+          "Message": " [RCH - DB] Provider error: PricePoints are not supported for RCH."
+        },
+        {
+          "@type": "Error",
+          "StatusCode": 14,
+          "Message": " [RCH - TL] Provider error: PricePoints are not supported for RCH."
+        }
+      ],
+      "Warning": [
+        {
+          "@type": "Warning",
+          "StatusCode": 4039,
+          "Message": "\"Result size exceeded the maximum allowable and some results were discarded. It may be necessary to narrow your search using search modifiers.\""
+        }
+      ]
+    },
+    "ReferenceList": [
+      {
+        "@type": "ReferenceListFlight",
+        "Flight": [
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAX1vNfAAAAA==",
+            "distance": 492,
+            "duration": "PT1H45M",
+            "carrier": "RJ",
+            "number": "811",
+            "equipment": ["E95"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "07:40:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "AMM",
+              "date": "2023-01-29",
+              "time": "09:25:00.000+02:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAZ1vNfAAAAA==",
+            "distance": 755,
+            "duration": "PT2H35M",
+            "carrier": "RJ",
+            "number": "165",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "AMM",
+              "date": "2023-01-29",
+              "time": "10:30:00.000+02:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-29",
+              "time": "13:05:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAb1vNfAAAAA==",
+            "distance": 492,
+            "duration": "PT1H45M",
+            "carrier": "RJ",
+            "number": "817",
+            "equipment": ["E95"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "01:35:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "AMM",
+              "date": "2023-01-29",
+              "time": "03:20:00.000+02:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAd1vNfAAAAA==",
+            "distance": 755,
+            "duration": "PT2H35M",
+            "carrier": "RJ",
+            "number": "167",
+            "equipment": ["787"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "AMM",
+              "date": "2023-01-29",
+              "time": "17:00:00.000+02:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-29",
+              "time": "19:35:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAf1vNfAAAAA==",
+            "distance": 506,
+            "duration": "PT1H35M",
+            "carrier": "ME",
+            "number": "323",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "16:00:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "BEY",
+              "date": "2023-01-29",
+              "time": "16:35:00.000+02:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAh1vNfAAAAA==",
+            "distance": 615,
+            "duration": "PT2H",
+            "carrier": "ME",
+            "number": "265",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BEY",
+              "date": "2023-01-30",
+              "time": "08:20:00.000+02:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-30",
+              "time": "11:20:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAj1vNfAAAAA==",
+            "distance": 785,
+            "duration": "PT2H35M",
+            "carrier": "MS",
+            "number": "628",
+            "equipment": ["223"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "04:20:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "CAI",
+              "date": "2023-01-29",
+              "time": "05:55:00.000+02:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAl1vNfAAAAA==",
+            "distance": 768,
+            "duration": "PT2H25M",
+            "carrier": "MS",
+            "number": "735",
+            "equipment": ["738"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "CAI",
+              "date": "2023-01-29",
+              "time": "14:25:00.000+02:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-29",
+              "time": "17:50:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAn1vNfAAAAA==",
+            "distance": 709,
+            "duration": "PT2H",
+            "carrier": "QR",
+            "number": "459",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "04:00:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "DOH",
+              "date": "2023-01-29",
+              "time": "06:00:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAp1vNfAAAAA==",
+            "distance": 1697,
+            "duration": "PT4H30M",
+            "carrier": "QR",
+            "number": "243",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "DOH",
+              "date": "2023-01-29",
+              "time": "14:35:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "SAW",
+              "date": "2023-01-29",
+              "time": "19:05:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAr1vNfAAAAA==",
+            "distance": 1697,
+            "duration": "PT4H30M",
+            "carrier": "QR",
+            "number": "239",
+            "equipment": ["77W"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "DOH",
+              "date": "2023-01-29",
+              "time": "07:55:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-29",
+              "time": "12:25:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAt1vNfAAAAA==",
+            "distance": 709,
+            "duration": "PT2H",
+            "carrier": "QR",
+            "number": "443",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "BGW",
+              "date": "2023-01-29",
+              "time": "22:30:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "DOH",
+              "date": "2023-01-30",
+              "time": "00:30:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAv1vNfAAAAA==",
+            "distance": 1697,
+            "duration": "PT4H30M",
+            "carrier": "QR",
+            "number": "239",
+            "equipment": ["77W"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "DOH",
+              "date": "2023-01-30",
+              "time": "07:55:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-30",
+              "time": "12:25:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAx1vNfAAAAA==",
+            "distance": 1697,
+            "duration": "PT4H30M",
+            "carrier": "QR",
+            "number": "245",
+            "equipment": ["77W"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "DOH",
+              "date": "2023-01-29",
+              "time": "14:20:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "IST",
+              "date": "2023-01-29",
+              "time": "18:50:00.000+03:00"
+            }
+          },
+          {
+            "@type": "Flight",
+            "id": "FYA1UXVqWDKAz1vNfAAAAA==",
+            "distance": 1697,
+            "duration": "PT4H30M",
+            "carrier": "QR",
+            "number": "243",
+            "equipment": ["320"],
+            "Departure": {
+              "@type": "Departure",
+              "location": "DOH",
+              "date": "2023-01-30",
+              "time": "14:35:00.000+03:00"
+            },
+            "Arrival": {
+              "@type": "Arrival",
+              "location": "SAW",
+              "date": "2023-01-30",
+              "time": "19:05:00.000+03:00"
+            }
+          }
+        ]
+      }
+    ]
   }
+}

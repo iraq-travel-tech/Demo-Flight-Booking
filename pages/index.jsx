@@ -1,7 +1,7 @@
 import TopHomePage from "@/components/other/TopHomePage";
 import { useState, useEffect } from "react";
 import FlightOptions from "@/components/home/FlightOptions";
-
+import {getFlightsCatalogue} from "@/pages/api/tpFlights";
 export default function index() {
   const [TripType, setTripType] = useState(0);
   const [Data, setData] = useState(null);
@@ -14,9 +14,7 @@ export default function index() {
   const [Stops, setStops] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/flights")
-      .then((res) => res.json())
-      .then((data) => setData(data));
+    // getFlightsCatalogue();
   }, []);
 
   return (

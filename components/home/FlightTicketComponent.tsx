@@ -1,6 +1,8 @@
 import { RiPlaneLine } from "react-icons/ri";
+import { CatalogOffering } from "@/interface/CatalogOfferingsResponse ";
 
 export default function FlightTicketComponent({ flight, index }) {
+  let flightData: CatalogOffering = flight;
   return (
     <div className="p-3 bg-white border-b border-dashed rounded-xl relative">
       {index > 0 && (
@@ -11,10 +13,10 @@ export default function FlightTicketComponent({ flight, index }) {
       )}
 
       <div className="w-full h-full ticket-grid">
-        <img
+        {/* <img
           src={flight.airline.logo}
           className="el-1 sm:flex hidden    sm:w-[5em] object-contain sm:h-[5em] w-[2em] h-[2em] "
-        ></img>
+        ></img> */}
 
         <div className="el-2 flex sm:flex-col flex-col-reverse text-center">
           <div className="sm:text-2xl sm:text-black text-zinc-500">JFK</div>
@@ -35,7 +37,7 @@ export default function FlightTicketComponent({ flight, index }) {
             </svg>
           </div>
           <div className="text-sm uppercase text-zinc-700 sm:flex hidden">
-            EMARETS airline
+            {flightData.TermsAndConditions.validatingCarrier}
           </div>
           <div className="sm:text-black  uppercase text-zinc-600 sm:text-base text-sm font-semibold">
             11h 20m
@@ -55,14 +57,18 @@ export default function FlightTicketComponent({ flight, index }) {
 
         <div className="transition-all el-5 items-center flex justify-between sm:justify-center w-8/12">
           <div className="flex sm:hidden items-center">
-            <img
+            {/* <img
               src={flight.airline.logo}
               className="object-contain w-[2em] h-[2em] "
-            ></img>
+            ></img> */}
             <p className="text-xs">Qatar Planes</p>
           </div>
           <div className="sm:text-3xl text-xl transition-all sm:font-normal font-semibold sm:text-black text-zinc-600 ">
-            250$
+            {(flightData.Price.Base).toLocaleString('en-US', {style: 'currency',
+                                currency: 'GBP',
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0,
+                            })}
           </div>
         </div>
       </div>

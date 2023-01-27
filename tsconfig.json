@@ -8,7 +8,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/components/*": ["/components/*"]
+      "@/components/*": ["src/components/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,7 +27,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/_document.js", "pages/_app.js"  ],
   "exclude": [
     "node_modules"
   ]

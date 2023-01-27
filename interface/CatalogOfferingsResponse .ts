@@ -1,4 +1,7 @@
 interface CatalogOfferingsResponse {
+    CatalogOfferingsResponse: CatalogOfferingsResponse
+}
+interface CatalogOfferingsResponse {
     CatalogOfferings: CatalogOfferings;
     transactionId:    string;
     Result:           Result;

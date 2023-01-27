@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import FlightOptions from "@/components/home/FlightOptions";
 import { motion } from "framer-motion";
 import FlightTicketComponent from "@/components/home/FlightTicketComponent";
-
+import {getFlightsCatalogue} from "@/pages/api/tpFlights"
 export default function index() {
   const tripType = ["round trip", "one way trip"];
   const tripClass = ["economy", "business"];
@@ -18,7 +18,9 @@ export default function index() {
 
   const SortOptions = ["cheapest price", "non stop", "under 400$"];
   const [SortOption, setSortOption] = useState("cheapest price");
-
+useEffect(()=>{
+  getFlightsCatalogue();
+})
   return (
     <div>
       <TopHomePage />

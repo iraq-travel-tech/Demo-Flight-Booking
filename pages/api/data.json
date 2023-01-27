@@ -27,7 +27,7 @@
   },
   {
     "from": "London",
-    "to": "Sydney",
+    "to": "New York",
     "departure": {
       "airportCode": "JFK",
       "time": "13:00"

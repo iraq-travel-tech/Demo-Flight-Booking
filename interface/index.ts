@@ -1,1 +1,1 @@
-export type {default as CatalogOfferingsResponse} from "./CatalogOfferingsResponse ";
+export type { default as CatalogOfferingsResponse } from "./CatalogOfferingsResponse ";

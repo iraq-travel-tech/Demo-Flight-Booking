@@ -28,7 +28,9 @@ export default function NavBar() {
       className={`fixed top-0 left-0 w-full text-white z-50  ${
         scrolledDown &&
         "!bg-white !text-black shadow-xl sm:py-6 sm:px-5 py-4 px-7"
-      } sm:py-4 transition-all
+      }
+      
+      sm:py-4 transition-all
       sm:px-4
       py-5
       px-10`}
@@ -40,7 +42,7 @@ export default function NavBar() {
         xl:max-w-6xl 
         lg:max-w-4xl
         sm:max-w-3xl 
-        
+        ${OpenSide && "!text-white sm:!text-inherit"}
         mx-auto flex justify-between items-center`}
       >
         <Link href="/" className="font-extrabold z-50">

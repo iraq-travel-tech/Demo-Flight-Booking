@@ -3,6 +3,9 @@ import { CatalogOffering } from "@/interface/CatalogOfferingsResponse ";
 
 export default function FlightTicketComponent({ flight, index }) {
   let flightData: CatalogOffering = flight;
+
+  // console.log(flight);
+
   return (
     <div className="p-3 bg-white border-b border-dashed rounded-xl relative">
       {index > 0 && (
@@ -24,7 +27,7 @@ export default function FlightTicketComponent({ flight, index }) {
             13:00
           </div>
         </div>
-        <div className="el-3 flex flex-col text-center">
+        <div className="el-3 flex flex-col sm:items-center text-center">
           <div className="flex mt-4 sm:hidden relative">
             <RiPlaneLine className="rotate-90 fill-zinc-600 absolute left-[50%] -translate-x-[50%] top-[1%] z-20 w-5 h-5" />
             <svg className="relative z-10" height={20} width={80}>
@@ -36,7 +39,7 @@ export default function FlightTicketComponent({ flight, index }) {
               />
             </svg>
           </div>
-          <div className="text-sm uppercase text-zinc-700 sm:flex hidden">
+          <div className="text-sm uppercase text-zinc-700 sm:flex hidden ">
             {flightData.TermsAndConditions.validatingCarrier}
           </div>
           <div className="sm:text-black  uppercase text-zinc-600 sm:text-base text-sm font-semibold">
@@ -55,7 +58,7 @@ export default function FlightTicketComponent({ flight, index }) {
           </div>
         </div>
 
-        <div className="transition-all el-5 items-center flex justify-between sm:justify-center w-8/12">
+        <div className="transition-all el-5 items-center flex justify-between sm:justify-center  w-8/12">
           <div className="flex sm:hidden items-center">
             {/* <img
               src={flight.airline.logo}
@@ -64,11 +67,12 @@ export default function FlightTicketComponent({ flight, index }) {
             <p className="text-xs">Qatar Planes</p>
           </div>
           <div className="sm:text-3xl text-xl transition-all sm:font-normal font-semibold sm:text-black text-zinc-600 ">
-            {(flightData.Price.Base).toLocaleString('en-US', {style: 'currency',
-                                currency: 'GBP',
-                                minimumFractionDigits: 0,
-                                maximumFractionDigits: 0,
-                            })}
+            {flightData.Price.Base.toLocaleString("en-US", {
+              style: "currency",
+              currency: "GBP",
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            })}
           </div>
         </div>
       </div>

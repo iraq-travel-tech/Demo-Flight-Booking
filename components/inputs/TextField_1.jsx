@@ -5,13 +5,13 @@ export default function TextField_1({
   setUseStateDta,
   placeholder,
   EndIcon,
-  InputType
+  InputType,
 }) {
   const [HideLabel, setHideLabel] = useState(false);
   return (
     <div className="relative bg-zinc-200 rounded-xl group w-full">
       <input
-      required
+        required
         className={`border pt-6 py-2 px-3 w-full rounded-xl bg-inherit text-xl focus:outline-none pr-11 h-full`}
         onFocus={() => setHideLabel(true)}
         onBlur={() =>

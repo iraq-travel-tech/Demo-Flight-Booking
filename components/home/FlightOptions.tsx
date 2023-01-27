@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import TextField_1 from "../inputs/TextField_1";
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
-import Link from "next/link";
 
 export default function FlightOptions({
   TripType,
@@ -57,7 +55,7 @@ export default function FlightOptions({
               Where would you want to fly?
             </div>
             <div className="flex mt-5 sm:mt-0   sm:flex-row flex-col gap-5">
-              <select className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer sm:block hidden">
+              <select className="bg-zinc-200 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer sm:block hidden">
                 {tripType.map((i, index) => (
                   <option key={index} value={i}>
                     {i}
@@ -66,7 +64,7 @@ export default function FlightOptions({
               </select>
               <select
                 onChange={(e) => setTripClass(e.target.value)}
-                className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer"
+                className="bg-zinc-200 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer"
               >
                 {tripClass.map((i, index) => (
                   <option key={index} value={i}>
@@ -76,7 +74,7 @@ export default function FlightOptions({
               </select>
               <select
                 onChange={(e) => setPassengerNumbers(e.target.value)}
-                className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer"
+                className="bg-zinc-200 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer"
               >
                 {passengerNumber.map((i, index) => (
                   <option key={index} value={i}>

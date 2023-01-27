@@ -9,9 +9,9 @@ html {
 
 .ticket-grid {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-auto-rows: auto;
-  grid-template-areas: "a b c d e";
+  grid-template-areas: " b c d e";
   align-items: center;
   justify-items: center;
 }

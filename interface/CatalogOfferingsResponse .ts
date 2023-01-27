@@ -1,18 +1,11 @@
 interface CatalogOfferingsResponse {
-<<<<<<< HEAD
+  CatalogOfferingsResponse: CatalogOfferingsResponse;
+}
+interface CatalogOfferingsResponse {
   CatalogOfferings: CatalogOfferings;
   transactionId: string;
   Result: Result;
   ReferenceList: ReferenceList[];
-=======
-    CatalogOfferingsResponse: CatalogOfferingsResponse
-}
-interface CatalogOfferingsResponse {
-    CatalogOfferings: CatalogOfferings;
-    transactionId:    string;
-    Result:           Result;
-    ReferenceList:    ReferenceList[];
->>>>>>> 48052c0a5568f8f3bf106d3a464076539ace2436
 }
 
 export interface CatalogOfferings {

@@ -4,6 +4,8 @@ import FlightOptions from "@/components/home/FlightOptions";
 import { motion } from "framer-motion";
 import FlightTicketComponent from "@/components/home/FlightTicketComponent";
 import {getFlightsCatalogue} from "@/pages/api/tpFlights"
+import { CatalogOfferingsResponse } from "@/interface";
+import { CatalogOffering, CatalogOfferings } from "@/interface/CatalogOfferingsResponse ";
 export default function index() {
   const tripType = ["round trip", "one way trip"];
   const tripClass = ["economy", "business"];
@@ -18,8 +20,18 @@ export default function index() {
 
   const SortOptions = ["cheapest price", "non stop", "under 400$"];
   const [SortOption, setSortOption] = useState("cheapest price");
+
+let  flightsData: CatalogOfferingsResponse;
+let catalogOfferings: CatalogOffering[];
 useEffect(()=>{
-  getFlightsCatalogue();
+  getFlightsCatalogue<CatalogOfferingsResponse>().
+  then((CatalogOfferingsResponse) => {
+    flightsData = CatalogOfferingsResponse;
+    return 
+  })
+  .catch(error => {
+    /* show error message */
+  })
 })
   return (
     <div>
@@ -53,11 +65,11 @@ useEffect(()=>{
         </div> */}
 
         <div className="flex overflow-hidden sm:mx-10 mx-2 flex-col">
-          {Data &&
-            Data.map((flight, index) => (
+          {catalogOfferings &&
+            Data.map((catalogOfferings: CatalogOffering, index) => (
               <FlightTicketComponent
                 key={index}
-                flight={flight}
+                flight={catalogOfferings.Price}
                 index={index}
               />
             ))}

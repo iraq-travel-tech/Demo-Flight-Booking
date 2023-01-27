@@ -1,4 +1,4 @@
-import MainLayout from "@/components/layouts/MainLayout";
+import MainLayout from "../components/layouts/MainLayout";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {

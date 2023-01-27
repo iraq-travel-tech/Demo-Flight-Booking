@@ -1,8 +1,12 @@
-import TopHomePage from "@/components/other/TopHomePage";
+import TopHomePage from "../components/other/TopHomePage";
 import { useState, useEffect } from "react";
-import FlightOptions from "@/components/home/FlightOptions";
+import FlightOptions from "../components/home/FlightOptions";
 import { motion } from "framer-motion";
-import FlightTicketComponent from "@/components/home/FlightTicketComponent";
+import {getFlightsCatalogue} from "@/pages/api/tpFlights"
+import { CatalogOfferingsResponse } from "@/interface";
+import { CatalogOffering, CatalogOfferings } from "@/interface/CatalogOfferingsResponse ";
+import FlightTicketComponent from "../components/home/FlightTicketComponent";
+
 
 export default function index() {
   const tripType = ["round trip", "one way trip"];
@@ -19,6 +23,23 @@ export default function index() {
   const SortOptions = ["cheapest price", "non stop", "under 400$"];
   const [SortOption, setSortOption] = useState("cheapest price");
 
+var [flightData, setFlightData] = useState<CatalogOfferingsResponse>();
+var [offers, setCatalogueOfferings] = useState<CatalogOffering[]>();
+
+useEffect(()=>{
+  if(!offers){
+    getFlightsCatalogue<CatalogOfferingsResponse>()
+    .then((response) => {
+        setCatalogueOfferings(response.CatalogOfferingsResponse.CatalogOfferings.CatalogOffering)
+      }).
+    catch(error => {
+      console.log(error)
+      throw new Error(error)
+      /* show error message */
+    })
+  }
+
+});
   return (
     <div>
       <TopHomePage />
@@ -50,17 +71,16 @@ export default function index() {
           </select>
         </div> */}
 
-        <div className="flex overflow-hidden sm:mx-10 mx-2 flex-col">
-          {Data &&
-            Data.map((flight, index) => (
+        <div className="flex sm:mx-10 mx-2 flex-col">
+          {offers && offers.map((offer, index) => (
               <FlightTicketComponent
                 key={index}
-                flight={flight}
+                flight={offer}
                 index={index}
               />
-            ))}
+              ))}
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 
 export function getFlightsCatalogue<T>(): Promise<T> {
-	return fetch(`${process.env.BASE_API_URL}/catalogofferings/`,
+	return fetch(`${process.env.BASE_API_URL}/flightofferings/`,
 		{
             method: 'POST',
             headers: {

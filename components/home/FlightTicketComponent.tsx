@@ -22,9 +22,9 @@ export default function FlightTicketComponent({ flight, index }) {
         ></img> */}
 
         <div className="el-2 flex sm:flex-col flex-col-reverse text-center">
-          <div className="sm:text-2xl sm:text-black text-zinc-500">JFK</div>
+          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.departureLocation}</div>
           <div className="text-zinc-700 sm:text-base text-xl font-bold sm:font-normal">
-            13:00
+            {flightData.departureTime}
           </div>
         </div>
         <div className="el-3 flex flex-col sm:items-center text-center">
@@ -43,7 +43,7 @@ export default function FlightTicketComponent({ flight, index }) {
             {flightData.carrier}
           </div>
           <div className="sm:text-black  uppercase text-zinc-600 sm:text-base text-sm font-semibold">
-            11h 20m
+            {flightData.duration}
           </div>
 
           <div className="uppercase  sm:text-sm text-xs text-zinc-700">
@@ -52,9 +52,9 @@ export default function FlightTicketComponent({ flight, index }) {
         </div>
 
         <div className="el-4 flex sm:flex-col flex-col-reverse text-center">
-          <div className="sm:text-2xl sm:text-black text-zinc-500">BOM</div>
+          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.arrivalLocation}</div>
           <div className="text-zinc-700 sm:text-base text-xl font-bold sm:font-normal">
-            14:20
+            {flightData.arrivalTime}
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default function FlightTicketComponent({ flight, index }) {
               src={flight.airline.logo}
               className="object-contain w-[2em] h-[2em] "
             ></img> */}
-            <p className="text-xs">Qatar Planes</p>
+            <p className="text-xs">{flightData.distance}</p>
           </div>
           <div className="sm:text-3xl text-xl transition-all sm:font-normal font-semibold sm:text-black text-zinc-600 ">
             500

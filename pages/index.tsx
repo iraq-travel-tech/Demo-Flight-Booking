@@ -3,11 +3,8 @@ import { useState, useEffect } from "react";
 import FlightOptions from "../components/home/FlightOptions";
 import { motion } from "framer-motion";
 import { getFlightsCatalogue } from "@/pages/api/tpFlights";
-import { CatalogOfferingsResponse } from "@/interface";
-import {
-  CatalogOffering,
-  CatalogOfferings,
-} from "@/interface/CatalogOfferingsResponse ";
+import { FlightOfferingsResponse } from "@/interface";
+import { FlightOfferings, FlightOffering } from "@/interface/FlightOfferingsResponse";
 import FlightTicketComponent from "../components/home/FlightTicketComponent";
 
 export default function index() {
@@ -25,18 +22,17 @@ export default function index() {
   const SortOptions = ["cheapest price", "non stop", "under 400$"];
   const [SortOption, setSortOption] = useState("cheapest price");
 
-  var [flightData, setFlightData] = useState<CatalogOfferingsResponse>();
-  var [offers, setCatalogueOfferings] = useState<CatalogOffering[]>();
+  var [flightData, setFlightData] = useState<FlightOfferingsResponse>();
+  var [offers, setCatalogueOfferings] = useState<FlightOffering[]>();
 
   useEffect(() => {
     if (!offers) {
-      getFlightsCatalogue<CatalogOfferingsResponse>()
+      getFlightsCatalogue<FlightOfferingsResponse>()
         .then((response) => {
           setCatalogueOfferings(
-            response.CatalogOfferingsResponse.CatalogOfferings.CatalogOffering
+            response.FlightOfferingsResponse.FlightOfferings.FlightOffering
           );
 
-          // console.log(response.CatalogOfferingsResponse.CatalogOfferings.CatalogOffering);
         })
         .catch((error) => {
           console.log(error);

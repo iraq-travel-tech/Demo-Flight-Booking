@@ -1,8 +1,8 @@
 import { RiPlaneLine } from "react-icons/ri";
-import { CatalogOffering } from "@/interface/CatalogOfferingsResponse ";
+import { FlightOffering } from "@/interface/FlightOfferingsResponse";
 
 export default function FlightTicketComponent({ flight, index }) {
-  let flightData: CatalogOffering = flight;
+  let flightData: FlightOffering = flight;
 
   // console.log(flight);
 
@@ -40,7 +40,7 @@ export default function FlightTicketComponent({ flight, index }) {
             </svg>
           </div>
           <div className="text-sm uppercase text-zinc-700 sm:flex hidden ">
-            {flightData.TermsAndConditions.validatingCarrier}
+            {flightData.carrier}
           </div>
           <div className="sm:text-black  uppercase text-zinc-600 sm:text-base text-sm font-semibold">
             11h 20m
@@ -67,12 +67,7 @@ export default function FlightTicketComponent({ flight, index }) {
             <p className="text-xs">Qatar Planes</p>
           </div>
           <div className="sm:text-3xl text-xl transition-all sm:font-normal font-semibold sm:text-black text-zinc-600 ">
-            {flightData.Price.Base.toLocaleString("en-US", {
-              style: "currency",
-              currency: "GBP",
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })}
+            500
           </div>
         </div>
       </div>

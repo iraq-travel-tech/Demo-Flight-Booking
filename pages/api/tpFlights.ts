@@ -29,7 +29,7 @@ const exmaple_body = {
 	"SearchCriteriaFlight" : [
 	{
 	"@type" : "SearchCriteriaFlight",
-		"departureDate" : "2023-01-30",
+		"departureDate" : "2023-02-15",
 		"From" : 
 		{
 			"value" : "BGW"

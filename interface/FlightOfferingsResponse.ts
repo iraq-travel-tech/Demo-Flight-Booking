@@ -14,9 +14,11 @@ interface FlightOfferingsResponse {
     duration: string;
     carrier: string;
     number: string;
+    departureLocationCode: string;
     departureLocation: string;
     departureDate: string;
     departureTime: string;
+    arrivalLocationCode: string;
     arrivalLocation: string;
     arrivalDate: string;
     arrivalTime: string;

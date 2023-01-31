@@ -22,7 +22,9 @@ export default function FlightTicketComponent({ flight, index }) {
         ></img> */}
 
         <div className="el-2 flex sm:flex-col flex-col-reverse text-center">
-          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.departureLocation}</div>
+          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.departureLocationCode}</div>
+          <div className="sm:text-1xl sm:text-black text-zinc-500">{flightData.departureLocation}</div>
+
           <div className="text-zinc-700 sm:text-base text-xl font-bold sm:font-normal">
             {flightData.departureTime}
           </div>
@@ -52,7 +54,9 @@ export default function FlightTicketComponent({ flight, index }) {
         </div>
 
         <div className="el-4 flex sm:flex-col flex-col-reverse text-center">
-          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.arrivalLocation}</div>
+          <div className="sm:text-2xl sm:text-black text-zinc-500">{flightData.arrivalLocationCode}</div>
+          <div className="sm:text-1xl sm:text-black text-zinc-500">{flightData.arrivalLocation}</div>
+
           <div className="text-zinc-700 sm:text-base text-xl font-bold sm:font-normal">
             {flightData.arrivalTime}
           </div>
@@ -67,7 +71,7 @@ export default function FlightTicketComponent({ flight, index }) {
             <p className="text-xs">{flightData.distance}</p>
           </div>
           <div className="sm:text-3xl text-xl transition-all sm:font-normal font-semibold sm:text-black text-zinc-600 ">
-            500
+            ...
           </div>
         </div>
       </div>

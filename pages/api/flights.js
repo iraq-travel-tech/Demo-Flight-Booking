@@ -1,22 +1,19 @@
-export function getFlightsCatalogue<T>(): Promise<T> {
-  console.log(process.env.BASE_API_URL);
-
-  return fetch(`${process.env.BASE_API_URL}/flightofferings/`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json, text/plain",
-      "Content-Type": "application/json;charset=UTF-8",
-    },
-    body: JSON.stringify(exmaple_body),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return response.json() as Promise<T>;
-  });
+export default function handler(req, res) {
+  if (req.method === "POST") {
+    fetch(`${process.env.BASE_API_URL}/flightofferings/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify(searchBody(req.body.from, req.body.to)),
+    })
+      .then((res) => res.json())
+      .then((data) => res.status(200).json({ data    }));
+  }
 }
 
-export const exmaple_body = {
+const searchBody = (from, to) => ({
   CatalogOfferingsRequestAir: {
     offersPerPage: 5,
     PassengerCriteria: [
@@ -30,10 +27,10 @@ export const exmaple_body = {
         "@type": "SearchCriteriaFlight",
         departureDate: "2023-02-15",
         From: {
-          value: "JFK",
+          value: from,
         },
         To: {
-          value: "LHR",
+          value: to,
         },
       },
     ],
@@ -49,4 +46,4 @@ export const exmaple_body = {
       value: "PCC",
     },
   },
-};
+});

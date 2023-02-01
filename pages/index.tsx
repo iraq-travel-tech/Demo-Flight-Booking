@@ -4,23 +4,14 @@ import FlightOptions from "../components/home/FlightOptions";
 import { motion } from "framer-motion";
 import { getFlightsCatalogue } from "@/pages/api/tpFlights";
 import { FlightOfferingsResponse } from "@/interface";
-import { FlightOfferings, FlightOffering } from "@/interface/FlightOfferingsResponse";
+import {
+  FlightOfferings,
+  FlightOffering,
+} from "@/interface/FlightOfferingsResponse";
 import FlightTicketComponent from "../components/home/FlightTicketComponent";
 
 export default function index() {
-  const tripType = ["round trip", "one way trip"];
-  const tripClass = ["economy", "business"];
-  const passengerNumber = [1, 2, 3, 4, 5];
-
-  const [TripType, setTripType] = useState(0);
-  const [Data, setData] = useState(null);
-  const [FromTrip, setFromTrip] = useState("");
-  const [ToTrip, setToTrip] = useState("");
-  const [PassengerNumbers, setPassengerNumbers] = useState(0);
-  const [TripClass, setTripClass] = useState("economy");
-
-  const SortOptions = ["cheapest price", "non stop", "under 400$"];
-  const [SortOption, setSortOption] = useState("cheapest price");
+  // console.log(process.env.NODE_ENV);
 
   var [flightData, setFlightData] = useState<FlightOfferingsResponse>();
   var [offers, setCatalogueOfferings] = useState<FlightOffering[]>();
@@ -32,7 +23,6 @@ export default function index() {
           setCatalogueOfferings(
             response.FlightOfferingsResponse.FlightOfferings.FlightOffering
           );
-
         })
         .catch((error) => {
           console.log(error);
@@ -41,38 +31,12 @@ export default function index() {
         });
     }
   });
+
   return (
     <div>
-      <TopHomePage />
-      <FlightOptions
-        tripType={tripType}
-        tripClass={tripClass}
-        passengerNumber={passengerNumber}
-        TripType={TripType}
-        setTripType={setTripType}
-        Data={Data}
-        setData={setData}
-        FromTrip={FromTrip}
-        setFromTrip={setFromTrip}
-        ToTrip={ToTrip}
-        setToTrip={setToTrip}
-        PassengerNumbers={PassengerNumbers}
-        setPassengerNumbers={setPassengerNumbers}
-        TripClass={TripClass}
-        setTripClass={setTripClass}
-      />
+      <FlightOptions />
       <div className="flex flex-col">
-        {/* <div className="flex justify-between">
-          <select className="bg-zinc-100 sm:bg-white sm:rounded-none rounded-lg p-3  capitalize cursor-pointer sm:block hidden">
-            {SortOptions.map((i, index) => (
-              <option key={index} value={i}>
-                {i}
-              </option>
-            ))}
-          </select>
-        </div> */}
-
-        <div className="flex overflow-hidden sm:mx-10 mx-2 flex-col">
+        <div className="rounded-xl p-3 flex flex-col mx-auto max-w-4xl w-full overflow-hidden">
           {offers &&
             offers.map((offer, index) => (
               <FlightTicketComponent key={index} flight={offer} index={index} />

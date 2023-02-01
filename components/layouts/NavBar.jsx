@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { BiMenu } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
@@ -6,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 export default function NavBar() {
   const [OpenSide, setOpenSide] = useState(false);
   const [scrolledDown, setScrolledDown] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 10) {
@@ -26,7 +27,12 @@ export default function NavBar() {
   return (
     <div
       className={`fixed top-0 left-0 w-full text-white z-50  ${
-        scrolledDown &&
+        !scrolledDown ||
+        "!bg-white !text-black shadow-xl sm:py-6 sm:px-5 py-4 px-7"
+      }
+
+      ${
+        router.pathname !== "/" &&
         "!bg-white !text-black shadow-xl sm:py-6 sm:px-5 py-4 px-7"
       }
       
@@ -46,7 +52,7 @@ export default function NavBar() {
         mx-auto flex justify-between items-center`}
       >
         <Link href="/" className="font-extrabold z-50">
-          Bonvoyage
+          Travel Port
         </Link>
 
         <div

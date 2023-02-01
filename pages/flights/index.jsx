@@ -1,36 +1,49 @@
-import React, { useState } from "react";
+import FlightTicketComponent from "../../components/home/FlightTicketComponent";
 
-export default function index() {
+export default function index({ data }) {
   return (
-    <div>
-      <div className="sm:h-[10em] h-[20em] transition-all bg-blue-500 sm:rounded-b-[20%] rounded-b-3xl z-10 w-full relative"></div>
-
-      <div className="xl:max-w-6xl sm:mt-0 mt-3 lg:max-w-4xl sm:max-w-3xl sm:py-4 px-4 py-5 md:mx-auto sm:mx-10 transition-all mx-7 bg-white relative rounded-xl shadow-xl sm:gap-2 flex flex-col sm:-top-12 -top-[5.6em] z-20">
-        <div className="relative z-20 text-xl font-bold">Filters</div>
-
-        <div className="flex mt-2 gap-4">
-          <div className="rounded-xl bg-blue-100 w-full">
-            <label htmlFor="date" className="p-3">
-              Date
-            </label>
-            <input
-              name="date"
-              type="date"
-              className="p-3 bg-inherit rounded-xl"
-            />
-          </div>
-          <div className="rounded-xl bg-blue-100 w-full">
-            <label htmlFor="passengers" className="p-3">
-              Passengers
-            </label>
-            <input
-              name="passengers"
-              type="number"
-              className="p-3 bg-inherit rounded-xl"
-            />
-          </div>
-        </div>
+    <div className="mt-24">
+      <div className="rounded-xl p-3 flex flex-col overflow-hidden mx-auto max-w-4xl">
+        {data &&
+          data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
+            (offer, index) => (
+              <FlightTicketComponent key={index} flight={offer} index={index} />
+            )
+          )}
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps({ query }) {
+  const {
+    from,
+    to,
+    passengers,
+    class: flightClass,
+    date,
+    return: isReturn,
+  } = query;
+
+  // console.log(process.env.NODE_ENV);
+  const Url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://travel-website-mu.vercel.app";
+
+  const res = await fetch(`${Url}/api/flights`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json, text/plain",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: JSON.stringify({ from: from, to: to }),
+  });
+
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
 }

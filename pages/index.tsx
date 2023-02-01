@@ -1,4 +1,3 @@
-import TopHomePage from "../components/other/TopHomePage";
 import { useState, useEffect } from "react";
 import FlightOptions from "../components/home/FlightOptions";
 import { motion } from "framer-motion";

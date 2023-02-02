@@ -39,7 +39,7 @@ export default function NavBar() {
       sm:py-4 transition-all
       sm:px-4
       py-5
-      px-10`}
+      px-5`}
     >
       <nav
         className={`

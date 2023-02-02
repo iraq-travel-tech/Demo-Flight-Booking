@@ -1,9 +1,10 @@
 import FlightTicketComponent from "../../components/home/FlightTicketComponent";
+import { TbPlaneInflight } from "react-icons/tb";
 
 export default function index({ data }) {
   return (
     <div className="mt-24">
-      <div className="rounded-xl p-3 flex flex-col overflow-hidden mx-auto max-w-4xl">
+      <div className="rounded-xl py-3 px-5 flex flex-col overflow-hidden mx-auto max-w-4xl gap-3">
         {data &&
           data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
             (offer, index) => (
@@ -25,7 +26,6 @@ export async function getServerSideProps({ query }) {
     return: isReturn,
   } = query;
 
-  // console.log(process.env.NODE_ENV);
   const Url =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
@@ -37,7 +37,12 @@ export async function getServerSideProps({ query }) {
       Accept: "application/json, text/plain",
       "Content-Type": "application/json;charset=UTF-8",
     },
-    body: JSON.stringify({ from: from, to: to }),
+    body: JSON.stringify({
+      from: from,
+      to: to,
+      date: date,
+      passengers: passengers,
+    }),
   });
 
   const data = await res.json();

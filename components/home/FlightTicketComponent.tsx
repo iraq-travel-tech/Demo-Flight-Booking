@@ -1,35 +1,37 @@
 import { RiPlaneLine } from "react-icons/ri";
 import { FlightOffering } from "@/interface/FlightOfferingsResponse";
+import { TbPlaneInflight } from "react-icons/tb";
 
 export default function FlightTicketComponent({ flight, index }) {
   let flightData: FlightOffering = flight;
   // console.log(flight);
 
   return (
-    <div className="p-3 bg-white border-b border-dashed rounded-xl relative">
-      {index > 0 && (
-        <div>
-          <div className="absolute h-10 w-10 -left-5 bg-[#ECF2FA] rounded-full -top-5"></div>
-          <div className="absolute h-10 w-10 -right-5 bg-[#ECF2FA] rounded-full -top-5"></div>
+    <div className={`grid pb-2 grid-cols-[auto_1fr_auto]  py-3 px-5 grid-rows-[auto_auto] bg-white rounded-xl shadow w-full max-w-[25em] mx-auto`} >
+      <div className="flex items-center text-center flex-col">
+        <div className="text-lg font-bold">
+          {flightData.departureLocationCode}
         </div>
-      )}
+        <div className="text-zinc-400">{flightData.departureTime}</div>
+        <div className="text-zinc-400 text-xs">{flightData.departureDate}</div>
+      </div>
+      <div className="flex items-center text-center flex-col">
+        <div className="text-lg font-bold">
+          <TbPlaneInflight size={22} />
+        </div>
+        <div className="text-zinc-400 text-sm">{flightData.duration}</div>
+      </div>
+      <div className="flex items-center text-center flex-col">
+        <div className="text-lg font-bold">
+          {flightData.arrivalLocationCode}
+        </div>
+        <div className="text-zinc-400">{flightData.arrivalTime}</div>
+        <div className="text-zinc-400 text-xs">{flightData.arrivalDate}</div>
+      </div>
 
-      <div className="w-full h-full flex items-center justify-between p-2 text-sm">
-        <div className="flex flex-col flex-1 text-center items-center">
-          <p>{flightData.departureLocationCode}</p>
-          {/* <p>{flightData.departureLocation}</p> */}
-          <p>{flightData.departureTime}</p>
-        </div>
-        <div className="flex flex-col flex-1 text-center items-center">
-          <p className="text-xs"> {flightData.carrier}</p>
-          <p> {flightData.duration}</p>
-          <p> non-stop</p>
-        </div>
-        <div className="flex flex-col flex-1 text-center items-center">
-          <p> {flightData.arrivalLocationCode}</p>
-          {/* <p> {flightData.arrivalLocation}</p> */}
-          <p> {flightData.arrivalTime}</p>
-        </div>
+      <div className="flex justify-between col-span-3 row-start-2 border-t mt-2 pt-1">
+        <div className="text-zinc-400">...</div>
+        <div className="text-zinc-400">...</div>
       </div>
     </div>
   );

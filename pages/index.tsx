@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
-import FlightOptions from "../components/home/FlightOptions";
-import { motion } from "framer-motion";
 import { getFlightsCatalogue } from "@/pages/api/tpFlights";
 import { FlightOfferingsResponse } from "@/interface";
-import {
-  FlightOfferings,
-  FlightOffering,
-} from "@/interface/FlightOfferingsResponse";
-import FlightTicketComponent from "../components/home/FlightTicketComponent";
+import { FlightOffering } from "@/interface/FlightOfferingsResponse";
+import FlightSearchContainer from "@/components/home/FlightSearchContainer";
+import FlightTicketComponent from "@/components/home/FlightTicketComponent";
 
 export default function index() {
-  // console.log(process.env.NODE_ENV);
 
   var [flightData, setFlightData] = useState<FlightOfferingsResponse>();
   var [offers, setCatalogueOfferings] = useState<FlightOffering[]>();
@@ -33,9 +28,9 @@ export default function index() {
 
   return (
     <div>
-      <FlightOptions />
+      <FlightSearchContainer />
       <div className="flex flex-col">
-        <div className="rounded-xl p-3 flex flex-col mx-auto max-w-4xl w-full overflow-hidden">
+        <div className="rounded-xl p-3 flex flex-col mx-auto max-w-4xl w-full overflow-hidden gap-4">
           {offers &&
             offers.map((offer, index) => (
               <FlightTicketComponent key={index} flight={offer} index={index} />

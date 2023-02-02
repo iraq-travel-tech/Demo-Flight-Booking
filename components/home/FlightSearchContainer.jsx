@@ -1,16 +1,17 @@
-import { useRef } from "react";
 import { useState } from "react";
 import { FaPlaneDeparture, FaPlaneArrival, FaDownload } from "react-icons/fa";
 import { BsCaretDownFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Link from "next/link";
-export default function Test() {
+import FlightSearchInput from "../inputs/FlightSearchInput";
+import PassengersInputField from "../inputs/PassengersInputField";
+export default function FlightSearchContainer() {
   const classes = ["bussiness", "economy"];
   const [FromTrip, setFromTrip] = useState("");
   const [ToTrip, setToTrip] = useState("");
   const [FlightClass, setFlightClass] = useState(classes[0]);
   const [Return, setReturn] = useState(false);
-  const [Passengers, setPassengers] = useState(0);
+  const [Passengers, setPassengers] = useState(1);
   const [selectedDate, setSelectedDate] = useState("");
 
   return (
@@ -28,13 +29,13 @@ export default function Test() {
             Where would you want to fly?
           </div>
           <div className="flex mt-2 sm:mt-0 w-full flex-col gap-3">
-            <InputField
+            <FlightSearchInput
               placeholder="from"
               Value={FromTrip}
               setValue={setFromTrip}
               EndIcon={FaPlaneDeparture}
             />
-            <InputField
+            <FlightSearchInput
               placeholder="to"
               Value={ToTrip}
               setValue={setToTrip}
@@ -95,48 +96,6 @@ export default function Test() {
     </div>
   );
 }
-export function InputField({ placeholder, Value, EndIcon, setValue }) {
-  const [focused, setFocused] = useState(false);
-  const Input = useRef();
-  const handleFocus = () => {
-    setFocused(true);
-  };
-
-  const handleBlur = () => {
-    setFocused(false);
-  };
-
-  return (
-    <div className="relative w-full">
-      <input
-        ref={Input}
-        className={`w-full rounded-lg py-3 pl-5 pr-12 bg-white border-2 border-gray-300 focus:outline-none focus:bg-white focus:border-blue-500 `}
-        type="text"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        value={Value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-
-      <p
-        className={`absolute top-3 left-5 text-zinc-400 px-1 ${
-          focused || Value !== "" ? "!text-blue-600 !-top-3 !left-4" : ""
-        } transition-all capitalize bg-white    `}
-        onClick={() => Input.current.focus()}
-      >
-        {placeholder}
-      </p>
-
-      <div
-        className={`absolute right-0 top-3.5 mr-4
-      ${focused && "!fill-blue-600"} fill-zinc-400
-      `}
-      >
-        <EndIcon size={21} className="fill-inherit" />
-      </div>
-    </div>
-  );
-}
 
 export const Dropdown = ({ options, selectedOption, setSelectedOption }) => {
   const [open, setOpen] = useState(false);
@@ -175,43 +134,6 @@ export const Dropdown = ({ options, selectedOption, setSelectedOption }) => {
     </div>
   );
 };
-
-export function PassengersInputField({ Value, setValue }) {
-  const [focused, setFocused] = useState(false);
-  const InputRef = useRef();
-  const handleFocus = () => {
-    setFocused(true);
-  };
-
-  const handleBlur = () => {
-    setFocused(false);
-  };
-
-  return (
-    <div className="relative w-full">
-      <input
-        ref={InputRef}
-        className={`w-full rounded-lg py-2 pl-5 pr-12 bg-white border border-gray-300 focus:outline-none focus:bg-white focus:border-blue-500 `}
-        type="number"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        value={Value}
-        onChange={(e) => setValue(e.target.value)}
-        min={0}
-        max={5}
-      />
-
-      <p
-        onClick={() => InputRef.current.focus()}
-        className={`absolute top-2 left-3 text-zinc-400 px-1 ${
-          focused || Value !== "" ? "!text-blue-600 !-top-3 !left-4" : ""
-        } transition-all capitalize bg-white`}
-      >
-        Passengers
-      </p>
-    </div>
-  );
-}
 
 // BGW
 // CAI

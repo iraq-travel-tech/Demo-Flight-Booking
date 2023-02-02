@@ -1,5 +1,5 @@
 export function getFlightsCatalogue<T>(): Promise<T> {
-  console.log(process.env.BASE_API_URL);
+  // console.log(process.env.BASE_API_URL);
 
   return fetch(`${process.env.BASE_API_URL}/flightofferings/`, {
     method: "POST",
@@ -45,6 +45,7 @@ export const exmaple_body = {
         carriers: ["WN"],
       },
     },
+     
     PseudoCityInfo: {
       value: "PCC",
     },

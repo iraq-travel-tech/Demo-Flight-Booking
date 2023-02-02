@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/components/*": ["src/components/*"]
+      "@/components/*": ["components/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -26,9 +22,11 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_document.js", "pages/_app.js", "pages/api/flights.js", "components/home/FlightOptions.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "pages/_document.js",
+    "pages/_app.js",
+    "pages/api/flights.js",
+    "components/home/FlightSearchContainer.jsx"
+  ],
+  "exclude": ["node_modules"]
 }

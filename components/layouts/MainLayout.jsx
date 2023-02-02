@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 export default function MainLayout({ children }) {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       {children}
       <br />
       <br />

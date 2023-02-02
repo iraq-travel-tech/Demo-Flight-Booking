@@ -27,6 +27,6 @@
     "pages/_app.js",
     "pages/api/flights.js",
     "components/home/FlightSearchContainer.jsx"
-  ],
+, "pages/index.jsx"  ],
   "exclude": ["node_modules"]
 }

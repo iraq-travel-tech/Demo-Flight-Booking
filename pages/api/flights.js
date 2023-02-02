@@ -45,6 +45,7 @@ export default function handler(req, res) {
       }),
     })
       .then((res) => res.json())
+      
       .then((data) => res.status(200).json({ data }));
   }
 }

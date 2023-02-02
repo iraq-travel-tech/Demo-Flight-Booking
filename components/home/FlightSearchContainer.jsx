@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPlaneDeparture, FaPlaneArrival, FaDownload } from "react-icons/fa";
 import { BsCaretDownFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import FlightSearchInput from "../inputs/FlightSearchInput";
 import PassengersInputField from "../inputs/PassengersInputField";
-export default function FlightSearchContainer() {
+export default function FlightSearchContainer({ setData }) {
   const classes = ["bussiness", "economy"];
   const [FromTrip, setFromTrip] = useState("");
   const [ToTrip, setToTrip] = useState("");
@@ -13,6 +13,29 @@ export default function FlightSearchContainer() {
   const [Return, setReturn] = useState(false);
   const [Passengers, setPassengers] = useState(1);
   const [selectedDate, setSelectedDate] = useState("");
+
+  const FetchData = async () => {
+    const res = await fetch(`/api/flights`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify({
+        from: FromTrip,
+        to: ToTrip,
+        date: selectedDate,
+        passengers: Passengers,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.data.error) {
+      return console.error(data.data);
+    }
+    setData(data);
+  };
 
   return (
     <div>
@@ -85,12 +108,12 @@ export default function FlightSearchContainer() {
               />
             </div>
           </div>
-          <Link
-            href={`flights?from=${FromTrip}&to=${ToTrip}&passengers=${Passengers}&class=${FlightClass}&date=${selectedDate}&return=${Return}`}
+          <button
+            onClick={FetchData}
             className="bg-blue-600 p-3 rounded shadow  w-full font-bold text-white active:scale-95 block text-center transition-all active:bg-blue-700 my-2 mt-4"
           >
             Find Flights
-          </Link>
+          </button>
         </div>
       </div>
     </div>

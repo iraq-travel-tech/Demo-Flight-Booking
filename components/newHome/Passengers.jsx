@@ -35,14 +35,14 @@ export default function Passengers({ setShowPassengerComponent }) {
           bottom: -340,
           opacity: 0,
         }}
-        className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col bg-zinc-200 px-5 py-3 rounded-xl"
+        className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col dark:bg-zinc-900 dark:text-white bg-zinc-200 px-5 py-3 rounded-t-xl"
       >
-        <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
+        <nav className="justify-between text-lg items-center py-3 border-b  border-zinc-300 flex">
           <div className="capitalize">Passengers</div>
 
           <div
             onClick={() => setShowPassengerComponent(false)}
-            className="w-10 h-10 cursor-pointer hover:bg-zinc-200 active:scale-95 transition-all bg-white rounded-full flex items-center justify-center"
+            className="w-10 dark:bg-zinc-800 h-10 cursor-pointer hover:shadow-xl hover:scale-105 hover:bg-zinc-200 active:scale-95 transition-all bg-white rounded-full flex items-center justify-center"
           >
             <MdOutlineClose />
           </div>

@@ -3,11 +3,9 @@ import NavBar from "./NavBar";
 
 export default function MainLayout({ children }) {
   return (
-    <div>
-      {/* <NavBar /> */}
+    <div className="dark:bg-black">
+      <NavBar />
       {children}
-      {/* <br />
-      <br /> */}
     </div>
   );
 }

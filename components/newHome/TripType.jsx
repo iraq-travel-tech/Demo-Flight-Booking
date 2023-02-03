@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function TripType({ setSelectedType, SelectedType }) {
   return (
-    <div className="rounded-xl text-sm bg-white p-2 shadow-xl flex gap-2">
+    <div className="rounded-xl text-sm dark:bg-zinc-800 bg-white p-2 shadow-xl flex gap-2">
       {["one way trip", "round trip"].map((i, index) => (
         <button
           className={`p-2 relative flex-1`}
@@ -12,7 +12,7 @@ export default function TripType({ setSelectedType, SelectedType }) {
           <span
             className={`relative z-10 capitalize ${
               SelectedType === index && "!text-white"
-            } text-black transition-all font-bold`}
+            } text-black dark:text-white transition-all font-bold`}
           >
             {i}
           </span>

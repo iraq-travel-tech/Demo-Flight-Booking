@@ -7,6 +7,8 @@ import "react-date-range/dist/theme/default.css";
 import { TheDateComponent } from "./DateComponent";
 import { MdOutlineDateRange } from "react-icons/md";
 import { motion } from "framer-motion";
+import Passengers from "./Passengers";
+
 export default function TripFromAndTo({ SelectedType }) {
   const [From, setFrom] = useState("");
   const [To, setTo] = useState("");
@@ -26,6 +28,8 @@ export default function TripFromAndTo({ SelectedType }) {
       key: "selection",
     },
   ]);
+
+  const [ShowPassengerComponent, setShowPassengerComponent] = useState(false);
 
   useEffect(() => {
     setOneWayStartDate("");
@@ -56,14 +60,12 @@ export default function TripFromAndTo({ SelectedType }) {
 
         {To ? To.text : "To"}
       </div>
-
       <button
         onClick={handleSwap}
         className="border top-11 right-5 sm:right-5 transition-all border-zinc-400 active:scale-95 hover:bg-zinc-200 rounded p-2 bg-white absolute"
       >
         <TbArrowsDownUp color="gray" size={20} />
       </button>
-
       <div
         onClick={() => setCloseDatePicker(true)}
         className="flex-1 rounded-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4"
@@ -84,7 +86,13 @@ export default function TripFromAndTo({ SelectedType }) {
           </>
         )}
       </div>
-
+      <div
+        onClick={() => setShowPassengerComponent(true)}
+        className="flex-1 rounded-xl border p-5 cursor-pointer bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4"
+      >
+        <MdOutlineDateRange size={22} />
+        Passengers{" "}
+      </div>
       {CloseFullPage && (
         <FullPageCom
           setCloseFullPage={setCloseFullPage}
@@ -94,7 +102,6 @@ export default function TripFromAndTo({ SelectedType }) {
           setTo={setTo}
         />
       )}
-
       {CloseDatePicker && (
         <motion.div className="relative">
           <TheDateComponent
@@ -107,19 +114,12 @@ export default function TripFromAndTo({ SelectedType }) {
           />
         </motion.div>
       )}
-
-      <div className="flex-1 rounded-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4"></div>
+      {ShowPassengerComponent && (
+        <Passengers setShowPassengerComponent={setShowPassengerComponent} />
+      )}{" "}
+      <button className="mt-5 bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all ">
+        search for flights
+      </button>
     </div>
   );
 }
-
-// cityCode: "AYT"
-// cityDisplayName: "Antalya"
-// cityName: "Antalya"
-// countryDisplayName: "Turkey"
-// countryName: "Turkey"
-// displayName: "Antalya"
-// iataCode: "AYT"
-// items: []
-// name: "Antalya International Airport"
-// priority: 9

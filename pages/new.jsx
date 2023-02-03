@@ -2,6 +2,8 @@ import { useState } from "react";
 import TripFromAndTo from "../components/newHome/TripFromAndTo";
 import TripType from "../components/newHome/TripType";
 
+
+
 export default function Index() {
   const [SelectedType, setSelectedType] = useState(1);
 

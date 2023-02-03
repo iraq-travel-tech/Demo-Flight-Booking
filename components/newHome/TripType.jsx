@@ -1,4 +1,4 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function TripType({ setSelectedType, SelectedType }) {
   return (
@@ -17,7 +17,8 @@ export default function TripType({ setSelectedType, SelectedType }) {
             {i}
           </span>
           {SelectedType === index && (
-            <div
+            <motion.div
+              layoutId="3664783"
               className={`absolute w-full h-full rounded-xl top-0 left-0 ${
                 SelectedType === index && "bg-blue-600"
               }`}

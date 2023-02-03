@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaPlaneDeparture, FaPlaneArrival, FaDownload } from "react-icons/fa";
 import { BsCaretDownFill } from "react-icons/bs";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import FlightSearchInput from "../inputs/FlightSearchInput";
 import PassengersInputField from "../inputs/PassengersInputField";
 export default function FlightSearchContainer({ setData }) {

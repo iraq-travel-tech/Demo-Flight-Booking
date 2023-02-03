@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { motion } from "framer-motion";
 export default function Passengers({ setShowPassengerComponent }) {
   const [Adults, setAdults] = useState(1);
   const [Children, setChildren] = useState(0);
@@ -15,11 +16,27 @@ export default function Passengers({ setShowPassengerComponent }) {
 
   return (
     <>
-      <div
+      <motion.div
+        animate={{
+          opacity: [0, 1],
+        }}
+        exit={{
+          opacity: 0,
+        }}
         onClick={() => setShowPassengerComponent(false)}
         className="bg-black/50 h-screen w-full top-0 left-0 fixed z-30"
-      ></div>
-      <div className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col bg-zinc-200 px-5 py-3 rounded-xl">
+      ></motion.div>
+      <motion.div
+        animate={{
+          bottom: [-340, 0],
+          opacity: [0, 1],
+        }}
+        exit={{
+          bottom: -340,
+          opacity: 0,
+        }}
+        className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col bg-zinc-200 px-5 py-3 rounded-xl"
+      >
         <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
           <div className="capitalize">Passengers</div>
 
@@ -102,7 +119,7 @@ export default function Passengers({ setShowPassengerComponent }) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

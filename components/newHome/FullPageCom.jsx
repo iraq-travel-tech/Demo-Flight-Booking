@@ -3,6 +3,7 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import { MdOutlineClose } from "react-icons/md";
 import { IoMdAirplane } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
   const [airports, setAirports] = useState(null);
@@ -29,7 +30,20 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
   }, [From, To]);
 
   return (
-    <div className="w-full h-screen max-w-2xl -translate-x-[50%] top-0 left-[50%] fixed z-50 flex flex-col bg-white px-5">
+    <motion.div
+      animate={{
+        top: [300, 0],
+        opacity: [0, 1],
+      }}
+      exit={{
+        top: 300,
+        opacity: 0,
+      }}
+      transition={{
+        type: "just",
+      }}
+      className="w-full left-[50%] h-screen max-w-2xl -translate-x-[50%] fixed z-50 flex flex-col bg-white px-5"
+    >
       <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
         <div className="capitalize">Select your trip</div>
 
@@ -41,12 +55,12 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
         </div>
       </nav>
 
-      <div className="flex flex-col gap-3">
-        <div className="relative flex items-center p-6 rounded border border-zinc-300 mt-5">
+      <div className="flex relative z-20 flex-col gap-3">
+        <div className="relative flex items-center p-4 rounded border border-zinc-300 mt-5">
           <input
             onFocus={() => {
               setTextFiledFocued("from");
-            //   setFrom({ text: "", code: "" });
+              //   setFrom({ text: "", code: "" });
             }}
             value={From.text}
             onChange={(e) => setFrom(e.target.value)}
@@ -59,11 +73,11 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
             className="fill-zinc-400 relative z-20 rotate-180"
           />
         </div>
-        <div className="relative flex items-center p-6 rounded border border-zinc-300 ">
+        <div className="relative flex items-center p-4 rounded border border-zinc-300 ">
           <input
             onFocus={() => {
               setTextFiledFocued("to");
-            //   setTo({ text: "", code: "" });
+              //   setTo({ text: "", code: "" });
             }}
             value={To.text}
             onChange={(e) => {
@@ -119,6 +133,6 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
             </button>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 };

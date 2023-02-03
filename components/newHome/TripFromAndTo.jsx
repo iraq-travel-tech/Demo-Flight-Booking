@@ -8,6 +8,7 @@ import { TheDateComponent } from "./DateComponent";
 import { MdOutlineDateRange } from "react-icons/md";
 import { motion } from "framer-motion";
 import Passengers from "./Passengers";
+import { AnimatePresence } from "framer-motion";
 
 export default function TripFromAndTo({ SelectedType }) {
   const [From, setFrom] = useState("");
@@ -44,22 +45,24 @@ export default function TripFromAndTo({ SelectedType }) {
 
   return (
     <div className="flex flex-col mt-4 sm:text-md text-sm relative">
-      <div
-        onClick={() => setCloseFullPage(true)}
-        className="flex-1 rounded-t-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold relative  items-center"
-      >
-        <FaPlaneDeparture size={18} />
+      <motion.div layoutId="fromInputId" className="flex flex-col">
+        <div
+          onClick={() => setCloseFullPage(true)}
+          className="flex-1 rounded-t-xl border p-5 bg-white text-zinc-500 flex gap-4 cursor-pointer active:bg-zinc-200 transition-all font-semibold relative  items-center"
+        >
+          <FaPlaneDeparture size={18} />
 
-        {From ? From.text : "From"}
-      </div>
-      <div
-        onClick={() => setCloseFullPage(true)}
-        className="flex-1 rounded-b-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold  items-center relative"
-      >
-        <FaPlaneArrival size={18} />
+          {From ? From.text : "From"}
+        </div>
+        <div
+          onClick={() => setCloseFullPage(true)}
+          className="flex-1 cursor-pointer active:bg-zinc-200 transition-all rounded-b-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold  items-center relative"
+        >
+          <FaPlaneArrival size={18} />
 
-        {To ? To.text : "To"}
-      </div>
+          {To ? To.text : "To"}
+        </div>
+      </motion.div>
       <button
         onClick={handleSwap}
         className="border top-11 right-5 sm:right-5 transition-all border-zinc-400 active:scale-95 hover:bg-zinc-200 rounded p-2 bg-white absolute"
@@ -68,7 +71,7 @@ export default function TripFromAndTo({ SelectedType }) {
       </button>
       <div
         onClick={() => setCloseDatePicker(true)}
-        className="flex-1 rounded-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4"
+        className="flex-1 cursor-pointer rounded-xl border p-5 bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4"
       >
         <MdOutlineDateRange size={22} />
         {SelectedType === 0 && (
@@ -93,30 +96,32 @@ export default function TripFromAndTo({ SelectedType }) {
         <MdOutlineDateRange size={22} />
         Passengers{" "}
       </div>
-      {CloseFullPage && (
-        <FullPageCom
-          setCloseFullPage={setCloseFullPage}
-          From={From}
-          To={To}
-          setFrom={setFrom}
-          setTo={setTo}
-        />
-      )}
-      {CloseDatePicker && (
-        <motion.div className="relative">
-          <TheDateComponent
-            setCloseDatePicker={setCloseDatePicker}
-            SelectedType={SelectedType}
-            TwoWaysTripDate={TwoWaysTripDate}
-            setTwoWaysTripDate={setTwoWaysTripDate}
-            OneWayStartDate={OneWayStartDate}
-            setOneWayStartDate={setOneWayStartDate}
+      <AnimatePresence>
+        {CloseFullPage && (
+          <FullPageCom
+            setCloseFullPage={setCloseFullPage}
+            From={From}
+            To={To}
+            setFrom={setFrom}
+            setTo={setTo}
           />
-        </motion.div>
-      )}
-      {ShowPassengerComponent && (
-        <Passengers setShowPassengerComponent={setShowPassengerComponent} />
-      )}{" "}
+        )}
+        {CloseDatePicker && (
+          <>
+            <TheDateComponent
+              setCloseDatePicker={setCloseDatePicker}
+              SelectedType={SelectedType}
+              TwoWaysTripDate={TwoWaysTripDate}
+              setTwoWaysTripDate={setTwoWaysTripDate}
+              OneWayStartDate={OneWayStartDate}
+              setOneWayStartDate={setOneWayStartDate}
+            />
+          </>
+        )}
+        {ShowPassengerComponent && (
+          <Passengers setShowPassengerComponent={setShowPassengerComponent} />
+        )}{" "}
+      </AnimatePresence>
       <button className="mt-5 bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all ">
         search for flights
       </button>

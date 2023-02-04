@@ -5,7 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className={`dark transition-all`}>
+      {/* dark */}
+      <body className={` transition-all`}>
         <Main />
         <NextScript />
       </body>

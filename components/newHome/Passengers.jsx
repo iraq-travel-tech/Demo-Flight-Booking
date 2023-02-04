@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { motion } from "framer-motion";
-export default function Passengers({ setShowPassengerComponent }) {
+import TripClassType from "./TripClassType";
+
+export default function Passengers({
+  setShowPassengerComponent,
+  setFlightPassengers,
+  FlightClass,
+  setFlightClass
+}) {
   const [Adults, setAdults] = useState(1);
   const [Children, setChildren] = useState(0);
   const [Babies, setBabies] = useState(0);
@@ -14,6 +21,16 @@ export default function Passengers({ setShowPassengerComponent }) {
     setPassenger(Math.max(0, passenger - 1));
   };
 
+  const handleWindowClose = () => {
+    setFlightPassengers({
+      Adults,
+      Children,
+      Babies,
+    });
+
+    setShowPassengerComponent(false);
+  };
+
   return (
     <>
       <motion.div
@@ -23,7 +40,7 @@ export default function Passengers({ setShowPassengerComponent }) {
         exit={{
           opacity: 0,
         }}
-        onClick={() => setShowPassengerComponent(false)}
+        onClick={handleWindowClose}
         className="bg-black/50 h-screen w-full top-0 left-0 fixed z-30"
       ></motion.div>
       <motion.div
@@ -41,7 +58,7 @@ export default function Passengers({ setShowPassengerComponent }) {
           <div className="capitalize">Passengers</div>
 
           <div
-            onClick={() => setShowPassengerComponent(false)}
+            onClick={handleWindowClose}
             className="w-10 dark:bg-zinc-800 h-10 cursor-pointer hover:shadow-xl hover:scale-105 hover:bg-zinc-200 active:scale-95 transition-all bg-white rounded-full flex items-center justify-center"
           >
             <MdOutlineClose />
@@ -118,6 +135,16 @@ export default function Passengers({ setShowPassengerComponent }) {
               </button>
             </div>
           </div>
+
+          <div className="mt-10">
+            <TripClassType FlightClass={FlightClass} setFlightClass={setFlightClass} />
+          </div>
+          <button
+            onClick={handleWindowClose}
+            className="bg-blue-600 rounded p-2 font-bold mt-10 active:scale-95 active:bg-blue-700 text-white transition-all"
+          >
+            ok
+          </button>
         </div>
       </motion.div>
     </>

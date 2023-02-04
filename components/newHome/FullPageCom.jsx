@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { MdOutlineClose } from "react-icons/md";
 import { IoMdAirplane } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
-export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
+export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
   const [airports, setAirports] = useState(null);
   const [TextFiledFocued, setTextFiledFocued] = useState(null);
+
+  const FromRef = useRef();
+  const ToRef = useRef();
 
   useEffect(() => {
     const fetchAirports = async () => {
@@ -28,6 +31,10 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
     }
   }, [From, To]);
 
+  useEffect(() => {
+    FromRef.current.focus();
+  }, []);
+
   return (
     <motion.div
       animate={{
@@ -47,7 +54,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
         <div className="capitalize">Select your trip</div>
 
         <div
-          onClick={() => setCloseFullPage(false)}
+          onClick={() => setShowFullPage(false)}
           className="w-10 h-10 cursor-pointer hover:bg-zinc-200 active:scale-95 transition-all bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center"
         >
           <MdOutlineClose />
@@ -59,8 +66,8 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
           <input
             onFocus={() => {
               setTextFiledFocued("from");
-              //   setFrom({ text: "", code: "" });
             }}
+            ref={FromRef}
             value={From.text}
             onChange={(e) => setFrom(e.target.value)}
             type="search"
@@ -74,6 +81,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
         </div>
         <div className="relative flex items-center p-4 rounded  ">
           <input
+            ref={ToRef}
             onFocus={() => {
               setTextFiledFocued("to");
             }}
@@ -96,43 +104,52 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setCloseFullPage }) => {
         <div className="sticky top-0 left-0 w-full p-3 font-bold capitalize dark:bg-zinc-800 bg-zinc-100 border-t border-zinc-400">
           suggestions
         </div>
-        {airports &&
-          airports.result.items.map((i, index) => (
-            <button
-              onClick={() => {
-                if (TextFiledFocued === "from") {
-                  setFrom({
-                    text: `${i.name}`,
-                    code: i.iataCode,
-                  });
-                }
-                if (TextFiledFocued === "to") {
-                  setTo({
-                    text: `${i.name}`,
-                    code: i.iataCode,
-                  });
-                }
-              }}
-              key={`${index}-${i.displayName}`}
-              className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 "
-            >
-              <div className="flex gap-3 items-center ">
-                <div className="self-start">
-                  <FaPlaneDeparture size={22} className="fill-blue-600" />
-                </div>
-                <div className="flex text-left flex-col">
-                  <div className="font-bold truncate">{i.displayName}</div>
-                  <div className="text-xs text-zinc-300">
-                    {i.countryDisplayName} - {i.cityName}
+        <AnimatePresence>
+          {airports &&
+            airports.result.items.map((i, index) => (
+              <motion.button
+                layout
+                animate={{
+                  opacity: [0, 1],
+                }}
+                exit={{
+                  opacity: [1, 0],
+                }}
+                onClick={() => {
+                  if (TextFiledFocued === "from") {
+                    setFrom({
+                      text: `${i.name}`,
+                      code: i.iataCode,
+                    });
+                  }
+                  if (TextFiledFocued === "to") {
+                    setTo({
+                      text: `${i.name}`,
+                      code: i.iataCode,
+                    });
+                  }
+                }}
+                key={`${index}-${i.displayName}`}
+                className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 relative "
+              >
+                <div className="flex gap-3 items-center ">
+                  <div className="self-start">
+                    <FaPlaneDeparture size={22} className="fill-blue-600" />
+                  </div>
+                  <div className="flex text-left flex-col">
+                    <div className="font-bold truncate">{i.displayName}</div>
+                    <div className="text-xs text-zinc-300">
+                      {i.countryDisplayName} - {i.cityName}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="rounded bg-blue-600 text-white p-2 w-max h-max font-bold text-xs">
-                {i.iataCode}
-              </div>
-            </button>
-          ))}
+                <div className="rounded bg-blue-600 text-white p-2 w-max h-max font-bold text-xs">
+                  {i.iataCode}
+                </div>
+              </motion.button>
+            ))}
+        </AnimatePresence>
       </div>
     </motion.div>
   );

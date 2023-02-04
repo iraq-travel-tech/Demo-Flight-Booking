@@ -26,23 +26,23 @@ export default function NavBar() {
 
   const SwitchTheme = () => {
     const Body = window.document.body.classList;
-    Body.contains("dark") ? Body.remove("dark") : Body.add("dark");
-
-
-
-
-    
+    if (Body.contains("dark")) {
+      Body.remove("dark");
+      setDarkTheme(false);
+    } else {
+      Body.add("dark");
+      setDarkTheme(true);
+    }
   };
-
   return (
-    <div className="fixed top-0 left-0 w-full  z-50">
+    <div className="fixed w-full left-[50%] max-w-2xl -translate-x-[50%] top-0  z-40">
       <nav className="p-4 flex justify-between items-center">
         <div className="text-xl"></div>
         <div
           onClick={SwitchTheme}
           className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full"
         >
-          {DarkTheme ? (
+          {!DarkTheme ? (
             <HiOutlineMoon color="white" size={28} />
           ) : (
             <IoIosSunny color="white" size={28} />

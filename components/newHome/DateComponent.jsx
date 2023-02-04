@@ -1,20 +1,23 @@
 import { DateRange, Calendar } from "react-date-range";
 import { motion } from "framer-motion";
 import { MdOutlineClose } from "react-icons/md";
+import { getDate } from "./TripFromAndTo";
 
 export const TheDateComponent = ({
   SelectedType,
   setOneWayStartDate,
   TwoWaysTripDate,
   setTwoWaysTripDate,
-  setCloseDatePicker,
+  setShowDatePicker,
   OneWayStartDate,
 }) => {
-  console.log(TwoWaysTripDate);
-
   const handleSelect = (date) => {
-    setOneWayStartDate(new Date(date).toISOString().slice(0, 10));
+    setOneWayStartDate(getDate(date));
   };
+
+
+   
+
 
   return (
     <>
@@ -73,7 +76,7 @@ export const TheDateComponent = ({
         exit={{
           opacity: 0,
         }}
-        onClick={() => setCloseDatePicker(false)}
+        onClick={() => setShowDatePicker(false)}
         className="bg-black/50 w-full h-screen left-0 top-0 fixed z-30"
       ></motion.div>
       <motion.div
@@ -94,7 +97,7 @@ export const TheDateComponent = ({
           <div className="capitalize">Select your trip</div>
 
           <div
-            onClick={() => setCloseDatePicker(false)}
+            onClick={() => setShowDatePicker(false)}
             className="w-10 h-10 cursor-pointer hover:bg-zinc-300 active:scale-95 transition-all bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center"
           >
             <MdOutlineClose />
@@ -114,7 +117,6 @@ export const TheDateComponent = ({
             editableDateInputs={true}
             onChange={(item) => {
               setTwoWaysTripDate([item.selection]);
-              console.log(TwoWaysTripDate);
             }}
             moveRangeOnFirstSelection={false}
             ranges={TwoWaysTripDate}
@@ -130,11 +132,7 @@ export const TheDateComponent = ({
 
             <p>
               {TwoWaysTripDate[0].endDate ? (
-                <>
-                  {`${new Date(TwoWaysTripDate[0].startDate)
-                    .toISOString()
-                    .slice(0, 10)}`}
-                </>
+                <>{getDate(TwoWaysTripDate[0].endDate)}</>
               ) : (
                 <>{OneWayStartDate}</>
               )}
@@ -146,15 +144,13 @@ export const TheDateComponent = ({
               className="border border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700 bg-white  rounded p-3 text-center flex-1"
             >
               <p className="font-bold"> Return date </p>
-              <p>{`${new Date(TwoWaysTripDate[0].endDate)
-                .toISOString()
-                .slice(0, 10)}`}</p>
+              <p>{getDate(TwoWaysTripDate[0].endDate)}</p>
             </motion.div>
           )}
-        </motion.div>
+      </motion.div>
 
         <button
-          onClick={() => setCloseDatePicker(false)}
+          onClick={() => setShowDatePicker(false)}
           className="rounded font-bold
         text-white bg-blue-600 p-2 mt-3 active:scale-95 transition-all active:bg-blue-700"
         >

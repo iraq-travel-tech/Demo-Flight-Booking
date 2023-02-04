@@ -9,13 +9,25 @@ import { MdOutlineDateRange } from "react-icons/md";
 import { motion } from "framer-motion";
 import Passengers from "./Passengers";
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
+
+export const getDate = (Dat) => {
+  let date = new Date(Dat);
+
+  let year = date.getFullYear();
+  let month = (date.getMonth() + 1).toString().padStart(2, "0");
+  let day = date.getDate().toString().padStart(2, "0");
+
+  let formattedDate = year + "-" + month + "-" + day;
+  return `${formattedDate}`;
+};
 
 export default function TripFromAndTo({ SelectedType }) {
   const [From, setFrom] = useState("");
   const [To, setTo] = useState("");
+  const [FlightPassengers, setFlightPassengers] = useState("");
+  const [FlightClass, setFlightClass] = useState("economy");
 
-  const [CloseFullPage, setCloseFullPage] = useState(false);
-  const [CloseDatePicker, setCloseDatePicker] = useState(false);
   const handleSwap = () => {
     setFrom(To);
     setTo(From);
@@ -30,6 +42,8 @@ export default function TripFromAndTo({ SelectedType }) {
     },
   ]);
 
+  const [ShowFullPage, setShowFullPage] = useState(false);
+  const [ShowDatePicker, setShowDatePicker] = useState(false);
   const [ShowPassengerComponent, setShowPassengerComponent] = useState(false);
 
   useEffect(() => {
@@ -43,26 +57,11 @@ export default function TripFromAndTo({ SelectedType }) {
     ]);
   }, [SelectedType]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div className="flex flex-col mt-4 sm:text-md text-sm relative">
       <motion.div layoutId="fromInputId" className="flex flex-col">
         <div
-          onClick={() => setCloseFullPage(true)}
+          onClick={() => setShowFullPage(true)}
           className="flex-1 rounded-t-xl border p-5 bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:hover:bg-zinc-700 text-zinc-500 flex gap-4 cursor-pointer active:bg-zinc-200 transition-all font-semibold relative hover:bg-zinc-200 items-center"
         >
           <FaPlaneDeparture size={18} />
@@ -70,7 +69,7 @@ export default function TripFromAndTo({ SelectedType }) {
           {From ? From.text : "From"}
         </div>
         <div
-          onClick={() => setCloseFullPage(true)}
+          onClick={() => setShowFullPage(true)}
           className="flex-1 cursor-pointer active:bg-zinc-200 transition-all rounded-b-xl border p-5 bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:hover:bg-zinc-700 text-zinc-500 flex gap-4 font-semibold hover:bg-zinc-200 items-center relative"
         >
           <FaPlaneArrival size={18} />
@@ -85,7 +84,7 @@ export default function TripFromAndTo({ SelectedType }) {
         <TbArrowsDownUp color="gray" size={20} />
       </button>
       <div
-        onClick={() => setCloseDatePicker(true)}
+        onClick={() => setShowDatePicker(true)}
         className="flex-1 cursor-pointer rounded-xl border dark:hover:bg-zinc-700  p-5 bg-white active:bg-zinc-200 text-zinc-500 flex gap-4 font-semibold relative items-center mt-4 dark:bg-zinc-800 dark:border-zinc-700 hover:bg-zinc-200"
       >
         <MdOutlineDateRange size={22} />
@@ -95,11 +94,9 @@ export default function TripFromAndTo({ SelectedType }) {
         {SelectedType === 1 && (
           <>
             {TwoWaysTripDate[0].endDate
-              ? `${new Date(TwoWaysTripDate[0].startDate)
-                  .toISOString()
-                  .slice(0, 10)} - ${new Date(TwoWaysTripDate[0].endDate)
-                  .toISOString()
-                  .slice(0, 10)}`
+              ? `${getDate(TwoWaysTripDate[0].startDate)} - ${getDate(
+                  TwoWaysTripDate[0].endDate
+                )}`
               : "Date"}
           </>
         )}
@@ -109,22 +106,31 @@ export default function TripFromAndTo({ SelectedType }) {
         className="flex-1  dark:hover:bg-zinc-700  hover:bg-zinc-200 rounded-xl border p-5 cursor-pointer bg-white text-zinc-500 flex gap-4 font-semibold relative items-center mt-4 active:bg-zinc-200 dark:bg-zinc-800  dark:border-zinc-700"
       >
         <MdOutlineDateRange size={22} />
-        Passengers{" "}
+        {FlightPassengers &&
+          FlightPassengers.Adults +
+            FlightPassengers.Children +
+            FlightPassengers.Babies}{" "}
+        {FlightPassengers.Adults +
+          FlightPassengers.Children +
+          FlightPassengers.Babies <
+        2
+          ? "Passenger"
+          : "Passengers"}
       </div>
       <AnimatePresence>
-        {CloseFullPage && (
+        {ShowFullPage && (
           <FullPageCom
-            setCloseFullPage={setCloseFullPage}
+            setShowFullPage={setShowFullPage}
             From={From}
             To={To}
             setFrom={setFrom}
             setTo={setTo}
           />
         )}
-        {CloseDatePicker && (
+        {ShowDatePicker && (
           <>
             <TheDateComponent
-              setCloseDatePicker={setCloseDatePicker}
+              setShowDatePicker={setShowDatePicker}
               SelectedType={SelectedType}
               TwoWaysTripDate={TwoWaysTripDate}
               setTwoWaysTripDate={setTwoWaysTripDate}
@@ -134,12 +140,30 @@ export default function TripFromAndTo({ SelectedType }) {
           </>
         )}
         {ShowPassengerComponent && (
-          <Passengers setShowPassengerComponent={setShowPassengerComponent} />
+          <Passengers
+            FlightClass={FlightClass}
+            setFlightClass={setFlightClass}
+            setFlightPassengers={setFlightPassengers}
+            setShowPassengerComponent={setShowPassengerComponent}
+          />
         )}{" "}
       </AnimatePresence>
-      <button className="mt-5 bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all">
+      <Link
+        href={`/flights?from=${From.code}&to=${To.code}&adults=${
+          FlightPassengers.Adults
+        }&children=${FlightPassengers.Children}&babies=${
+          FlightPassengers.Children
+        }&class=${FlightClass}&departure=${
+          OneWayStartDate
+            ? OneWayStartDate
+            : getDate(TwoWaysTripDate[0].startDate) +
+              "&return=" +
+              getDate(TwoWaysTripDate[0].endDate)
+        }`}
+        className="mt-5 text-center bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all"
+      >
         search for flights
-      </button>
+      </Link>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Passengers from "./Passengers";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { ImSpinner2 } from "react-icons/im";
 
 export const getDate = (Dat) => {
   let date = new Date(Dat);
@@ -23,6 +24,7 @@ export const getDate = (Dat) => {
 };
 
 export default function TripFromAndTo({ SelectedType }) {
+  const [Loading, setLoading] = useState(false);
   const [From, setFrom] = useState("");
   const [To, setTo] = useState("");
   const [FlightPassengers, setFlightPassengers] = useState("");
@@ -160,9 +162,18 @@ export default function TripFromAndTo({ SelectedType }) {
               "&returndate=" +
               getDate(TwoWaysTripDate[0].endDate)
         }`}
-        className="mt-5 text-center bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all"
+        onClick={() => setLoading(true)}
+        className={`mt-5 text-center bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 flex justify-center transition-all relative ${
+          Loading && "bg-blue-800"
+        }`}
       >
-        search for flights
+        {Loading ? (
+          <div className={`animate-spin relative w-max h-max`}>
+            <ImSpinner2 />{" "}
+          </div>
+        ) : (
+          "search for flights"
+        )}
       </Link>
     </div>
   );

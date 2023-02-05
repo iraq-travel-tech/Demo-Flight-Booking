@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { HiArrowsRightLeft } from "react-icons/hi2";
 import FlightTicketCard from "../../components/flights/FlightTicketCard";
 
-
 export default function index({ flightQueries, data }) {
   const [DarkTheme, setDarkTheme] = useState(false);
   const SwitchTheme = () => {
@@ -95,7 +94,7 @@ export default function index({ flightQueries, data }) {
       </div>
 
       <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
-        {data.data.CatalogOfferingsResponse &&
+        {data.data ? (
           data.data.CatalogOfferingsResponse.FlightOfferings.FlightOffering.map(
             (flight, index) => (
               <FlightTicketCard
@@ -105,62 +104,87 @@ export default function index({ flightQueries, data }) {
                 key={index}
               />
             )
-          )}
+          )
+        ) : (
+          <div className="flex flex-col dark:bg-zinc-900 dark:text-white p-3 px-4 rounded-xl">
+            <div>
+              Sorry, we couldn't find any flights matching your criteria. Please
+              try changing your travel dates, airports, or number of travelers
+              and try again
+            </div>
+            <Link
+              href="/"
+              className="rounded mt-4 text-center active:scale-95 transition-all bg-blue-600 text-white font-bold p-3"
+            >
+              Go back to home page
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 export async function getServerSideProps({ query }) {
-  const {
-    from,
-    to,
-    adults,
-    children,
-    babies,
-    tripclass,
-    departure,
-    returndate = null,
-  } = query;
+  try {
+    const {
+      from,
+      to,
+      adults,
+      children,
+      babies,
+      tripclass,
+      departure,
+      returndate = null,
+    } = query;
 
-  const Url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://travel-website-mu.vercel.app";
+    const Url =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://travel-website-mu.vercel.app";
 
-  const params = {
-    from,
-    to,
-    adults,
-    children,
-    babies,
-    tripclass,
-    departure,
-    returndate,
-  };
+    const params = {
+      from,
+      to,
+      adults,
+      children,
+      babies,
+      tripclass,
+      departure,
+      returndate,
+    };
 
-  const res = await fetch(`${Url}/api/flights`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(params),
-  });
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-      flightQueries: {
-        from,
-        to,
-        adults,
-        children,
-        babies,
-        tripclass,
-        departure,
-        returndate,
+    const res = await fetch(`${Url}/api/flights`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    },
-  };
+      body: JSON.stringify(params),
+    });
+    const data = await res.json();
+
+    return {
+      props: {
+        data,
+        flightQueries: {
+          from,
+          to,
+          adults,
+          children,
+          babies,
+          tripclass,
+          departure,
+          returndate,
+        },
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        data: null,
+        error: "An error occurred while fetching flight data",
+      },
+    };
+  }
 }

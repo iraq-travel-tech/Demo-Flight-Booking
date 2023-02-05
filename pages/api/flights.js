@@ -1,7 +1,8 @@
 export default function handler(req, res) {
   const { from, to, date, passengers } = req.body;
-
-  console.log(from, to);
+  if (!from || !to || !passengers) {
+    return res.status(400).json({ error: "Missing required parameters" });
+  }
 
   if (req.method === "POST") {
     try {

@@ -42,7 +42,8 @@ export default function NavBar() {
         <AnimatePresence>
           <motion.div
             whileTap={{
-              rotate:[0,180]
+              rotate:[0,200],
+              opacity:[1,0],
             }}
             onClick={SwitchTheme}
             className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full"

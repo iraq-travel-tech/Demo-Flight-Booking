@@ -2,12 +2,13 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { IoIosSunny } from "react-icons/io";
 import { HiOutlineMoon } from "react-icons/hi";
 import { useState } from "react";
-import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiArrowsRightLeft } from "react-icons/hi2";
+import FlightTicketCard from "../../components/flights/FlightTicketCard";
 
-export default function index() {
+
+export default function index({ flightQueries, data }) {
   const [DarkTheme, setDarkTheme] = useState(false);
   const SwitchTheme = () => {
     const Body = window.document.body.classList;
@@ -20,9 +21,20 @@ export default function index() {
     }
   };
 
+  const getDateInTextFormat = (date) => {
+    return `${new Date(date).toLocaleString("default", {
+      month: "short",
+      day: "numeric",
+    })}`;
+  };
+
+  // "BGW", "NJF", "BSR", "EBL", "ISU", "XNH"
+  // to: BEY","CAI","KUL","BKK","BAK","TBS"
+
+  // console.log(data);
   return (
-    <div>
-      <div className="fixed w-full left-[50%] max-w-2xl -translate-x-[50%] top-0  z-40   rounded-b-xl h-20 ">
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="fixed w-full left-[50%] max-w-2xl -translate-x-[50%] top-0  z-40   rounded-b-xl h-20 shadow-xl">
         <motion.div
           layoutId="navbarLayout"
           className="absolute inset-0 bg-blue-600 dark:bg-zinc-900 top-0 left-0 -z-10 rounded-b-xl"
@@ -49,13 +61,22 @@ export default function index() {
 
             <div className="flex flex-col">
               <div className="font-bold text-sm flex gap-2 items-center">
-                <p>Najaf</p>
+                <p>{flightQueries.from}</p>
                 <HiArrowsRightLeft />
-                <p>Istanbul</p>
+                <p>{flightQueries.to}</p>
               </div>
 
-              <div className="text-xs flex gap-1 text-zinc-200">
-                <p>2023-3-3</p>|<p>Economy class</p>|<p>1 passengers</p>
+              <div className="text-xs  flex gap-1 text-zinc-200">
+                <p className="truncate sm:w-full w-[20em] ">
+                  {getDateInTextFormat(flightQueries.departure)}{" "}
+                  {flightQueries.returndate &&
+                    "- " + getDateInTextFormat(flightQueries.returndate)}{" "}
+                  | {flightQueries.tripclass} |{" "}
+                  {parseInt(flightQueries.adults) +
+                    parseInt(flightQueries.children) +
+                    parseInt(flightQueries.babies)}{" "}
+                  passengers
+                </p>
               </div>
             </div>
           </motion.div>
@@ -72,43 +93,74 @@ export default function index() {
           </div>
         </nav>
       </div>
+
+      <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
+        {data.data.CatalogOfferingsResponse &&
+          data.data.CatalogOfferingsResponse.FlightOfferings.FlightOffering.map(
+            (flight, index) => (
+              <FlightTicketCard
+                MainFrom={flightQueries.from}
+                MainTo={flightQueries.to}
+                flight={flight}
+                key={index}
+              />
+            )
+          )}
+      </div>
     </div>
   );
 }
 
-// export async function getServerSideProps({ query }) {
-//   const {
-//     from,
-//     to,
-//     passengers,
-//     class: flightClass,
-//     date,
-//     return: isReturn,
-//   } = query;
+export async function getServerSideProps({ query }) {
+  const {
+    from,
+    to,
+    adults,
+    children,
+    babies,
+    tripclass,
+    departure,
+    returndate = null,
+  } = query;
 
-//   const Url =
-//     process.env.NODE_ENV === "development"
-//       ? "http://localhost:3000"
-//       : "https://travel-website-mu.vercel.app";
+  const Url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://travel-website-mu.vercel.app";
 
-//   const res = await fetch(`${Url}/api/flights`, {
-//     method: "POST",
-//     headers: {
-//       Accept: "application/json, text/plain",
-//       "Content-Type": "application/json;charset=UTF-8",
-//     },
-//     body: JSON.stringify({
-//       from: from,
-//       to: to,
-//       date: date,
-//       passengers: passengers,
-//     }),
-//   });
+  const params = {
+    from,
+    to,
+    adults,
+    children,
+    babies,
+    tripclass,
+    departure,
+    returndate,
+  };
 
-//   const data = await res.json();
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+  const res = await fetch(`${Url}/api/flights`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(params),
+  });
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+      flightQueries: {
+        from,
+        to,
+        adults,
+        children,
+        babies,
+        tripclass,
+        departure,
+        returndate,
+      },
+    },
+  };
+}

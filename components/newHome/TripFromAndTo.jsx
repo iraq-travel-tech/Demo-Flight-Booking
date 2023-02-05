@@ -153,11 +153,11 @@ export default function TripFromAndTo({ SelectedType }) {
           FlightPassengers.Adults
         }&children=${FlightPassengers.Children}&babies=${
           FlightPassengers.Children
-        }&class=${FlightClass}&departure=${
+        }&tripclass=${FlightClass}&departure=${
           OneWayStartDate
             ? OneWayStartDate
             : getDate(TwoWaysTripDate[0].startDate) +
-              "&return=" +
+              "&returndate=" +
               getDate(TwoWaysTripDate[0].endDate)
         }`}
         className="mt-5 text-center bg-blue-600 rounded-xl p-3 font-bold text-lg capitalize text-white active:scale-95 active:bg-blue-700 transition-all"

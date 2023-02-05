@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       {/* dark */}
-      <body className={` transition-all`}>
+      <body className={`dark transition-all`}>
         <Main />
         <NextScript />
       </body>

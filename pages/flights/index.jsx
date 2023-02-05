@@ -30,7 +30,7 @@ export default function index({ flightQueries, data }) {
   // "BGW", "NJF", "BSR", "EBL", "ISU", "XNH"
   // to: BEY","CAI","KUL","BKK","BAK","TBS"
 
-  // console.log(data);
+   console.log(data);
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="fixed w-full left-[50%] max-w-2xl -translate-x-[50%] top-0  z-40   rounded-b-xl h-20 shadow-xl">

@@ -2,26 +2,32 @@ import { BsArrowRight } from "react-icons/bs";
 import { RiPlaneFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaWineGlassAlt } from "react-icons/fa";
+import FlightOfferingsResponse, {
+  FlightOffering,
+} from "@/interface/FlightOfferingsResponse";
 
-export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
-  const backgroundColor =
-  flight.departureLocationCode === MainFrom &&
-  flight.arrivalLocationCode === MainTo
-  ? "!bg-red-600"
-  : "bg-white";
-  
-    return (
+interface FlightTicketCardProps {
+  flight: FlightOffering;
+}
+
+function convertDuration(duration) {
+  let time = duration.split("T")[1].split("S")[0];
+  let hours = time.split("H")[0];
+  let minutes = time.split("M")[0].split("H")[1];
+  return `${hours}h ${minutes}min`;
+}
+
+export default function FlightTicketCard({ flight }: FlightTicketCardProps) {
+  return (
     <div
-      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 ${backgroundColor} `}
+      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}
     >
       <div className="sm:text-xl text-lg flex items-center gap-4 font-bold">
-        <p>{flight.departureLocationCode}</p>
+        <p>{flight.Departure.location}</p>
         <div className="h-10 w-10 flex items-center justify-center rounded-full">
           <BsArrowRight />
         </div>
-        <p>
-          {flight.arrivalLocationCode}
-        </p>
+        <p>{flight.Arrival.location}</p>
       </div>
 
       <div className="bg-zinc-300 transition-all dark:bg-zinc-800 dark:shadow-xl p-5 rounded-xl flex sm:flex-row flex-col items-center sm:gap-3">
@@ -36,11 +42,11 @@ export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
           >
             <div className="flex flex-col">
               <div className="dark:text-zinc-400 text-xs">
-                {flight.departureDate}
+                {flight.Departure.date}
               </div>
               <div className="sm:text-xl text-lg font-bold">Departure</div>
               <div className="text-zinc-300 sm:text-md text-sm">
-                {flight.departureTime}
+                {flight.Departure.time}
               </div>
             </div>
 
@@ -48,23 +54,25 @@ export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
               <div className="h-10 w-10 flex items-center justify-center rounded-full fill-zinc-400 rotate-90 bg-white dark:bg-zinc-700">
                 <RiPlaneFill className="fill-inherit" />
               </div>
-              <div className="dark:text-zinc-400 text-xs mt-1">3h 20min</div>
+              <div className="dark:text-zinc-400 text-xs mt-1">
+                {convertDuration(flight.totalDuration)}
+              </div>
             </div>
 
             <div className="flex flex-col justify-self-end">
               <div className="dark:text-zinc-400 text-xs">
-                {flight.arrivalDate}
+                {flight.Arrival.date}
               </div>
               <div className="sm:text-xl text-lg font-bold">Arrival</div>
               <div className="text-zinc-300 sm:text-md text-sm">
-                {flight.arrivalTime}
+                {flight.Arrival.time}
               </div>
             </div>
           </div>
 
           <div className="flex justify-between sm:mt-0 mt-2 items-end">
             <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
-              $130
+              ${flight.Price.TotalPrice}
             </div>
 
             <div className="flex sm:flex-col flex-row gap-2 sm:hidden text-xs">

@@ -5,10 +5,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiArrowsRightLeft } from "react-icons/hi2";
-import FlightTicketCard from "../../components/flights/FlightTicketCard";
+import FlightTicketCard from "@/components/flights/FlightTicketCard";
 
 export default function index({ flightQueries, data }) {
-  const [DarkTheme, setDarkTheme] = useState(false);
+  const [DarkTheme, setDarkTheme] = useState(true);
   const SwitchTheme = () => {
     const Body = window.document.body.classList;
     if (Body.contains("dark")) {
@@ -30,7 +30,10 @@ export default function index({ flightQueries, data }) {
   // "BGW", "NJF", "BSR", "EBL", "ISU", "XNH"
   // to: BEY","CAI","KUL","BKK","BAK","TBS"
 
-   console.log(data);
+  // console.log(data)
+
+
+
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="fixed w-full left-[50%] max-w-2xl -translate-x-[50%] top-0  z-40   rounded-b-xl h-20 shadow-xl">
@@ -80,7 +83,11 @@ export default function index({ flightQueries, data }) {
             </div>
           </motion.div>
 
-          <div
+          <motion.div
+            whileTap={{
+              rotate:[0,200],
+              opacity:[1,0],
+            }}
             onClick={SwitchTheme}
             className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full"
           >
@@ -89,24 +96,22 @@ export default function index({ flightQueries, data }) {
             ) : (
               <IoIosSunny color="white" size={28} />
             )}
-          </div>
+          </motion.div>
         </nav>
       </div>
 
       <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
-        {data.data ? (
+        {data.data.CatalogOfferingsResponse ? (
           data.data.CatalogOfferingsResponse.FlightOfferings.FlightOffering.map(
             (flight, index) => (
               <FlightTicketCard
-                MainFrom={flightQueries.from}
-                MainTo={flightQueries.to}
                 flight={flight}
                 key={index}
               />
             )
           )
         ) : (
-          <div className="flex flex-col dark:bg-zinc-900 dark:text-white p-3 px-4 rounded-xl">
+          <div className="flex flex-col dark:bg-zinc-900 dark:text-white p-3 px-4 rounded-xl bg-zinc-200">
             <div>
               Sorry, we couldn't find any flights matching your criteria. Please
               try changing your travel dates, airports, or number of travelers

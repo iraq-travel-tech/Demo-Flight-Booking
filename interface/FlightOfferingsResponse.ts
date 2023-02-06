@@ -10,18 +10,35 @@ export interface FlightOfferings {
 }
 
 export interface FlightOffering {
-  distance: number;
-  duration: string;
-  carrier: string;
-  number: string;
-  departureLocationCode: string;
-  departureLocation: string;
-  departureDate: string;
-  departureTime: string;
-  arrivalLocationCode: string;
-  arrivalLocation: string;
-  arrivalDate: string;
-  arrivalTime: string;
+  validatingCarrier: string;
+  Price:  Price;
+  totalDuration: string;
+  totalStops: number;
+  Departure: Departure;
+  Arrival: Arrival;
+}
+
+export interface Price {
+  currencyCode: CurrencyCode;
+  Base:         number;
+  TotalTaxes:   number;
+  TotalPrice:   number;
+}
+
+export enum CurrencyCode {
+  Gbp = "GBP",
+}
+
+export interface Departure {
+  location: Location;
+  date:     Date;
+  time:     string;
+}
+
+export interface Arrival {
+  location: Location;
+  date:     Date;
+  time:     string;
 }
 
 export default FlightOfferingsResponse;

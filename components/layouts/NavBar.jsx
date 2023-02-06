@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function NavBar() {
   const [OpenSide, setOpenSide] = useState(false);
   const [scrolledDown, setScrolledDown] = useState(false);
-  const [DarkTheme, setDarkTheme] = useState(false);
+  const [DarkTheme, setDarkTheme] = useState(true);
   const router = useRouter();
   useEffect(() => {
     function handleScroll() {

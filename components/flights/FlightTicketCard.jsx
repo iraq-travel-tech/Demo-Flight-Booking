@@ -2,14 +2,6 @@ import { BsArrowRight } from "react-icons/bs";
 import { RiPlaneFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaWineGlassAlt } from "react-icons/fa";
-import FlightOfferingsResponse, {
-  FlightOffering,
-} from "@/interface/FlightOfferingsResponse";
-
-interface FlightTicketCardProps {
-  flight: FlightOffering;
-}
-
 function convertDuration(duration) {
   let time = duration.split("T")[1].split("S")[0];
   let hours = time.split("H")[0];
@@ -17,7 +9,7 @@ function convertDuration(duration) {
   return `${hours}h ${minutes}min`;
 }
 
-export default function FlightTicketCard({ flight }: FlightTicketCardProps) {
+export default function FlightTicketCard({ flight }) {
   return (
     <div
       className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}

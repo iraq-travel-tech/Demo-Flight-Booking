@@ -95,7 +95,7 @@ export default function index({ flightQueries, data }) {
 
       <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
         {data.data ? (
-          data.data.CatalogOfferingsResponse.FlightOfferings.FlightOffering.map(
+          data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
             (flight, index) => (
               <FlightTicketCard
                 MainFrom={flightQueries.from}

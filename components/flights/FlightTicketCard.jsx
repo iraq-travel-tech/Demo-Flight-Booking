@@ -5,8 +5,8 @@ import { FaWineGlassAlt } from "react-icons/fa";
 
 export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
   const backgroundColor =
-  flight.departureLocationCode === MainFrom &&
-  flight.arrivalLocationCode === MainTo
+  flight.Departure.location === MainFrom &&
+  flight.Arrival.location === MainTo
   ? "!bg-red-600"
   : "bg-white";
   
@@ -15,12 +15,12 @@ export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
       className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 ${backgroundColor} `}
     >
       <div className="sm:text-xl text-lg flex items-center gap-4 font-bold">
-        <p>{flight.departureLocationCode}</p>
+        <p>{flight}</p>
         <div className="h-10 w-10 flex items-center justify-center rounded-full">
           <BsArrowRight />
         </div>
         <p>
-          {flight.arrivalLocationCode}
+          {flight.Arrival.location}
         </p>
       </div>
 
@@ -36,11 +36,11 @@ export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
           >
             <div className="flex flex-col">
               <div className="dark:text-zinc-400 text-xs">
-                {flight.departureDate}
+                {flight}
               </div>
               <div className="sm:text-xl text-lg font-bold">Departure</div>
               <div className="text-zinc-300 sm:text-md text-sm">
-                {flight.departureTime}
+                {flight.Departure.time}
               </div>
             </div>
 
@@ -53,11 +53,11 @@ export default function FlightTicketCard({ flight, MainFrom, MainTo }) {
 
             <div className="flex flex-col justify-self-end">
               <div className="dark:text-zinc-400 text-xs">
-                {flight.arrivalDate}
+                {flight.Arrival.date}
               </div>
               <div className="sm:text-xl text-lg font-bold">Arrival</div>
               <div className="text-zinc-300 sm:text-md text-sm">
-                {flight.arrivalTime}
+                {flight.Arrival.time}
               </div>
             </div>
           </div>

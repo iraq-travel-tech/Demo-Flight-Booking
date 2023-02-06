@@ -2,7 +2,7 @@
 **Built using :**
 1- nextjs full-stack js framework
 2- tailwindcss for styling
-3- [this api](https://uapi-search-microservice-f4.ew.r.appspot.com)
+3- [this api](http://fake-uapi-search-microservice.ew.r.appspot.com)
 
 ## Start
 

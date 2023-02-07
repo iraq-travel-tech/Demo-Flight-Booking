@@ -1,6 +1,7 @@
 interface FlightOfferingsResponse {
   FlightOfferingsResponse: FlightOfferingsResponse;
 }
+
 interface FlightOfferingsResponse {
   FlightOfferings: FlightOfferings;
 }
@@ -11,11 +12,12 @@ export interface FlightOfferings {
 
 export interface FlightOffering {
   validatingCarrier: string;
-  Price:  Price;
+  price:  Price;
   totalDuration: string;
   totalStops: number;
-  Departure: Departure;
-  Arrival: Arrival;
+  departure: Departure;
+  arrival: Arrival;
+  flightSegments: FlightSegment[];
 }
 
 export interface Price {
@@ -29,29 +31,35 @@ export enum CurrencyCode {
   Gbp = "GBP",
 }
 
-export interface Departure {
-  location: Location;
-  date:     Date;
-  time:     string;
+export interface FlightSegment {
+  type: string;
+  id: string;
+  sequence: number;
+  connectionDuration: string;
+  boundFlightsInd: Boolean;
+  flight: Flight;
 }
 
-export interface Arrival {
-  location: Location;
-  date:     Date;
-  time:     string;
-  validatingCarrier: string;
-  price:  Price;
-  totalDuration: string;
-  totalStops: number;
+export interface Flight {
+  type: string ;
+  id: string ;
+  flightRef: string;
+  distance: number;
+  stops: number;
+  duration: string;
+  carrier: string;
+  number: string;
+  operatingCarrier: string;
+  operatingCarrierName: string;
+  equipment: string[];
   departure: Departure;
   arrival: Arrival;
+  intermediateStop: IntermediateStop[];
 }
 
-export interface Price {
-  currencyCode: CurrencyCode;
-  Base:         number;
-  TotalTaxes:   number;
-  TotalPrice:   number;
+export interface IntermediateStop {
+  value: string;
+  duration: string;
 }
 
 export interface Departure {
@@ -66,5 +74,5 @@ export interface Arrival {
   time:     string;
 }
 
-
 export default FlightOfferingsResponse;
+

@@ -12,8 +12,7 @@ function convertDuration(duration) {
 export default function FlightTicketCard({ flight }) {
   return (
     <div
-      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}
-    >
+      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}>
       <div className="sm:text-xl text-lg flex items-center gap-4 font-bold">
         <p>{flight.Departure.location}</p>
         <div className="h-10 w-10 flex items-center justify-center rounded-full">
@@ -36,7 +35,7 @@ export default function FlightTicketCard({ flight }) {
               <div className="dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">Departure</div>
+              <div className="sm:text-xl text-lg font-bold">{flight.Departure.location}</div>
               <div className="text-zinc-300 sm:text-md text-sm">
                 {flight.Departure.time}
               </div>
@@ -46,16 +45,17 @@ export default function FlightTicketCard({ flight }) {
               <div className="h-10 w-10 flex items-center justify-center rounded-full fill-zinc-400 rotate-90 bg-white dark:bg-zinc-700">
                 <RiPlaneFill className="fill-inherit" />
               </div>
-              <div className="dark:text-zinc-400 text-xs mt-1">
+              <div className="text-zinc-400 text-xs mt-1">
                 {convertDuration(flight.totalDuration)}
               </div>
             </div>
+
 
             <div className="flex flex-col justify-self-end">
               <div className="dark:text-zinc-400 text-xs">
                 {flight.Arrival.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">Arrival</div>
+              <div className="sm:text-xl text-lg font-bold">{flight.Arrival.location}</div>
               <div className="text-zinc-300 sm:text-md text-sm">
                 {flight.Arrival.time}
               </div>
@@ -66,10 +66,12 @@ export default function FlightTicketCard({ flight }) {
             <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
               ${flight.Price.TotalPrice}
             </div>
-
+            <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
+              {flight.validatingCarrier}
+            </div>
             <div className="flex sm:flex-col flex-row gap-2 sm:hidden text-xs">
               <div className="bg-white dark:bg-zinc-700 py-2 px-3 rounded-full w-max font-bold h-max flex items-center gap-2">
-                <FaUser size={13} />2
+                <FaUser size={13} />1
               </div>
               <div className="bg-white dark:bg-zinc-700 py-2 px-3 rounded-full w-max font-bold h-max flex items-center gap-2">
                 <FaWineGlassAlt size={13} />

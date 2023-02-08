@@ -1,7 +1,11 @@
+"use client";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+
 import { DateRange, Calendar } from "react-date-range";
 import { motion } from "framer-motion";
 import { MdOutlineClose } from "react-icons/md";
-import { getDate } from "./TripFromAndTo";
+import { getDate } from "../HomeSearch";
 
 export const TheDateComponent = ({
   SelectedType,
@@ -14,10 +18,6 @@ export const TheDateComponent = ({
   const handleSelect = (date) => {
     setOneWayStartDate(getDate(date));
   };
-
-
-   
-
 
   return (
     <>
@@ -128,17 +128,16 @@ export const TheDateComponent = ({
             layout
             className="border border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700 bg-white  rounded p-3 text-center flex-1"
           >
-            <p className="font-bold"> Departure Date </p>
-
+            <p className="font-bold">Departure Date </p>
             <p>
-              {TwoWaysTripDate[0].endDate ? (
-                <>{getDate(TwoWaysTripDate[0].endDate)}</>
+              {SelectedType === 1 ? (
+                <>{getDate(TwoWaysTripDate[0].startDate)}</>
               ) : (
                 <>{OneWayStartDate}</>
               )}
             </p>
           </motion.div>
-          {TwoWaysTripDate[0].endDate && (
+          {SelectedType === 1 && (
             <motion.div
               layout
               className="border border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700 bg-white  rounded p-3 text-center flex-1"
@@ -147,7 +146,7 @@ export const TheDateComponent = ({
               <p>{getDate(TwoWaysTripDate[0].endDate)}</p>
             </motion.div>
           )}
-      </motion.div>
+        </motion.div>
 
         <button
           onClick={() => setShowDatePicker(false)}

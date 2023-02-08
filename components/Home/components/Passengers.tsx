@@ -7,7 +7,7 @@ export default function Passengers({
   setShowPassengerComponent,
   setFlightPassengers,
   FlightClass,
-  setFlightClass
+  setFlightClass,
 }) {
   const [Adults, setAdults] = useState(1);
   const [Children, setChildren] = useState(0);
@@ -137,7 +137,10 @@ export default function Passengers({
           </div>
 
           <div className="mt-10">
-            <TripClassType FlightClass={FlightClass} setFlightClass={setFlightClass} />
+            <TripClassType
+              FlightClass={FlightClass}
+              setFlightClass={setFlightClass}
+            />
           </div>
           <button
             onClick={handleWindowClose}

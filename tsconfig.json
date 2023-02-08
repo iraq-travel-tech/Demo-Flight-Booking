@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["components/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@components/*": [
+        "components/"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,7 +25,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -26,7 +39,12 @@
     "pages/_document.js",
     "pages/_app.js",
     "pages/api/flights.js",
-    "components/home/FlightSearchContainer.jsx"
-, "pages/index.jsx", "components/flights/FlightTicketCard.jsx"  ],
-  "exclude": ["node_modules"]
+    "components/home/FlightSearchContainer.jsx",
+    "pages/index.jsx",
+    "components/flights/FlightTicketCard.jsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { MdOutlineClose } from "react-icons/md";
@@ -5,12 +7,27 @@ import { IoMdAirplane } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 
-export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
-  const [airports, setAirports] = useState(null);
-  const [TextFiledFocued, setTextFiledFocued] = useState(null);
+type airportsProps = {
+  result: {
+    items: {
+      displayName: string;
+      name: string;
+      iataCode: string;
+      countryDisplayName: string;
+      cityName: string;
+    }[];
+  };
+};
 
-  const FromRef = useRef();
-  const ToRef = useRef();
+export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
+  const [airports, setAirports] = useState<airportsProps | null>();
+  const [TextFiledFocued, setTextFiledFocued] = useState<"from" | "to" | null>(
+    null
+  );
+  const [SelectedFromList, setSelectedFromList] = useState<false | true>(false);
+
+  const FromRef = React.useRef<HTMLInputElement>(null);
+  const ToRef = React.useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const fetchAirports = async () => {
@@ -32,7 +49,9 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
   }, [From, To]);
 
   useEffect(() => {
-    FromRef.current.focus();
+    if (FromRef.current !== null) {
+      FromRef.current.focus();
+    }
   }, []);
 
   return (
@@ -48,7 +67,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       transition={{
         type: "just",
       }}
-      className="w-full dark:bg-zinc-900 dark:text-white left-[50%] h-screen max-w-2xl -translate-x-[50%] fixed z-50 flex flex-col bg-white px-5"
+      className="w-full top-0 dark:bg-zinc-900 dark:text-white left-[50%] h-screen max-w-2xl -translate-x-[50%] fixed z-50 flex flex-col bg-white px-5"
     >
       <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
         <div className="capitalize">Select your trip</div>
@@ -66,9 +85,15 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
           <input
             onFocus={() => {
               setTextFiledFocued("from");
+              setSelectedFromList(false);
+            }}
+            onBlur={() => {
+              !SelectedFromList && setFrom("");
+
+              setAirports(null);
             }}
             ref={FromRef}
-            value={From.text}
+            value={From}
             onChange={(e) => setFrom(e.target.value)}
             type="search"
             className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
@@ -84,8 +109,14 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
             ref={ToRef}
             onFocus={() => {
               setTextFiledFocued("to");
+              setSelectedFromList(false);
             }}
-            value={To.text}
+            onBlur={() => {
+              !SelectedFromList && setTo("");
+
+              setAirports(null);
+            }}
+            value={To}
             onChange={(e) => {
               setTo(e.target.value);
             }}
@@ -115,18 +146,16 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                 exit={{
                   opacity: [1, 0],
                 }}
+                transition={{
+                  duration: 0.3,
+                }}
                 onClick={() => {
+                  setSelectedFromList(true);
                   if (TextFiledFocued === "from") {
-                    setFrom({
-                      text: `${i.name}`,
-                      code: i.iataCode,
-                    });
+                    setFrom(i.iataCode);
                   }
                   if (TextFiledFocued === "to") {
-                    setTo({
-                      text: `${i.name}`,
-                      code: i.iataCode,
-                    });
+                    setTo(i.iataCode);
                   }
                 }}
                 key={`${index}-${i.displayName}`}

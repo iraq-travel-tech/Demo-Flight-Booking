@@ -2,8 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    BASE_API_URL: "https://uapi-search-microservice-f4.ew.r.appspot.com"
-  }
-}
+    BASE_API_URL: "https://uapi-search-microservice-f4.ew.r.appspot.com",
+  },
+  experimental: {
+    appDir: true,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

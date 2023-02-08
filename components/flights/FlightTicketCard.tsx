@@ -2,6 +2,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { RiPlaneFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaWineGlassAlt } from "react-icons/fa";
+import { FlightOffering } from "@/components/interface/Res";
 function convertDuration(duration) {
   let time = duration.split("T")[1].split("S")[0];
   let hours = time.split("H")[0];
@@ -9,10 +10,15 @@ function convertDuration(duration) {
   return `${hours}h ${minutes}min`;
 }
 
-export default function FlightTicketCard({ flight }) {
+type FlightTicketProps = {
+  flight: FlightOffering;
+};
+
+export default function FlightTicketCard({ flight }: FlightTicketProps) {
   return (
     <div
-      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}>
+      className={`bg-white dark:bg-zinc-900 shadow p-4 dark:text-white rounded-xl transition-all flex flex-col gap-3 `}
+    >
       <div className="sm:text-xl text-lg flex items-center gap-4 font-bold">
         <p>{flight.Departure.location}</p>
         <div className="h-10 w-10 flex items-center justify-center rounded-full">
@@ -35,7 +41,9 @@ export default function FlightTicketCard({ flight }) {
               <div className="dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">{flight.Departure.location}</div>
+              <div className="sm:text-xl text-lg font-bold">
+                {flight.Departure.location}
+              </div>
               <div className="text-zinc-300 sm:text-md text-sm">
                 {flight.Departure.time}
               </div>
@@ -50,12 +58,13 @@ export default function FlightTicketCard({ flight }) {
               </div>
             </div>
 
-
             <div className="flex flex-col justify-self-end">
               <div className="dark:text-zinc-400 text-xs">
                 {flight.Arrival.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">{flight.Arrival.location}</div>
+              <div className="sm:text-xl text-lg font-bold">
+                {flight.Arrival.location}
+              </div>
               <div className="text-zinc-300 sm:text-md text-sm">
                 {flight.Arrival.time}
               </div>

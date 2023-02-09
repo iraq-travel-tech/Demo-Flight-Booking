@@ -8,20 +8,21 @@ import { AnimatePresence, motion } from "framer-motion";
 interface Props {}
 
 const SwitchThemeButton: React.FC<Props> = () => {
-  const [DarkTheme, setDarkTheme] = useState(true);
+  const [DarkTheme, setDarkTheme] = useState(
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("isDarkTheme") || "false")
+      : false
+  );
 
   const SwitchTheme = () => {
-    if (DarkTheme) {
-      localStorage.setItem("isDarkTheme", JSON.stringify(false));
-      setDarkTheme(false);
-    } else {
-      localStorage.setItem("isDarkTheme", JSON.stringify(true));
-      setDarkTheme(true);
-    }
+    const newDarkTheme = !DarkTheme;
+    localStorage.setItem("isDarkTheme", JSON.stringify(newDarkTheme));
+    setDarkTheme(newDarkTheme);
   };
 
   useEffect(() => {
-    const Body = window.document.body.classList;
+    const Body =
+      typeof window !== "undefined" && window.document.body.classList;
     if (DarkTheme) {
       Body.add("dark");
     } else {

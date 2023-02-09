@@ -1,18 +1,25 @@
 import { CatalogOfferingsRequestAir } from "@/interface/RequestBody";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const requestBody = (from: string, to: string): CatalogOfferingsRequestAir => ({
+const requestBody = (
+  from: string,
+  to: string,
+  adults: number,
+  departure: string
+): CatalogOfferingsRequestAir => ({
   CatalogOfferingsRequestAir: {
     offersPerPage: 5,
     PassengerCriteria: [
       {
         value: "ADT",
-        number: 1,
+        number: adults,
       },
     ],
     SearchCriteriaFlight: [
       {
         "@type": "SearchCriteriaFlight",
+        departureDate: departure,
+
         From: {
           value: from,
         },
@@ -36,7 +43,7 @@ const requestBody = (from: string, to: string): CatalogOfferingsRequestAir => ({
 });
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { from, to } = req.body;
+  const { from, to, adults, departure } = req.body;
 
   if (!from || !to) {
     return res.status(400).json({ error: "Missing required parameters" });
@@ -51,7 +58,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           Accept: "application/json, text/plain",
           "Content-Type": "application/json;charset=UTF-8",
         },
-        body: JSON.stringify(requestBody(from, to)),
+        body: JSON.stringify(requestBody(from, to, adults, departure)),
       }
     );
     if (response.ok) {

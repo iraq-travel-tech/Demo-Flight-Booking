@@ -3,6 +3,7 @@
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { ImSpinner2 } from "react-icons/im";
 import DateInput from "./components/DateInput";
 import FromAndTo from "./components/FromAndTo";
 import { FullPageCom } from "./components/FullPageCom";
@@ -25,7 +26,7 @@ export default function HomeSearch() {
   const [FlightClass, setFlightClass] = useState<"economy" | "business">(
     "economy"
   );
-  const [SelectedType, setSelectedType] = useState<1 | 0>(1);
+  const [SelectedType, setSelectedType] = useState<1 | 0>(0);
 
   const [From, setFrom] = useState("");
   const [To, setTo] = useState("");
@@ -53,11 +54,7 @@ export default function HomeSearch() {
   return (
     <div className="p-4 relative -top-32">
       <TripType SelectedType={SelectedType} setSelectedType={setSelectedType} />
-      <FromAndTo
-        From={From}
-        setShowFullPage={setShowFullPage}
-        To={To}
-      />
+      <FromAndTo From={From} setShowFullPage={setShowFullPage} To={To} />
       <DateInput
         SelectedType={SelectedType}
         TwoWaysTripDate={TwoWaysTripDate}
@@ -116,7 +113,13 @@ export default function HomeSearch() {
           Loading && "bg-blue-800"
         }`}
       >
-        search for flights{" "}
+        {!Loading ? (
+          "search for flights"
+        ) : (
+          <div className="animate-spin">
+            <ImSpinner2 />
+          </div>
+        )}
       </Link>
     </div>
   );

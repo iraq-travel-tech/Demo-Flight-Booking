@@ -1,3 +1,5 @@
+import "../../styles/loading.css";
+
 import LoadingTicketCard from "@/components/flights/LoadingTicketCard";
 
 export default function page() {

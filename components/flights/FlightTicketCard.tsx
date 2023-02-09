@@ -27,7 +27,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
         <p>{flight.Arrival.location}</p>
       </div>
 
-      <div className="bg-zinc-300 transition-all dark:bg-zinc-800 dark:shadow-xl p-5 rounded-xl flex sm:flex-row flex-col items-center sm:gap-3">
+      <div className="bg-zinc-300 transition-all dark:bg-zinc-800 dark:shadow-xl p-5 rounded-xl flex sm:flex-row flex-col overflow-hidden items-center sm:gap-3">
         <div className="flex flex-col sm:w-max w-full">
           <div
             className="grid 
@@ -44,7 +44,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="sm:text-xl text-lg font-bold">
                 {flight.Departure.location}
               </div>
-              <div className="text-zinc-300 sm:text-md text-sm">
+              <div className="text-zinc-600 sm:text-md text-sm">
                 {flight.Departure.time}
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="h-10 w-10 flex items-center justify-center rounded-full fill-zinc-400 rotate-90 bg-white dark:bg-zinc-700">
                 <RiPlaneFill className="fill-inherit" />
               </div>
-              <div className="text-zinc-400 text-xs mt-1">
+              <div className="text-zinc-500 font-semibold text-xs mt-1">
                 {convertDuration(flight.totalDuration)}
               </div>
             </div>
@@ -65,19 +65,21 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="sm:text-xl text-lg font-bold">
                 {flight.Arrival.location}
               </div>
-              <div className="text-zinc-300 sm:text-md text-sm">
+              <div className="text-zinc-600 sm:text-md text-sm">
                 {flight.Arrival.time}
               </div>
             </div>
           </div>
 
           <div className="flex justify-between sm:mt-0 mt-2 items-end">
-            <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
-              ${flight.Price.TotalPrice}
-            </div>
-            <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
-              {flight.validatingCarrier}
-            </div>
+            <div className="flex gap-3">
+              <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
+                ${flight.Price.TotalPrice}
+              </div>
+              <div className="bg-black dark:bg-zinc-900 py-2 px-3 w-max rounded-full text-xs mt-4 text-white font-bold h-max">
+                {flight.validatingCarrier}
+              </div>
+            </div>{" "}
             <div className="flex sm:flex-col flex-row gap-2 sm:hidden text-xs">
               <div className="bg-white dark:bg-zinc-700 py-2 px-3 rounded-full w-max font-bold h-max flex items-center gap-2">
                 <FaUser size={13} />1

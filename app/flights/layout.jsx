@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
             </div>
 
             <div className="flex flex-col">
-              <div className="font-bold text-sm flex gap-2 items-center">
+              <div className="font-bold text-sm flex gap-2 items-center capitalize">
                 <p>{from}</p>
                 <HiArrowsRightLeft />
                 <p>{to}</p>

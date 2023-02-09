@@ -40,6 +40,9 @@ export default function Passengers({
         exit={{
           opacity: 0,
         }}
+        transition={{
+          type:"just"
+        }}
         onClick={handleWindowClose}
         className="bg-black/50 h-screen w-full top-0 left-0 fixed z-30"
       ></motion.div>

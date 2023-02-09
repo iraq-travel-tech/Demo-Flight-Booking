@@ -1,5 +1,6 @@
 import FlightTicketCard from "@/components/flights/FlightTicketCard";
 import { FlightsPageProps } from "@/components/flights/types";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -29,10 +30,23 @@ export default async function page({ searchParams }: FlightsPageProps) {
 
   return (
     <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
-      {data.data &&
+      {data.data ? (
         data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
-          (i, index) => <FlightTicketCard flight={i} key={index} />
-        )}
+          (i, index: number) => <FlightTicketCard flight={i} key={index} />
+        )
+      ) : (
+        <div className="flex flex-col py-3 px-5 rounded bg-zinc-200 transition-all dark:bg-zinc-800">
+          <div className="text-3xl font-bold">
+            could not find flights from {searchParams.from} to {searchParams.to}
+          </div>
+          <Link
+            href="/"
+            className="text-white capitalize mt-4 dark:bg-zinc-700 py-2 px-3 rounded w-max active:scale-95 active:dark:bg-zinc-900  active:bg-blue-700 transition-all bg-blue-600"
+          >
+            go back to home page
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

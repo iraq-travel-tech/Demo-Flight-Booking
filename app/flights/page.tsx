@@ -41,5 +41,11 @@ export const GetFlights = async (searchParams: SearchParamsProps) => {
     }),
   });
   const data = await res.json();
+
+
+
+  console.log(data)
+
+
   return data;
 };

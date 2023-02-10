@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
           </motion.div>
-          <SwitchThemeButton />
+          {/* <SwitchThemeButton /> */}
         </nav>
       </div>
       <div className="flex flex-col gap-4 pt-1 px-2 pb-10">{children}</div>

@@ -43,7 +43,7 @@ export interface FlightSegment {
 export interface Flight {
   type: string;
   id: string;
-  FlightRef: string;
+  FlightRef?: string;
   distance: number;
   stops: number;
   duration: string;

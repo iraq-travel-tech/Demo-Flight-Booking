@@ -43,7 +43,7 @@
     "pages/index.jsx",
     "components/flights/FlightTicketCard.jsx",
     ".next/types/**/*.ts"
-  ],
+, "components/flights/FlightDetailsWrapper.tsx", "components/flights/SeeDetailsButton.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -37,13 +37,13 @@ export interface FlightSegment {
   sequence: number;
   connectionDuration: string;
   boundFlightsInd: Boolean;
-  flight: Flight;
+  Flight: Flight;
 }
 
 export interface Flight {
   type: string;
   id: string;
-  flightRef: string;
+  flightRef?: string;
   distance: number;
   stops: number;
   duration: string;
@@ -52,8 +52,8 @@ export interface Flight {
   operatingCarrier: string;
   operatingCarrierName: string;
   equipment: string[];
-  departure: Departure;
-  arrival: Arrival;
+  Departure: Departure;
+  Arrival: Arrival;
   intermediateStop: IntermediateStop[];
 }
 

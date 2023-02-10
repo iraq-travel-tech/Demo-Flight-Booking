@@ -12,19 +12,19 @@ export interface FlightOfferings {
 
 export interface FlightOffering {
   validatingCarrier: string;
-  price:  Price;
+  Price: Price;
   totalDuration: string;
   totalStops: number;
-  departure: Departure;
-  arrival: Arrival;
+  Departure: Departure;
+  Arrival: Arrival;
   flightSegments: FlightSegment[];
 }
 
 export interface Price {
   currencyCode: CurrencyCode;
-  Base:         number;
-  TotalTaxes:   number;
-  TotalPrice:   number;
+  Base: number;
+  TotalTaxes: number;
+  TotalPrice: number;
 }
 
 export enum CurrencyCode {
@@ -37,13 +37,13 @@ export interface FlightSegment {
   sequence: number;
   connectionDuration: string;
   boundFlightsInd: Boolean;
-  flight: Flight;
+  Flight: Flight;
 }
 
 export interface Flight {
-  type: string ;
-  id: string ;
-  flightRef: string;
+  type: string;
+  id: string;
+  FlightRef: string;
   distance: number;
   stops: number;
   duration: string;
@@ -52,8 +52,8 @@ export interface Flight {
   operatingCarrier: string;
   operatingCarrierName: string;
   equipment: string[];
-  departure: Departure;
-  arrival: Arrival;
+  Departure: Departure;
+  Arrival: Arrival;
   intermediateStop: IntermediateStop[];
 }
 
@@ -63,16 +63,15 @@ export interface IntermediateStop {
 }
 
 export interface Departure {
-  location: Location;
-  date:     Date;
-  time:     string;
+  location: string;
+  date: string;
+  time: string;
 }
 
 export interface Arrival {
-  location: Location;
-  date:     Date;
-  time:     string;
+  location: string;
+  date: string;
+  time: string;
 }
 
 export default FlightOfferingsResponse;
-

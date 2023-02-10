@@ -29,13 +29,13 @@ export default async function page({ searchParams }: FlightsPageProps) {
   const data = await res.json();
 
   return (
-    <div className="flex flex-col gap-4 pt-24 px-4 pb-10">
+    <div className="flex flex-col gap-4 pt-24 sm:px-4 px-2 pb-10">
       {data.data ? (
         data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
           (i, index: number) => <FlightTicketCard flight={i} key={index} />
         )
       ) : (
-        <div className="flex flex-col py-3 px-5 rounded bg-zinc-200 transition-all dark:bg-zinc-800">
+        <div className="flex flex-col py-3 sm:px-5 px-4 rounded bg-zinc-200 transition-all dark:bg-zinc-800">
           <div className="text-3xl font-bold">
             could not find flights from {searchParams.from} to {searchParams.to}
           </div>

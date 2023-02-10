@@ -147,7 +147,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                   opacity: [1, 0],
                 }}
                 transition={{
-                  duration: 0.3,
+                  duration: 0.2,
                 }}
                 onClick={() => {
                   setSelectedFromList(true);
@@ -158,7 +158,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                     setTo(i.iataCode);
                   }
                 }}
-                key={`${index}-${i.displayName}`}
+                key={`${index}-${i.iataCode}}`}
                 className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 relative "
               >
                 <div className="flex gap-3 items-center ">

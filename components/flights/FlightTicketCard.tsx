@@ -16,9 +16,6 @@ type FlightTicketProps = {
   flight: FlightOffering;
 };
 
-
-
-
 export default function FlightTicketCard({ flight }: FlightTicketProps) {
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-100 shadow-xl rounded-xl p-3 flex flex-col sm:gap-2">

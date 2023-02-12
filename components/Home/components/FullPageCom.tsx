@@ -7,17 +7,25 @@ import { IoMdAirplane } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 
+// type airportsProps = {
+//   result: {
+//     items: {
+//       displayName: string;
+//       name: string;
+//       iataCode: string;
+//       countryDisplayName: string;
+//       cityName: string;
+//     }[];
+//   };
+// };
 type airportsProps = {
-  result: {
-    items: {
-      displayName: string;
-      name: string;
-      iataCode: string;
-      countryDisplayName: string;
-      cityName: string;
-    }[];
+  item: {
+    name: string;
+    city: string;
+    country: string;
+    iata: string;
   };
-};
+}[];
 
 export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
   const [airports, setAirports] = useState<airportsProps | null>();
@@ -31,17 +39,14 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
 
   useEffect(() => {
     const fetchAirports = async () => {
-      try {
-        const response = await fetch(
-          `https://api.sindibad.iq/api/v1.0/shera/airport/elastic-autocomplete?query=${
-            TextFiledFocued === "from" ? From : To
-          }`
-        );
-        const data = await response.json();
-        setAirports(data);
-      } catch (error) {
-        console.error(error);
-      }
+      const res = await fetch(
+        `http://localhost:3000/api/airportsearch?query=${
+          TextFiledFocued === "from" ? From : To
+        }`
+      );
+      const data = await res.json();
+      setAirports(data.searchResults);
+      // console.log(airports[0]);
     };
     if (From || To) {
       fetchAirports();
@@ -132,12 +137,13 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       </div>
 
       <div className="flex flex-col gap-1 my-4 h-full overflow-y-scroll">
-        <div className="sticky top-0 left-0 w-full p-3 font-bold capitalize dark:bg-zinc-800 bg-zinc-100 border-t border-zinc-400">
+        <div className="sticky top-0 left-0 w-full p-3 font-bold capitalize dark:bg-zinc-800 bg-zinc-100 border-t border-zinc-400 z-10">
           suggestions
         </div>
+
         <AnimatePresence>
           {airports &&
-            airports.result.items.map((i, index) => (
+            airports.map((i, index) => (
               <motion.button
                 layout
                 animate={{
@@ -152,13 +158,13 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                 onClick={() => {
                   setSelectedFromList(true);
                   if (TextFiledFocued === "from") {
-                    setFrom(i.iataCode);
+                    setFrom(i.item.iata);
                   }
                   if (TextFiledFocued === "to") {
-                    setTo(i.iataCode);
+                    setTo(i.item.iata);
                   }
                 }}
-                key={`${index}-${i.iataCode}}`}
+                key={`${index}-${i.item.iata}}`}
                 className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 relative "
               >
                 <div className="flex gap-3 items-center ">
@@ -166,15 +172,15 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                     <FaPlaneDeparture size={22} className="fill-blue-600" />
                   </div>
                   <div className="flex text-left flex-col">
-                    <div className="font-bold truncate">{i.displayName}</div>
+                    <div className="font-bold truncate">{i.item.name}</div>
                     <div className="text-xs text-zinc-300">
-                      {i.countryDisplayName} - {i.cityName}
+                      {i.item.country} - {i.item.city}
                     </div>
                   </div>
                 </div>
 
                 <div className="rounded bg-blue-600 text-white p-2 w-max h-max font-bold text-xs">
-                  {i.iataCode}
+                  {i.item.iata}
                 </div>
               </motion.button>
             ))}

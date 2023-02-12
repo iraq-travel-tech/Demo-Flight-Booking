@@ -1,0 +1,2 @@
+1- [] add i18n support for semantic search api
+2- [] change theme to light theme

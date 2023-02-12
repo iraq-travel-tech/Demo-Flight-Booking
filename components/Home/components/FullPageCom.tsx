@@ -38,9 +38,14 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
   const ToRef = React.useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
+    const url =
+      process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
+        ? "http://localhost:3000"
+        : "https://travel-website-mu.vercel.app";
+
     const fetchAirports = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/airportsearch?query=${
+        `${url}/api/airportsearch?query=${
           TextFiledFocued === "from" ? From : To
         }`
       );

@@ -1,4 +1,9 @@
-export const BASEURL =
-  `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` ||
-  "http://localhost:3000" ||
-  "https://demo.iraqtraveltech.com";
+export let BASEURL: string;
+
+if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+  BASEURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+} else if (process.env.NODE_ENV === "development") {
+  BASEURL = "http://localhost:3000";
+} else {
+  BASEURL = "https://demo.iraqtraveltech.com";
+}

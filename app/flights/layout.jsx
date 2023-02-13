@@ -55,12 +55,12 @@ export default function RootLayout({ children }) {
             <div className="flex flex-col">
               <div className="font-bold text-sm flex gap-2 items-center capitalize">
                 <p>{from}</p>
-                <HiArrowsRightLeft />
+                {returndate ? <HiArrowsRightLeft /> : <IoArrowBackOutline className="rotate-180"/>}
                 <p>{to}</p>
               </div>
 
               <div className="text-xs  flex gap-1 text-zinc-200">
-                <p className="truncate sm:w-full w-[20em] ">
+                <p className="truncate sm:w-full max-w-[20em] ">
                   {getDateInTextFormat(departure)}{" "}
                   {returndate && "- " + getDateInTextFormat(returndate)} |{" "}
                   {tripclass} |{" "}

@@ -18,7 +18,7 @@ type FlightTicketProps = {
 
 export default function FlightTicketCard({ flight }: FlightTicketProps) {
   return (
-    <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-100 shadow-xl rounded-xl p-3 flex flex-col sm:gap-2">
+    <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col sm:gap-2">
       <div className="w-full flex justify-between items-center">
         <div className="sm:text-xl text-lg flex items-baseline sm:gap-4 gap-1 font-bold">
           <p>{flight.Departure.location}</p>
@@ -38,8 +38,8 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
         </div>
       </div>
       <FlightDetailsWrapper flightSegments={flight.flightSegments}>
-        <div className="sm:transition-all sm:dark:bg-zinc-800 sm:bg-zinc-200 bg-zinc-800/0 transition-all sm:py-4 py-1 sm:px-5 px-0 rounded-lg flex sm:flex-row flex-col gap-4 z-10 relative">
-          <div className="grid sm:grid-cols-[8em_4em_8em] grid-cols-3 sm:gap-5 gap-2 sm:w-max w-full sm:shadow-none shadow-xl sm:bg-zinc-800/0 bg-zinc-200 dark:bg-zinc-800 rounded-lg sm:p-0 p-4 transition-all">
+        <div className="sm:transition-all sm:dark:bg-zinc-800 sm:bg-zinc-100 sm:shadow-md bg-zinc-800/0 transition-all sm:py-4 py-1 sm:px-5 px-0 rounded-lg flex sm:flex-row flex-col gap-4 z-10 relative">
+          <div className="grid sm:grid-cols-[8em_4em_8em] grid-cols-3 sm:gap-5 gap-2 sm:w-max w-full sm:shadow-none shadow-xl sm:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg sm:p-0 p-4 transition-all">
             <div className="flex flex-col">
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
@@ -85,7 +85,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
                   {flight.totalStops} Stop
                 </div>
               </div>
-              <div className="text-2xl transition-all dark:shadow-xl font-bold">
+              <div className="text-2xl transition-all  font-bold">
                 ${flight.Price.TotalPrice}
               </div>
             </div>

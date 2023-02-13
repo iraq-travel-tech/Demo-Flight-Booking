@@ -6,18 +6,8 @@ import { MdOutlineClose } from "react-icons/md";
 import { IoMdAirplane } from "react-icons/io";
 import { HiLocationMarker } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
+import { BASEURL } from "@/GlobalVars";
 
-// type airportsProps = {
-//   result: {
-//     items: {
-//       displayName: string;
-//       name: string;
-//       iataCode: string;
-//       countryDisplayName: string;
-//       cityName: string;
-//     }[];
-//   };
-// };
 type airportsProps = {
   item: {
     name: string;
@@ -29,34 +19,29 @@ type airportsProps = {
 
 export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
   const [airports, setAirports] = useState<airportsProps | null>();
-  const [TextFiledFocued, setTextFiledFocued] = useState<"from" | "to" | null>(
-    null
-  );
-  const [SelectedFromList, setSelectedFromList] = useState<false | true>(false);
-
+  const [FocusedOn, setFocusedOn] = useState("");
+  const [fromSelected, setFromSelected] = useState(false);
+  const [toSelected, setToSelected] = useState(false);
   const FromRef = React.useRef<HTMLInputElement>(null);
   const ToRef = React.useRef<HTMLInputElement | null>(null);
 
-  useEffect(() => {
-    const url =
-      process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
-        ? "http://localhost:3000"
-        : "https://travel-website-mu.vercel.app";
+  const DataFetch = async (e, setData, inputFocused) => {
+    setData(e.target.value);
+    const res = await fetch(
+      `${BASEURL}/api/airportsearch?query=${e.target.value}`
+    );
+    const data = await res.json();
+    setAirports(data.searchResults);
+    setFocusedOn(inputFocused);
+  };
 
-    const fetchAirports = async () => {
-      const res = await fetch(
-        `${url}/api/airportsearch?query=${
-          TextFiledFocued === "from" ? From : To
-        }`
-      );
-      const data = await res.json();
-      setAirports(data.searchResults);
-      // console.log(airports[0]);
-    };
-    if (From || To) {
-      fetchAirports();
+  const onInputBlur = (inputFocused: "from" | "to") => {
+    if (inputFocused === "from" && !fromSelected) {
+      setFrom("");
+    } else if (inputFocused === "to" && !toSelected) {
+      setTo("");
     }
-  }, [From, To]);
+  };
 
   useEffect(() => {
     if (FromRef.current !== null) {
@@ -84,7 +69,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
 
         <div
           onClick={() => setShowFullPage(false)}
-          className="w-10 h-10 cursor-pointer hover:bg-zinc-200 active:scale-95 transition-all bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center"
+          className="w-10 h-10 cursor-pointer hover:bg-zinc-200 hover:dark:bg-zinc-700  active:scale-90 transition-all bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center"
         >
           <MdOutlineClose />
         </div>
@@ -93,18 +78,13 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       <div className="flex relative z-20 flex-col gap-3">
         <div className="relative flex items-center p-4 rounded  mt-5">
           <input
-            onFocus={() => {
-              setTextFiledFocued("from");
-              setSelectedFromList(false);
+            onChange={(e) => {
+              DataFetch(e, setFrom, "from");
+              setFromSelected(false);
             }}
-            onBlur={() => {
-              !SelectedFromList && setFrom("");
-
-              setAirports(null);
-            }}
+            onBlur={() => onInputBlur("from")}
             ref={FromRef}
             value={From}
-            onChange={(e) => setFrom(e.target.value)}
             type="search"
             className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
             placeholder="From"
@@ -117,19 +97,12 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
         <div className="relative flex items-center p-4 rounded  ">
           <input
             ref={ToRef}
-            onFocus={() => {
-              setTextFiledFocued("to");
-              setSelectedFromList(false);
-            }}
-            onBlur={() => {
-              !SelectedFromList && setTo("");
-
-              setAirports(null);
-            }}
-            value={To}
             onChange={(e) => {
-              setTo(e.target.value);
+              DataFetch(e, setTo, "to");
+              setToSelected(false);
             }}
+            onBlur={() => onInputBlur("to")}
+            value={To}
             className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
             type="search"
             placeholder="To"
@@ -150,6 +123,11 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
           {airports &&
             airports.map((i, index) => (
               <motion.button
+                onClick={() => {
+                  FocusedOn === "from"
+                    ? (setFrom(i.item.iata), setFromSelected(true))
+                    : (setTo(i.item.iata), setToSelected(true));
+                }}
                 layout
                 animate={{
                   opacity: [0, 1],
@@ -158,16 +136,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
                   opacity: [1, 0],
                 }}
                 transition={{
-                  duration: 0.2,
-                }}
-                onClick={() => {
-                  setSelectedFromList(true);
-                  if (TextFiledFocued === "from") {
-                    setFrom(i.item.iata);
-                  }
-                  if (TextFiledFocued === "to") {
-                    setTo(i.item.iata);
-                  }
+                  duration: 0.1,
                 }}
                 key={`${index}-${i.item.iata}}`}
                 className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 relative "

@@ -1,4 +1,9 @@
-export const BASEURL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://travel-website-mu.vercel.app";
+export let BASEURL: string;
+
+if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+  BASEURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+} else if (process.env.NODE_ENV === "development") {
+  BASEURL = "http://localhost:3000";
+} else {
+  BASEURL = "https://demo.iraqtraveltech.com";
+}

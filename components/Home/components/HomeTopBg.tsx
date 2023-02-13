@@ -8,7 +8,10 @@ export default function HomeTopBg() {
 
       <div className="text-white p-4 text-2xl font-bold capitalize relative top-[5.5em] transition-all">
         search for flights
+      {process.env.TZ}
+
       </div>
+
     </div>
   );
 }

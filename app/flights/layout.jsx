@@ -55,7 +55,11 @@ export default function RootLayout({ children }) {
             <div className="flex flex-col">
               <div className="font-bold text-sm flex gap-2 items-center capitalize">
                 <p>{from}</p>
-                {returndate ? <HiArrowsRightLeft /> : <IoArrowBackOutline className="rotate-180"/>}
+                {returndate ? (
+                  <HiArrowsRightLeft />
+                ) : (
+                  <IoArrowBackOutline className="rotate-180" />
+                )}
                 <p>{to}</p>
               </div>
 

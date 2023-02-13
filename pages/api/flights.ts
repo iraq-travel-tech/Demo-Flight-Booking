@@ -21,10 +21,10 @@ const requestBody = (
         departureDate: departure,
 
         From: {
-          value: from,
+          value: from.toLocaleUpperCase(),
         },
         To: {
-          value: to,
+          value: to.toLocaleUpperCase(),
         },
       },
     ],

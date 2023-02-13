@@ -9,10 +9,10 @@ export default function FlightDetails({
   flight: Flight;
   FlightIndex: number;
 }) {
-  console.log(flight);
+  // console.log(flight);
 
   return (
-    <div className="bg-zinc-800 py-3 px-4 sm:px-7 sm:w-max w-full rounded-xl relative flex gap-5 items-center justify-between sm:mt-0 mt-[4em] self-end transition-all">
+    <div className="dark:bg-zinc-800 bg-zinc-300 py-3 px-4 sm:px-7 sm:w-max w-full rounded-xl relative flex gap-5 items-center justify-between sm:mt-0 mt-[4em] self-end transition-all">
       <div className="h-[4em] sm:hidden w-1 absolute bg-zinc-800 rounded-t-full -translate-x-[50%] left-[50%] -translate-y-[100%] top-0 flex items-center justify-center overflow-visible">
         <div className="bg-zinc-800 min-w-[2.5em] h-[2.5em] flex items-center justify-center rounded-full text-xs text-zinc-400">
           {FlightIndex + 1}

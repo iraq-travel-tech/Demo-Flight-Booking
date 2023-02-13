@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 
-
 export default function FromAndTo({ setShowFullPage, From, To }) {
   return (
     <motion.div layoutId="fromInputId" className="flex flex-col">

@@ -1,16 +1,12 @@
 import FlightTicketCard from "@/components/flights/FlightTicketCard";
 import { FlightsPageProps } from "@/components/flights/types";
+import { BASEURL } from "@/GlobalVars";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default async function page({ searchParams }: FlightsPageProps) {
-  const Url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://travel-website-mu.vercel.app";
-
-  const res = await fetch(`${Url}/api/flights`, {
+  const res = await fetch(`${BASEURL}/api/flights`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +25,7 @@ export default async function page({ searchParams }: FlightsPageProps) {
   const data = await res.json();
 
   return (
-    <div className="flex flex-col gap-4 pt-24 sm:px-4 px-2 pb-10">
+    <div className="flex flex-col gap-10 pt-24 sm:px-4 px-2 pb-10">
       {data.data ? (
         data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
           (i, index: number) => <FlightTicketCard flight={i} key={index} />

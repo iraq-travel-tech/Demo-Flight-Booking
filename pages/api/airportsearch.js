@@ -1,3 +1,11 @@
+import cors from "cors";
+
+// configure CORS middleware
+const corsMiddleware = cors({
+  origin: "https://demo.iraqtraveltech.com",
+  methods: ["GET", "POST"],
+});
+
 import Fuse from "fuse.js";
 import { airports } from "./airports";
 
@@ -10,17 +18,18 @@ const airportsLowercase = airports.map((airport) => {
   };
 });
 
-
 const fuse = new Fuse(airportsLowercase, {
   keys: ["name", "city", "country", "iata"],
   threshold: 0,
 });
 
 export default async (req, res) => {
-  const { query } = req.query;
-  const searchResults = fuse.search(query).slice(0, 10)
+  corsMiddleware(req, res, () => {
+    const { query } = req.query;
+    const searchResults = fuse.search(query).slice(0, 10);
 
-  res.json({
-    searchResults,
+    res.json({
+      searchResults,
+    });
   });
 };

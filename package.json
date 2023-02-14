@@ -12,6 +12,7 @@
     "@next/font": "13.1.5",
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.5",
+    "cors": "^2.8.5",
     "date-fns": "^2.29.3",
     "framer-motion": "^8.5.3",
     "fuse.js": "^6.6.2",

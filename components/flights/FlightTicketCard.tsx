@@ -20,7 +20,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col sm:gap-2">
       <div className="w-full flex justify-between items-center">
-        <div className="sm:text-xl text-lg flex items-baseline sm:gap-4 gap-1 font-bold">
+        <div className="sm:text-xl text-sm flex items-baseline sm:gap-4 gap-1 font-bold">
           <p>{flight.Departure.location}</p>
           <div className="h-10 w-10 flex items-center justify-center rounded-full">
             <BsArrowRight />
@@ -44,7 +44,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">
+              <div className="sm:text-xl text-md font-bold">
                 {flight.Departure.location}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 sm:text-md text-sm">
@@ -65,7 +65,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Arrival.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">
+              <div className="sm:text-xl text-md font-bold">
                 {flight.Arrival.location}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 sm:text-md text-sm">

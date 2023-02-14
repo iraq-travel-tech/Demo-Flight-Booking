@@ -51,7 +51,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (req.method === "POST") {
     const response = await fetch(
-      `${process.env.api_endpoint}/flightofferings/`,
+      `https://uapi-search-microservice-f2.ey.r.appspot.com/flightofferings/`,
       {
         method: "POST",
         headers: {

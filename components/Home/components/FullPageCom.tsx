@@ -48,7 +48,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       FromRef.current.focus();
     }
 
-    console.log(BASEURL);
+    // console.log(BASEURL);
   }, []);
 
   return (

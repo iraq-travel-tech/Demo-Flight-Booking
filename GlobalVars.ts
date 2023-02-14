@@ -5,15 +5,10 @@ if (
   process.env.NEXT_PUBLIC_VERCEL_URL
 ) {
   BASEURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-} 
-
-else if (process.env.NODE_ENV === "production") {
+} else if (process.env.NODE_ENV === "production") {
   BASEURL = "https://travel-website-mu.vercel.app";
-} 
-else if (process.env.NODE_ENV === "development") {
+} else if (process.env.NODE_ENV === "development") {
   BASEURL = "http://localhost:3000";
-} 
-
-else {
+} else {
   BASEURL = "https://demo.iraqtraveltech.com";
 }

@@ -27,6 +27,7 @@ export default function FromInput({
       className="relative flex items-center p-4 rounded  "
     >
       <input
+        ref={FromRef}
         onChange={(e) => {
           DataFetch(e, setFrom, "from");
           setFromSelected(false);
@@ -35,9 +36,7 @@ export default function FromInput({
           setFocusedOn("from");
         }}
         onBlur={() => onInputBlur("from")}
-        ref={FromRef}
         value={From}
-        // autoFocus
         type="search"
         className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
         placeholder="From"

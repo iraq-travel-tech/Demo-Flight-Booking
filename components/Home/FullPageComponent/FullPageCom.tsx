@@ -34,20 +34,18 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       setAirports(data.searchResults);
     }, 500);
   };
-  
-  const onInputBlur = (inputFocused: "from" | "to") => {
-    if (inputFocused === "from" && !fromSelected) {
+
+  const onInputBlur = (inputFocusedOn: "from" | "to") => {
+    if (inputFocusedOn === "from" && !fromSelected) {
       setFrom("");
-    } else if (inputFocused === "to" && !toSelected) {
+    } else if (inputFocusedOn === "to" && !toSelected) {
       setTo("");
     }
-  
+
     setTimeout(() => {
       setFocusedOn("");
-    }, 200);
+    }, 300);
   };
-  
-
 
   return (
     <motion.div

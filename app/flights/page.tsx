@@ -21,6 +21,7 @@ export default async function page({ searchParams }: FlightsPageProps) {
       departure: searchParams.departure,
       returndate: searchParams.returndate,
     }),
+    cache: "no-store",
   });
   const data = await res.json();
 

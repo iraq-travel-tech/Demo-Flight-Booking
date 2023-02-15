@@ -1,3 +1,4 @@
+import FlightFilters from "@/components/flights/FlightFilters";
 import FlightTicketCard from "@/components/flights/FlightTicketCard";
 import { FlightsPageProps } from "@/components/flights/types";
 import { BASEURL } from "@/GlobalVars";
@@ -27,6 +28,8 @@ export default async function page({ searchParams }: FlightsPageProps) {
 
   return (
     <div className="flex flex-col gap-10 pt-24 sm:px-4 px-2 pb-10">
+      {/* <FlightFilters /> */}
+
       {data.data ? (
         data.data.FlightOfferingsResponse.FlightOfferings.FlightOffering.map(
           (i, index: number) => <FlightTicketCard flight={i} key={index} />

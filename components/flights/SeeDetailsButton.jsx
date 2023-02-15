@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ShowDetailsContext } from "./context";
 
 export default function SeeDetailsButton() {

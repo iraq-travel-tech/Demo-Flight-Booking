@@ -23,15 +23,9 @@ export default function FullPageSuggestionsSection({
           airports.map((i, index) => (
             <motion.button
               onClick={() => {
-                console.log(FocusedOn);
-
                 FocusedOn === "from"
                   ? (setFrom(i.item.iata), setFromSelected(true))
                   : (setTo(i.item.iata), setToSelected(true));
-
-
-
-
               }}
               layout
               animate={{

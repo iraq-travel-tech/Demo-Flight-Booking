@@ -16,9 +16,6 @@ export default function FlightDetailsWrapper({
 }: FlightDetailsWrapperProps) {
   const [showDetails, setShowDetails] = useState(false);
 
-  // flightSegments.map((i) => {
-  //   console.log(i.Flight);
-  // });
 
   return (
     <ShowDetailsContext.Provider value={{ showDetails, setShowDetails }}>

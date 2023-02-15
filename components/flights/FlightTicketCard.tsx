@@ -15,6 +15,7 @@ type FlightTicketProps = {
 };
 
 export default function FlightTicketCard({ flight }: FlightTicketProps) {
+  
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
       <div className="w-full flex justify-between items-center">
@@ -31,13 +32,15 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
             {flight.validatingCarrier}
           </div>
           <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-100 text-sm shadow-lg">
-            {flight.totalStops} Stop
+            {flight.totalStops === 0
+              ? "direct flight"
+              : `${flight.totalStops} Stop`}
           </div>
         </div>
       </div>
       <FlightDetailsWrapper flightSegments={flight.flightSegments}>
-        <div className="md:transition-all md:dark:bg-zinc-800 md:bg-zinc-100 md:shadow-md bg-zinc-800/0 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative">
-          <div className="grid md:grid-cols-[8em_4em_8em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full md:shadow-none shadow-xl md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
+        <div className="md:transition-all md:dark:bg-zinc-800 md:bg-zinc-100 md:shadow-md bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative">
+          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full md:shadow-none shadow-xl md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
             <div className="flex flex-col">
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
@@ -73,22 +76,35 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
           </div>
           <div className="w-2 h-16 self-center rounded-full bg-zinc-600 md:block hidden" />
 
-          <div className="flex flex-col w-full gap-1 items-end">
+          <div
+            className={`flex flex-col w-full gap-1 items-end 
+          
+          ${flight.totalStops === 0 && "!justify-center"}
+
+          `}
+          >
             <div className="flex justify-between w-full md:w-max items-center">
               <div className="flex gap-2 md:hidden">
                 <div className="py-1 px-2 rounded-lg  dark:bg-zinc-800 bg-zinc-200 text-sm transition-all dark:shadow-xl shadow-md">
                   {flight.validatingCarrier}
                 </div>
                 <div className="py-1  dark:shadow-xl shadow-md px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-200 text-sm">
-                  {flight.totalStops} Stop
+                  {flight.totalStops === 0
+                    ? "Direct flight"
+                    : `${flight.totalStops} Stop`}
                 </div>
               </div>
-              <div className="text-2xl transition-all  font-bold">
+              <div
+                className={`text-2xl transition-all  font-bold
+          ${flight.totalStops === 0 && "md:text-3xl"}
+
+              `}
+              >
                 ${flight.Price.TotalPrice}
               </div>
             </div>
 
-            <SeeDetailsButton />
+            {flight.totalStops > 0 && <SeeDetailsButton />}
           </div>
         </div>
       </FlightDetailsWrapper>

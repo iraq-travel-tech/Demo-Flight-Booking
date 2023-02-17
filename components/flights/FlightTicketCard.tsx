@@ -15,22 +15,36 @@ type FlightTicketProps = {
 };
 
 export default function FlightTicketCard({ flight }: FlightTicketProps) {
-  
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
       <div className="w-full flex justify-between items-center">
-        <div className="md:text-xl text-sm flex items-baseline md:gap-4 gap-1 font-bold">
+        {/* <div className="md:text-xl text-sm flex items-baseline md:gap-4 gap-1 font-bold">
           <p>{flight.Departure.location}</p>
           <div className="h-10 w-10 flex items-center justify-center rounded-full">
             <BsArrowRight />
           </div>
           <p>{flight.Arrival.location}</p>
+        </div> */}
+
+        <div className="flex gap-2">
+          <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full">
+            <img
+              src={`https://storage.googleapis.com/uapi-search-microservice-f2/static/${flight.validatingCarrierIcon}`}
+              alt=""
+              className="w-full h-full object-cover object-center rounded-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <div className="text-sm font-bold capitalize">
+              {flight.validatingCarrier}
+            </div>
+            <div className="text-xs dark:text-zinc-400">
+              {flight.Departure.date} | Economy
+            </div>
+          </div>
         </div>
 
         <div className="md:flex hidden gap-2">
-          <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-100 text-sm shadow-lg">
-            {flight.validatingCarrier}
-          </div>
           <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-100 text-sm shadow-lg">
             {flight.totalStops === 0
               ? "direct flight"
@@ -39,8 +53,8 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
         </div>
       </div>
       <FlightDetailsWrapper flightSegments={flight.flightSegments}>
-        <div className="md:transition-all md:dark:bg-zinc-800 md:bg-zinc-100 md:shadow-md bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative">
-          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full md:shadow-none shadow-xl md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
+        <div className="md:transition-all md:dark:bg-zinc-800 bg-zinc-100/0 md:bg-zinc-100 md:shadow-md dark:bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative  mt-2 sm:mt-1">
+          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full  md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
             <div className="flex flex-col">
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
@@ -83,22 +97,18 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
 
           `}
           >
-            <div className="flex justify-between w-full md:w-max items-center">
-              <div className="flex gap-2 md:hidden">
-                <div className="py-1 px-2 rounded-lg  dark:bg-zinc-800 bg-zinc-200 text-sm transition-all dark:shadow-xl shadow-md">
-                  {flight.validatingCarrier}
-                </div>
-                <div className="py-1  dark:shadow-xl shadow-md px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-200 text-sm">
+            <div className="flex w-full md:w-max text-center gap-3">
+              <div className="flex gap-2 md:hidden flex-1 ">
+                <div className="dark:shadow-xl py-2  shadow-md w-full px-2 rounded-lg transition-all dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-100 text-lg">
                   {flight.totalStops === 0
                     ? "Direct flight"
                     : `${flight.totalStops} Stop`}
                 </div>
               </div>
               <div
-                className={`text-2xl transition-all  font-bold
-          ${flight.totalStops === 0 && "md:text-3xl"}
-
-              `}
+                className={`md:text-2xl text-lg flex-1 text-center py-2 rounded-lg dark:bg-zinc-800 bg-zinc-100 md:bg-zinc-50/0 transition-all md:font-bold md:shadow-none shadow-md ${
+                  flight.totalStops === 0 && "md:text-3xl"
+                }`}
               >
                 ${flight.Price.TotalPrice}
               </div>

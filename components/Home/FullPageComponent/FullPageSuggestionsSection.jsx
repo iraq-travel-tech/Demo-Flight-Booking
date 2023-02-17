@@ -24,8 +24,8 @@ export default function FullPageSuggestionsSection({
             <motion.button
               onClick={() => {
                 FocusedOn === "from"
-                  ? (setFrom(i.item.iata), setFromSelected(true))
-                  : (setTo(i.item.iata), setToSelected(true));
+                  ? (setFrom(i.iata), setFromSelected(true))
+                  : (setTo(i.iata), setToSelected(true));
               }}
               layout
               animate={{
@@ -37,7 +37,7 @@ export default function FullPageSuggestionsSection({
               transition={{
                 duration: 0.1,
               }}
-              key={`${index}-${i.item.iata}}`}
+              key={`${index}-${i.iata}}`}
               className="py-3 gap-3 border-b px-2 items-center flex justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 relative "
             >
               <div className="flex gap-3 items-center">
@@ -46,19 +46,19 @@ export default function FullPageSuggestionsSection({
                 </div>
                 <div className="flex text-left flex-col flex-wrap">
                   <div className="font-bold truncate xs:w-full transition-all w-40 ">
-                    {i.item.name}
+                    {i.name}
                   </div>
                   <div
                     className="text-xs xs:w-full
 w-40 text-zinc-400"
                   >
-                    {i.item.country} - {i.item.city}
+                    {i.country} - {i.city}
                   </div>
                 </div>
               </div>
 
               <div className="rounded bg-blue-600 text-white p-2 w-max h-max font-bold text-xs">
-                {i.item.iata}
+                {i.iata}
               </div>
             </motion.button>
           ))}

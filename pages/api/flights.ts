@@ -71,6 +71,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       );
       if (response.ok) {
         const data = await response.json();
+        // console.log(data);
+
         return res.json({ data });
       } else {
         console.error(await response.text());

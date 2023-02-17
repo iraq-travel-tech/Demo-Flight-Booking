@@ -11,6 +11,7 @@ export interface FlightOfferings {
 }
 
 export interface FlightOffering {
+  validatingCarrierIcon: string;
   validatingCarrier: string;
   Price: Price;
   totalDuration: string;

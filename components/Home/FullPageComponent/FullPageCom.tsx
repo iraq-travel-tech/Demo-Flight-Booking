@@ -8,12 +8,10 @@ import ToInput from "./ToInput";
 import FullPageNavBar from "./FullPageNavBar";
 import FullPageSuggestionsSection from "./FullPageSuggestionsSection";
 type airportsProps = {
-  item: {
-    name: string;
-    city: string;
-    country: string;
-    iata: string;
-  };
+  name: string;
+  city: string;
+  country: string;
+  iata: string;
 }[];
 
 export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
@@ -28,7 +26,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
     setData(e.target.value);
     setTimeout(async () => {
       const res = await fetch(
-        `${BASEURL}/api/airportsearch?query=${e.target.value}`
+        `${BASEURL}/api/v2/elastic-search?query=${e.target.value}`
       );
       const data = await res.json();
       setAirports(data.searchResults);

@@ -22,6 +22,9 @@ const requestBody = (
         number: adults,
       },
     ],
+    PricingModifiersAir: {
+      currencyCode: "USD",
+    },
     SearchCriteriaFlight: [
       {
         "@type": "SearchCriteriaFlight",

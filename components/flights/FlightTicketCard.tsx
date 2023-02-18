@@ -18,14 +18,6 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
       <div className="w-full flex justify-between items-center">
-        {/* <div className="md:text-xl text-sm flex items-baseline md:gap-4 gap-1 font-bold">
-          <p>{flight.Departure.location}</p>
-          <div className="h-10 w-10 flex items-center justify-center rounded-full">
-            <BsArrowRight />
-          </div>
-          <p>{flight.Arrival.location}</p>
-        </div> */}
-
         <div className="flex gap-2">
           <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full">
             <img
@@ -39,7 +31,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               {flight.validatingCarrier}
             </div>
             <div className="text-xs dark:text-zinc-400">
-              {flight.Departure.date} | Economy
+              {flight.Departure.date} | {flight.cabin}
             </div>
           </div>
         </div>
@@ -54,7 +46,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
       </div>
       <FlightDetailsWrapper flightSegments={flight.flightSegments}>
         <div className="md:transition-all md:dark:bg-zinc-800 bg-zinc-100/0 md:bg-zinc-100 md:shadow-md dark:bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative  mt-2 sm:mt-1">
-          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full  md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
+          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-[1fr_4em_1fr] md:gap-5 gap-2 md:w-max w-full  md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
             <div className="flex flex-col">
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}

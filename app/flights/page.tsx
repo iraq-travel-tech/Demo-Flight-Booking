@@ -27,7 +27,7 @@ export default async function page({ searchParams }: FlightsPageProps) {
   const data = await res.json();
 
   return (
-    <div className="flex flex-col gap-10 pt-24 sm:px-4 px-2 pb-10">
+    <div className="flex flex-col gap-10 pt-24 md:px-4 px-2 pb-10">
       {/* <FlightFilters /> */}
 
       {data.data ? (

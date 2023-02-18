@@ -30,5 +30,9 @@ export interface CatalogOfferingsRequestAir {
     PseudoCityInfo: {
       value: string;
     };
+
+    PricingModifiersAir: {
+      currencyCode: "USD";
+    };
   };
 }

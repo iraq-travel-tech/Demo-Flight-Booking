@@ -35,6 +35,7 @@ export default function FromInput({
         onFocus={() => {
           setFocusedOn("from");
         }}
+        autoFocus={From ? false : true}
         onBlur={() => onInputBlur("from")}
         value={From}
         type="search"

@@ -1,76 +1,54 @@
-import { CatalogOfferingsRequestAir } from "@/interface/RequestBody";
+import { GET_flights } from "@/components/apiFunctions/getFlights";
+import { FlightsResponse } from "@/components/apiFunctions/ResponseTypes";
+import { SearchParamsProps } from "@/components/flights/types";
 import { NextApiRequest, NextApiResponse } from "next";
 
-import cors from "cors";
-
-const requestBody = (
-  from: string,
-  to: string,
-  adults: number,
-  departure: string
-): CatalogOfferingsRequestAir => ({
-  CatalogOfferingsRequestAir: {
-    offersPerPage: 5,
-    PassengerCriteria: [
-      {
-        value: "ADT",
-        number: adults,
-      },
-    ],
-    SearchCriteriaFlight: [
-      {
-        "@type": "SearchCriteriaFlight",
-        departureDate: departure,
-
-        From: {
-          value: from.toLocaleUpperCase(),
-        },
-        To: {
-          value: to.toLocaleUpperCase(),
-        },
-      },
-    ],
-    PricingModifiersAir: {
-      currencyCode: "USD",
-    },
-    SearchModifiersAir: {
-      "@type": "SearchModifiersAir",
-      CarrierPreference: {
-        "@type": "CarrierPreference",
-        type: "Prohibited",
-        carriers: ["WN"],
-      },
-    },
-    PseudoCityInfo: {
-      value: "PCC",
-    },
-  },
-});
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { from, to, adults, departure } = req.body;
+  const {
+    adults = 1,
+    babies = 0,
+    children = 0,
+    from,
+    to,
+    departure,
+    returndate = null,
+    tripclass = "economy",
+    currencyCode = "USD",
+  }: SearchParamsProps = req.query;
 
-  if (!from || !to) {
-    return res.status(400).json({ error: "Missing required parameters" });
-  }
+  switch (req.method) {
+    case "GET":
+      if (!from || !to)
+        res.status(400).json({ error: "Missing from or to parameters" });
 
-  const response = await fetch(
-    `https://uapi-search-microservice-f2.ey.r.appspot.com/flightofferings/`,
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      body: JSON.stringify(requestBody(from, to, adults, departure)),
-    }
-  );
-  if (response.ok) {
-    const data = await response.json();
+      if (req.method === "GET") {
+        const Flights: FlightsResponse = await GET_flights({
+          from,
+          to,
+          adults,
+          departure,
+          currencyCode,
+          babies,
+          children,
+          returndate,
+          tripclass,
+        });
 
-    return res.json({ data });
-  } else {
-    console.error(await response.text());
-    return res.status(500).json({ error: "An error occurred" });
+        if (Flights.FlightOfferingsResponse) {
+          res
+            .status(200)
+            .json(
+              Flights.FlightOfferingsResponse.FlightOfferings.FlightOffering
+            );
+        } else {
+          res.status(404).json({
+            error: "Could not find flights",
+          });
+        }
+      }
+      break;
+
+    default:
+      break;
   }
 };

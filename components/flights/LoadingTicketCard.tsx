@@ -8,15 +8,15 @@ export default function LoadingTicketCard() {
     >
       <div className="w-full flex justify-between items-center">
         <div className="flex gap-2 items-center">
-          <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full animate-pulse"></div>
+          <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-300 rounded-full animate-pulse"></div>
           <div className="flex flex-col gap-1">
             <div className="text-sm font-bold capitalize">
-              <p className="w-[5em] rounded bg-zinc-800 animate-pulse h-4"></p>
+              <p className="w-[5em] rounded dark:bg-zinc-800 bg-zinc-300 animate-pulse h-4"></p>
             </div>
             <div className="text-xs dark:text-zinc-400 flex gap-2">
-              <p className="w-[4em] rounded bg-zinc-800 animate-pulse h-3"></p>{" "}
+              <p className="w-[4em] rounded dark:bg-zinc-800 bg-zinc-300 animate-pulse h-3"></p>{" "}
               |{" "}
-              <p className="w-[4em] rounded bg-zinc-800 animate-pulse h-3"></p>
+              <p className="w-[4em] rounded dark:bg-zinc-800 bg-zinc-300 animate-pulse h-3"></p>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function LoadingTicketCard() {
         </div>
       </div>
 
-      <div className="md:transition-all md:dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-800/0 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 min-h-[7.250em]">
+      <div className="md:transition-all md:dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-800/0 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 min-h-[7.35em]">
         <div className="grid md:grid-cols-[8em_4em_8em] grid-cols-3 md:gap-5 gap-2 md:w-max w-full md:shadow-none shadow-xl md:bg-zinc-800/0 bg-zinc-200 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all ">
           <div className="flex flex-col">
             <div className="h-[1em] animate-pulse w-[3em] dark:bg-zinc-700 bg-zinc-300 rounded">
@@ -67,10 +67,10 @@ export default function LoadingTicketCard() {
         <div className="flex flex-col w-full gap-1 items-end">
           <div className="flex w-full md:w-max text-center gap-3">
             <div className="flex gap-2 md:hidden flex-1 ">
-              <div className="dark:shadow-xl h-[2.75em]   py-2  shadow-md w-full px-2 rounded-lg transition-all dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-100 text-lg"></div>
+              <div className="dark:shadow-xl h-[2.75em] py-2 shadow-md w-full px-2 rounded-lg transition-all dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-100 text-lg animate-pulse"></div>
             </div>
             <div
-              className={`md:text-2xl text-lg  h-[2.75em]  flex-1 text-center py-2 rounded-lg dark:bg-zinc-800 bg-zinc-100 md:bg-zinc-50/0 transition-all md:font-bold md:shadow-none shadow-md`}
+              className={`md:text-2xl md:h-[1.5em] h-[2.75em] flex-1 text-center py-2 rounded-lg text-lg md:w-24 md:bg-zinc-50/0 transition-all md:shadow-none shadow-md dark:md:bg-zinc-700 dark:bg-zinc-800 md:bg-zinc-300 bg-zinc-100 animate-pulse`}
             ></div>
           </div>
 

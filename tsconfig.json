@@ -1,18 +1,11 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@components/*": [
-        "components/"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["components/"],
+      "@apiFunctions/*": ["components/apiFunctions"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -42,9 +35,10 @@
     "components/home/FlightSearchContainer.jsx",
     "pages/index.jsx",
     "components/flights/FlightTicketCard.jsx",
-    ".next/types/**/*.ts"
-, "components/flights/FlightDetailsWrapper.tsx", "components/flights/SeeDetailsButton.jsx", "components/Home/FullPageComponent/FromInput.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    ".next/types/**/*.ts",
+    "components/flights/FlightDetailsWrapper.tsx",
+    "components/flights/SeeDetailsButton.jsx",
+    "components/Home/FullPageComponent/FromInput.jsx"
+  ],
+  "exclude": ["node_modules"]
 }

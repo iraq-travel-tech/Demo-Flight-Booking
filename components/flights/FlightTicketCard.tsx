@@ -3,32 +3,27 @@ import { RiPlaneFill } from "react-icons/ri";
 import { FlightOffering } from "@/interface/FlightOfferingsResponse";
 import FlightDetailsWrapper from "./FlightDetailsWrapper";
 import SeeDetailsButton from "./SeeDetailsButton";
-export function convertDuration(duration) {
-  let time = duration.split("T")[1].split("S")[0];
-  let hours = time.split("H")[0];
-  let minutes = time.split("M")[0].split("H")[1];
-  return `${hours}h ${minutes}min`;
-}
+import { FlightOfferingEntity } from "../apiFunctions/ResponseTypes";
 
-type FlightTicketProps = {
-  flight: FlightOffering;
-};
-
-export default function FlightTicketCard({ flight }: FlightTicketProps) {
+export default function FlightTicketCard({
+  flight,
+}: {
+  flight: FlightOfferingEntity;
+}) {
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
       <div className="w-full flex justify-between items-center">
         <div className="flex gap-2">
           <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full">
             <img
-              src={`https://storage.googleapis.com/uapi-search-microservice-f2/static/${flight.validatingCarrierIcon}`}
+              src={`https://storage.googleapis.com/uapi-search-microservice-f2/static/${flight.validatingCarrier.logo}`}
               alt=""
               className="w-full h-full object-cover object-center rounded-full"
             />
           </div>
           <div className="flex flex-col">
             <div className="text-sm font-bold capitalize">
-              {flight.validatingCarrier}
+              {flight.validatingCarrier.en}
             </div>
             <div className="text-xs dark:text-zinc-400">
               {flight.Departure.date} | {flight.cabin}
@@ -52,7 +47,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
                 {flight.Departure.date}
               </div>
               <div className="md:text-xl text-md font-bold">
-                {flight.Departure.location}
+                {flight.Departure.location.en}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Departure.time}
@@ -64,7 +59,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
                 <RiPlaneFill className="fill-inherit" />
               </div>
               <div className="transition-all dark:text-zinc-500 font-semibold text-xs mt-1">
-                {convertDuration(flight.totalDuration)}{" "}
+                {flight.totalDuration.en}
               </div>
             </div>
 
@@ -73,7 +68,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
                 {flight.Arrival.date}
               </div>
               <div className="md:text-xl text-md font-bold">
-                {flight.Arrival.location}
+                {flight.Arrival.location.en}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Arrival.time}

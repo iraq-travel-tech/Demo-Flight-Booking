@@ -1,6 +1,5 @@
-import { Flight } from "@/interface/FlightOfferingsResponse";
 import { RiPlaneFill } from "react-icons/ri";
-import { convertDuration } from "./FlightTicketCard";
+import { Flight } from "../apiFunctions/ResponseTypes";
 
 export default function FlightDetails({
   flight,
@@ -9,6 +8,7 @@ export default function FlightDetails({
   flight: Flight;
   FlightIndex: number;
 }) {
+
   return (
     <div className="dark:bg-zinc-800 bg-zinc-300 py-3 px-4 md:px-7 md:w-max w-full rounded-xl relative flex gap-4 items-center justify-between md:mt-0 mt-[4em] self-end transition-all md:min-w-[33em]">
       <div className="h-[5em] md:hidden w-1 absolute bg-zinc-300 dark:bg-zinc-800 rounded-t-full -translate-x-[50%] left-[50%] -translate-y-[100%] top-0 flex items-center justify-center overflow-visible">
@@ -26,7 +26,7 @@ export default function FlightDetails({
           {flight.Departure.date}
         </div>
         <div className="md:text-xl text-sm font-bold">
-          {flight.Departure.location}
+          {flight.Departure.location.en}
         </div>
         <div className="text-sm dark:text-zinc-400 text-zinc-600 truncate w-10">
           {flight.Departure.time}
@@ -44,7 +44,7 @@ export default function FlightDetails({
         </div>
 
         <div className="dark:text-zinc-400 text-zinc-600 text-xs">
-          {convertDuration(flight.duration)}
+          {flight.duration.en}
         </div>
       </div>
 
@@ -53,7 +53,7 @@ export default function FlightDetails({
           {flight.Arrival.date}
         </div>
         <div className="md:text-xl text-sm font-bold">
-          {flight.Arrival.location}
+          {flight.Arrival.location.en}
         </div>
         <div className="text-sm dark:text-zinc-400 text-zinc-600 truncate w-10">
           {flight.Arrival.time}

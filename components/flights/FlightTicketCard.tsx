@@ -1,53 +1,55 @@
 import { BsArrowRight } from "react-icons/bs";
 import { RiPlaneFill } from "react-icons/ri";
 import { FlightOffering } from "@/interface/FlightOfferingsResponse";
-import Link from "next/link";
-import FlightDetails from "./FlightDetails";
 import FlightDetailsWrapper from "./FlightDetailsWrapper";
 import SeeDetailsButton from "./SeeDetailsButton";
-export function convertDuration(duration) {
-  let time = duration.split("T")[1].split("S")[0];
-  let hours = time.split("H")[0];
-  let minutes = time.split("M")[0].split("H")[1];
-  return `${hours}h ${minutes}min`;
-}
+import { FlightOfferingEntity } from "../apiFunctions/ResponseTypes";
 
-type FlightTicketProps = {
-  flight: FlightOffering;
-};
-
-export default function FlightTicketCard({ flight }: FlightTicketProps) {
+export default function FlightTicketCard({
+  flight,
+}: {
+  flight: FlightOfferingEntity;
+}) {
   return (
-    <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col sm:gap-2">
+    <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
       <div className="w-full flex justify-between items-center">
-        <div className="sm:text-xl text-lg flex items-baseline sm:gap-4 gap-1 font-bold">
-          <p>{flight.Departure.location}</p>
-          <div className="h-10 w-10 flex items-center justify-center rounded-full">
-            <BsArrowRight />
+        <div className="flex gap-2">
+          <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full">
+            <img
+              src={`https://storage.googleapis.com/uapi-search-microservice-f2/static/${flight.validatingCarrier.logo}`}
+              alt=""
+              className="w-full h-full object-cover object-center rounded-full"
+            />
           </div>
-          <p>{flight.Arrival.location}</p>
+          <div className="flex flex-col">
+            <div className="text-sm font-bold capitalize">
+              {flight.validatingCarrier.en}
+            </div>
+            <div className="text-xs dark:text-zinc-400">
+              {flight.Departure.date} | {flight.cabin}
+            </div>
+          </div>
         </div>
 
-        <div className="sm:flex hidden gap-2">
-          <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-200 text-sm shadow-lg">
-            {flight.validatingCarrier}
-          </div>
-          <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-200 text-sm shadow-lg">
-            {flight.totalStops} Stop
+        <div className="md:flex hidden gap-2">
+          <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-100 text-sm shadow-lg">
+            {flight.totalStops === 0
+              ? "direct flight"
+              : `${flight.totalStops} Stop`}
           </div>
         </div>
       </div>
       <FlightDetailsWrapper flightSegments={flight.flightSegments}>
-        <div className="sm:transition-all sm:dark:bg-zinc-800 sm:bg-zinc-100 sm:shadow-md bg-zinc-800/0 transition-all sm:py-4 py-1 sm:px-5 px-0 rounded-lg flex sm:flex-row flex-col gap-4 z-10 relative">
-          <div className="grid sm:grid-cols-[8em_4em_8em] grid-cols-3 sm:gap-5 gap-2 sm:w-max w-full sm:shadow-none shadow-xl sm:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg sm:p-0 p-4 transition-all">
+        <div className="md:transition-all md:dark:bg-zinc-800 bg-zinc-100/0 md:bg-zinc-100 md:shadow-md dark:bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative  mt-2 sm:mt-1">
+          <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-[1fr_4em_1fr] md:gap-5 gap-2 md:w-max w-full  md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
             <div className="flex flex-col">
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Departure.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">
-                {flight.Departure.location}
+              <div className="md:text-xl text-md font-bold">
+                {flight.Departure.location.en}
               </div>
-              <div className="transition-all dark:text-zinc-500 text-zinc-700 sm:text-md text-sm">
+              <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Departure.time}
               </div>
             </div>
@@ -57,7 +59,7 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
                 <RiPlaneFill className="fill-inherit" />
               </div>
               <div className="transition-all dark:text-zinc-500 font-semibold text-xs mt-1">
-                {convertDuration(flight.totalDuration)}{" "}
+                {flight.totalDuration.en}
               </div>
             </div>
 
@@ -65,32 +67,41 @@ export default function FlightTicketCard({ flight }: FlightTicketProps) {
               <div className="transition-all dark:text-zinc-400 text-xs">
                 {flight.Arrival.date}
               </div>
-              <div className="sm:text-xl text-lg font-bold">
-                {flight.Arrival.location}
+              <div className="md:text-xl text-md font-bold">
+                {flight.Arrival.location.en}
               </div>
-              <div className="transition-all dark:text-zinc-500 text-zinc-700 sm:text-md text-sm">
+              <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Arrival.time}
               </div>
             </div>
           </div>
-          <div className="w-2 h-16 self-center rounded-full bg-zinc-600 sm:block hidden" />
+          <div className="w-2 h-16 self-center rounded-full bg-zinc-600 md:block hidden" />
 
-          <div className="flex flex-col w-full gap-1 items-end">
-            <div className="flex justify-between w-full sm:w-max items-center">
-              <div className="flex gap-2 sm:hidden">
-                <div className="py-1 px-2 rounded-lg  dark:bg-zinc-800 bg-zinc-200 text-sm transition-all dark:shadow-xl shadow-md">
-                  {flight.validatingCarrier}
-                </div>
-                <div className="py-1  dark:shadow-xl shadow-md px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-200 text-sm">
-                  {flight.totalStops} Stop
+          <div
+            className={`flex flex-col w-full gap-1 items-end 
+          
+          ${flight.totalStops === 0 && "!justify-center"}
+
+          `}
+          >
+            <div className="flex w-full md:w-max text-center gap-3">
+              <div className="flex gap-2 md:hidden flex-1 ">
+                <div className="dark:shadow-xl py-2  shadow-md w-full px-2 rounded-lg transition-all dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-100 text-lg">
+                  {flight.totalStops === 0
+                    ? "Direct flight"
+                    : `${flight.totalStops} Stop`}
                 </div>
               </div>
-              <div className="text-2xl transition-all  font-bold">
+              <div
+                className={`md:text-2xl text-lg flex-1 text-center py-2 rounded-lg dark:bg-zinc-800 bg-zinc-100 md:bg-zinc-50/0 transition-all md:font-bold md:shadow-none shadow-md ${
+                  flight.totalStops === 0 && "md:text-3xl"
+                }`}
+              >
                 ${flight.Price.TotalPrice}
               </div>
             </div>
 
-            <SeeDetailsButton />
+            {flight.totalStops > 0 && <SeeDetailsButton />}
           </div>
         </div>
       </FlightDetailsWrapper>

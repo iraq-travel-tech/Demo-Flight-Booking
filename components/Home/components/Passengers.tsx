@@ -41,7 +41,7 @@ export default function Passengers({
           opacity: 0,
         }}
         transition={{
-          type:"just"
+          type: "just",
         }}
         onClick={handleWindowClose}
         className="bg-black/50 h-screen w-full top-0 left-0 fixed z-30"
@@ -55,7 +55,7 @@ export default function Passengers({
           bottom: -340,
           opacity: 0,
         }}
-        className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col dark:bg-zinc-900 dark:text-white bg-zinc-200 px-5 py-3 rounded-t-xl"
+        className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col dark:bg-zinc-900 dark:text-white bg-white px-5 py-3 rounded-t-xl"
       >
         <nav className="justify-between text-lg items-center py-3 border-b  border-zinc-300 flex">
           <div className="capitalize">Passengers</div>

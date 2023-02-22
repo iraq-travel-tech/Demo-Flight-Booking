@@ -9,9 +9,10 @@ export type SearchParamsProps = {
   adults?: number;
   children?: number;
   babies?: number;
+  currencyCode?: string;
 };
 export type FlightsPageProps = {
-  searchParams: SearchParamsProps;
+  searchParams?: SearchParamsProps;
 };
 export type OfferingsProps = {
   data: FlightOfferingsResponse;

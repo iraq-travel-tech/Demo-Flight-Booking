@@ -22,7 +22,7 @@ export const TheDateComponent = ({
   return (
     <>
       <style>
-        {window.document.body.classList.contains("dark")
+        {window.matchMedia("(prefers-color-scheme: dark)").matches
           ? `
               .rdrCalendarWrapper {
                 background: #27272a !important;

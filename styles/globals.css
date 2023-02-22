@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .rdrMonth {
   width: 100% !important;
 }
@@ -10,3 +9,4 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+

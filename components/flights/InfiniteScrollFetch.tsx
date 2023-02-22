@@ -31,7 +31,6 @@ export default function InfiniteScrollFetch({
       }),
     });
     const data = await res.json();
-    console.log(from, to);
   };
 
   return (

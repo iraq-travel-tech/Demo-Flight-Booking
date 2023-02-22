@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import DateInput from "./components/DateInput";
 import FromAndTo from "./components/FromAndTo";
-import { FullPageCom } from "./components/FullPageCom";
+import { FullPageCom } from "./FullPageComponent/FullPageCom";
 import Passengers from "./components/Passengers";
 import PassengersInput from "./components/PassengersInput";
 import { TheDateComponent } from "./components/TheDateComponent";

@@ -34,7 +34,7 @@ export default function FlightDetails({
       </div>
 
       <div className="flex flex-col w-2/6 transition-all md:w-max items-center md:overflow-auto overflow-hidden">
-        <div className="font-bold text-xs -mb-2">RJ</div>
+        <div className="font-bold text-xs -mb-2">{flight.carrier.en}</div>
         <div className="dark:text-zinc-400 text-zinc-600 truncate">
           ...............................
         </div>

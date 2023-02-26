@@ -15,7 +15,7 @@ export interface FlightOfferingEntity {
   totalStops: number;
   Departure: DepartureOrArrival;
   Arrival: DepartureOrArrival;
-  flightSegments?: FlightSegmentsEntity[] | null;
+  flightSegments?: FlightSegmentsEntity[];
 }
 export interface CarrierOrValidatingCarrier {
   id: string;
@@ -41,8 +41,8 @@ export interface DepartureOrArrival {
 }
 export interface FlightSegmentsEntity {
   sequence: number;
-  connectionDuration?: string | null;
-  boundFlightsInd?: boolean | null;
+  connectionDuration?: string;
+  boundFlightsInd?: boolean;
   Flight: Flight;
 }
 export interface Flight {

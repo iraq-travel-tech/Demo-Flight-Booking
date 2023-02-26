@@ -5,7 +5,7 @@ export type SearchParamsProps = {
   to?: string;
   tripclass?: string;
   departure?: string;
-  returndate?: string | undefined;
+  returndate?: string | null;
   adults?: number;
   children?: number;
   babies?: number;

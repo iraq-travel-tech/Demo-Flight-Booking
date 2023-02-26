@@ -8,7 +8,7 @@ import { FlightSegmentsEntity } from "../apiFunctions/ResponseTypes";
 
 type FlightDetailsWrapperProps = {
   children: React.ReactNode;
-  flightSegments: FlightSegmentsEntity[];
+  flightSegments?: FlightSegmentsEntity[];
 };
 
 export default function FlightDetailsWrapper({
@@ -36,7 +36,7 @@ export default function FlightDetailsWrapper({
                 }}
                 className="flex flex-col gap-3 py-2"
               >
-                {flightSegments.map((i, index) => (
+                {flightSegments?.map((i, index) => (
                   <FlightDetails
                     flight={i.Flight}
                     FlightIndex={index}

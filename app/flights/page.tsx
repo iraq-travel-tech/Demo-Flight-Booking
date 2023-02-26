@@ -12,10 +12,10 @@ export const dynamic = "force-dynamic";
 
 export default async function page({ searchParams }: FlightsPageProps) {
   const res =
-    await fetch(`${BASEURL}/api/v2/flights?adults=${searchParams.adults}
-  &from=${searchParams.from}
-  &to=${searchParams.to}
-  &departure=${searchParams.departure}`);
+    await fetch(`${BASEURL}/api/v2/flights?adults=${searchParams?.adults}
+  &from=${searchParams?.from}
+  &to=${searchParams?.to}
+  &departure=${searchParams?.departure}`);
   let data: FlightOfferingEntity[] | null = null;
 
   if (res.status !== 404) {
@@ -31,7 +31,7 @@ export default async function page({ searchParams }: FlightsPageProps) {
       ) : (
         <div className="flex flex-col py-3 sm:px-5 px-4 rounded bg-zinc-200 transition-all dark:bg-zinc-800">
           <div className="text-3xl font-bold">
-            could not find flights from {searchParams.from} to {searchParams.to}
+            could not find flights from {searchParams?.from} to {searchParams?.to}
           </div>
           <Link
             href="/"

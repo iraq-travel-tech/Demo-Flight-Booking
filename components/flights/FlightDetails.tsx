@@ -8,7 +8,6 @@ export default function FlightDetails({
   flight: Flight;
   FlightIndex: number;
 }) {
-
   return (
     <div className="dark:bg-zinc-800 bg-zinc-300 py-3 px-4 md:px-7 md:w-max w-full rounded-xl relative flex gap-4 items-center justify-between md:mt-0 mt-[4em] self-end transition-all md:min-w-[33em]">
       <div className="h-[5em] md:hidden w-1 absolute bg-zinc-300 dark:bg-zinc-800 rounded-t-full -translate-x-[50%] left-[50%] -translate-y-[100%] top-0 flex items-center justify-center overflow-visible">

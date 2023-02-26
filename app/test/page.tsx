@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export default function page({ searchParams }: FlightsPageProps) {
   useEffect(() => {
     fetch(
-      `/api/v2/flights?from=${searchParams.from}&to=${searchParams.to}&adults=${searchParams.adults}&babies=${searchParams.babies}&children=${searchParams.children}&departure=${searchParams.departure}$returndate=${searchParams.returndate}&tripclass=${searchParams.tripclass}`
+      `/api/v2/flights?from=${searchParams?.from}&to=${searchParams?.to}&adults=${searchParams?.adults}&babies=${searchParams?.babies}&children=${searchParams?.children}&departure=${searchParams?.departure}$returndate=${searchParams?.returndate}&tripclass=${searchParams?.tripclass}`
     )
       .then((res) => res.json())
       .then((data) => {

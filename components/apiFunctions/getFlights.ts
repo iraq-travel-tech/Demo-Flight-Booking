@@ -32,10 +32,10 @@ export const GET_flights = async ({
               "@type": "SearchCriteriaFlight",
               departureDate: departure,
               From: {
-                value: from.toLowerCase(),
+                value: from?.toLowerCase(),
               },
               To: {
-                value: to.toUpperCase(),
+                value: to?.toUpperCase(),
               },
             },
           ],

@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["components/"],
-      "@apiFunctions/*": ["components/apiFunctions"]
+      "@/*": [
+        "./*"
+      ],
+      "@components/*": [
+        "components/"
+      ],
+      "@apiFunctions/*": [
+        "components/apiFunctions"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -23,7 +33,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -40,5 +51,7 @@
     "components/flights/SeeDetailsButton.jsx",
     "components/Home/FullPageComponent/FromInput.jsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

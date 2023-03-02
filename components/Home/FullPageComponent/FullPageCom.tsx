@@ -14,7 +14,14 @@ type airportsProps = {
   iata: string;
 }[];
 
-export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
+export const FullPageCom = ({
+  setFrom,
+  setTo,
+  From,
+  To,
+  setShowFullPage,
+  Texts,
+}) => {
   const [airports, setAirports] = useState<airportsProps | null>();
   const [FocusedOn, setFocusedOn] = useState("");
   const [fromSelected, setFromSelected] = useState(false);
@@ -60,13 +67,14 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
       }}
       className="w-full top-0 dark:bg-zinc-900 dark:text-white left-[50%] h-screen max-w-2xl -translate-x-[50%] fixed z-50 flex flex-col bg-white px-5 "
     >
-      <FullPageNavBar setShowFullPage={setShowFullPage} />
+      <FullPageNavBar Texts={Texts} setShowFullPage={setShowFullPage} />
 
       <AnimatePresence>
         <div>
           <div className="flex relative z-20 flex-col gap-3 pt-5">
             {FocusedOn !== "to" && (
               <FromInput
+                Texts={Texts}
                 DataFetch={DataFetch}
                 setFrom={setFrom}
                 setFromSelected={setFromSelected}
@@ -79,6 +87,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
 
             {FocusedOn !== "from" && (
               <ToInput
+                Texts={Texts}
                 DataFetch={DataFetch}
                 setTo={setTo}
                 setToSelected={setToSelected}
@@ -95,6 +104,7 @@ export const FullPageCom = ({ setFrom, setTo, From, To, setShowFullPage }) => {
             className="h-[30em] mt-3 overflow-y-scroll overflow-x-hidden scrollbar-thin dark:scrollbar-thumb-zinc-700 scrollbar-thumb-zinc-300  scrollbar-track-blue-300/0 scrollbar-thumb-rounded-full"
           >
             <FullPageSuggestionsSection
+              Texts={Texts}
               airports={airports}
               FocusedOn={FocusedOn}
               setFrom={setFrom}

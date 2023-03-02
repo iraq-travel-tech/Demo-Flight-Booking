@@ -10,6 +10,7 @@ export default function ToInput({
   ToRef,
   onInputBlur,
   setFocusedOn,
+  Texts,
 }) {
   return (
     <motion.div
@@ -37,9 +38,9 @@ export default function ToInput({
         }}
         onBlur={() => onInputBlur("to")}
         value={To}
-        className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
+        className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-10 text- top-0 rounded left-0 w-full h-full"
         type="search"
-        placeholder="To"
+        placeholder={Texts?.to}
       />
       <HiLocationMarker
         size={20}

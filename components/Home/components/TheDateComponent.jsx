@@ -14,6 +14,7 @@ export const TheDateComponent = ({
   setTwoWaysTripDate,
   setShowDatePicker,
   OneWayStartDate,
+  Texts,
 }) => {
   const handleSelect = (date) => {
     setOneWayStartDate(getDate(date));
@@ -94,7 +95,7 @@ export const TheDateComponent = ({
         className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col dark:bg-zinc-900 dark:text-white bg-zinc-200 px-5 py-3 rounded-t-xl"
       >
         <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
-          <div className="capitalize">Select your trip</div>
+          <div className="capitalize">{Texts?.selectyourtrip}</div>
 
           <div
             onClick={() => setShowDatePicker(false)}
@@ -104,31 +105,33 @@ export const TheDateComponent = ({
           </div>
         </nav>
 
-        {SelectedType === 0 && (
-          <Calendar
-            className="w-full"
-            date={new Date()}
-            onChange={handleSelect}
-          />
-        )}
-        {SelectedType === 1 && (
-          <DateRange
-            className="w-full"
-            editableDateInputs={true}
-            onChange={(item) => {
-              setTwoWaysTripDate([item.selection]);
-            }}
-            moveRangeOnFirstSelection={false}
-            ranges={TwoWaysTripDate}
-          />
-        )}
+        <div dir="ltr">
+          {SelectedType === 0 && (
+            <Calendar
+              className="w-full"
+              date={new Date()}
+              onChange={handleSelect}
+            />
+          )}
+          {SelectedType === 1 && (
+            <DateRange
+              className="w-full"
+              editableDateInputs={true}
+              onChange={(item) => {
+                setTwoWaysTripDate([item.selection]);
+              }}
+              moveRangeOnFirstSelection={false}
+              ranges={TwoWaysTripDate}
+            />
+          )}
+        </div>
 
         <motion.div layout className="flex gap-2 mt-3">
           <motion.div
             layout
             className="border border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700 bg-white  rounded p-3 text-center flex-1"
           >
-            <p className="font-bold">Departure Date </p>
+            <p className="font-bold"> {Texts?.departure} </p>
             <p>
               {SelectedType === 1 ? (
                 <>{getDate(TwoWaysTripDate[0].startDate)}</>
@@ -142,7 +145,7 @@ export const TheDateComponent = ({
               layout
               className="border border-zinc-300 dark:bg-zinc-800 dark:border-zinc-700 bg-white  rounded p-3 text-center flex-1"
             >
-              <p className="font-bold"> Return date </p>
+              <p className="font-bold"> {Texts.returndate} </p>
               <p>{getDate(TwoWaysTripDate[0].endDate)}</p>
             </motion.div>
           )}
@@ -153,7 +156,7 @@ export const TheDateComponent = ({
           className="rounded font-bold
         text-white bg-blue-600 p-2 mt-3 active:scale-95 transition-all active:bg-blue-700"
         >
-          Set date
+          {Texts?.setdate}
         </button>
       </motion.div>
     </>

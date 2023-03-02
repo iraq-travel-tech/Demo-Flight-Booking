@@ -1,21 +1,12 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@components/*": [
-        "components/"
-      ],
-      "@apiFunctions/*": [
-        "components/apiFunctions"
-      ]
+      "@/*": ["./*"],
+      "@components/*": ["components/"],
+      "@apiFunctions/*": ["components/apiFunctions"],
+      "@i18n*": ["/app/i18n"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -51,7 +42,5 @@
     "components/flights/SeeDetailsButton.jsx",
     "components/Home/FullPageComponent/FromInput.jsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -1,5 +1,0 @@
-1- [] add i18n support for semantic search api
-2- [] change theme to light theme
-3- [] bad ux in /flights were the keyboard hidding airport code suggestions
-4- [x] dont go to /flihts without filling all textfiled in /
-4- [x] date component color problem when light theme

@@ -8,6 +8,7 @@ export default function FullPageSuggestionsSection({
   setFromSelected,
   setTo,
   setToSelected,
+  Texts,
 }) {
   return (
     <div className="">
@@ -16,7 +17,7 @@ export default function FullPageSuggestionsSection({
       ${FocusedOn && "!text-sm !py-2 font-normal "}
       `}
       >
-        suggestions
+        {Texts.suggestions}
       </div>
       <div className="flex flex-col gap-1 mt-1  h-full">
         {airports &&

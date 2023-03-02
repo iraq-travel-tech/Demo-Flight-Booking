@@ -1,9 +1,9 @@
 import { MdOutlineClose } from "react-icons/md";
 
-export default function FullPageNavBar({setShowFullPage}) {
+export default function FullPageNavBar({ setShowFullPage, Texts }) {
   return (
     <nav className="justify-between text-lg items-center py-3 border-b border-zinc-300 flex">
-      <div className="capitalize">Select your trip</div>
+      <div className="capitalize">{Texts?.selectyourtrip}</div>
 
       <div
         onClick={() => setShowFullPage(false)}

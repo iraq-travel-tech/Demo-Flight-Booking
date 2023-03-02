@@ -10,6 +10,7 @@ export default function FromInput({
   FromRef,
   onInputBlur,
   setFocusedOn,
+  Texts,
 }) {
   return (
     <motion.div
@@ -39,8 +40,8 @@ export default function FromInput({
         onBlur={() => onInputBlur("from")}
         value={From}
         type="search"
-        className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  px-2 pl-10 text- top-0 rounded left-0 w-full h-full"
-        placeholder="From"
+        className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700 px-10 top-0 rounded left-0 w-full h-full"
+        placeholder={Texts.from}
       />
       <IoMdAirplane
         size={20}

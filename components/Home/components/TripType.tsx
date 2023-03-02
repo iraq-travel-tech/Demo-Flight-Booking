@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
-export default function TripType({ setSelectedType, SelectedType }) {
+export default function TripType({ Texts, setSelectedType, SelectedType }) {
   return (
     <div className="rounded-xl text-sm dark:bg-zinc-800 bg-white p-2 shadow-xl flex gap-2">
-      {["one way trip", "round trip"].map((i, index) => (
+      {[Texts?.oneway, Texts?.round].map((i, index) => (
         <button
           className={`p-2 relative flex-1`}
-          key={i}
+          key={index}
           onClick={() => setSelectedType(index)}
         >
           <span

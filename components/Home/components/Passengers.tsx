@@ -8,6 +8,7 @@ export default function Passengers({
   setFlightPassengers,
   FlightClass,
   setFlightClass,
+  Texts,
 }) {
   const [Adults, setAdults] = useState(1);
   const [Children, setChildren] = useState(0);
@@ -58,7 +59,7 @@ export default function Passengers({
         className="w-full bottom-0 max-w-2xl -translate-x-[50%] left-[50%] fixed z-50 flex flex-col dark:bg-zinc-900 dark:text-white bg-white px-5 py-3 rounded-t-xl"
       >
         <nav className="justify-between text-lg items-center py-3 border-b  border-zinc-300 flex">
-          <div className="capitalize">Passengers</div>
+          <div className="capitalize">{Texts?.passengers}</div>
 
           <div
             onClick={handleWindowClose}
@@ -71,9 +72,11 @@ export default function Passengers({
         <div className="flex mt-5 flex-col">
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <div className="text-lg font-bold">Adults</div>
+              <div className="text-lg font-bold">
+                {Texts?.passengersage.adults.name}
+              </div>
               <div className="text-zinc-400 text-sm">
-                more than 12 years old
+                {Texts?.passengersage.adults.age}
               </div>
             </div>
             <div className="flex gap-2 items-center">
@@ -96,8 +99,14 @@ export default function Passengers({
           </div>
           <div className="flex justify-between mt-5">
             <div className="flex flex-col">
-              <div className="text-lg font-bold">Children</div>
-              <div className="text-zinc-400 text-sm">2-12 years old</div>
+              <div className="text-lg font-bold">
+                {" "}
+                {Texts?.passengersage.children.name}
+              </div>
+              <div className="text-zinc-400 text-sm">
+                {" "}
+                {Texts?.passengersage.children.age}
+              </div>
             </div>
             <div className="flex gap-2 items-center">
               <button
@@ -119,8 +128,14 @@ export default function Passengers({
 
           <div className="flex justify-between mt-5">
             <div className="flex flex-col">
-              <div className="text-lg font-bold">Babies</div>
-              <div className="text-zinc-400 text-sm">0-2 years old</div>
+              <div className="text-lg font-bold">
+                {" "}
+                {Texts?.passengersage.babies.name}
+              </div>
+              <div className="text-zinc-400 text-sm">
+                {" "}
+                {Texts?.passengersage.babies.age}
+              </div>
             </div>
             <div className="flex gap-2 items-center">
               <button
@@ -141,6 +156,7 @@ export default function Passengers({
 
           <div className="mt-10">
             <TripClassType
+              Texts={Texts}
               FlightClass={FlightClass}
               setFlightClass={setFlightClass}
             />
@@ -149,7 +165,7 @@ export default function Passengers({
             onClick={handleWindowClose}
             className="bg-blue-600 rounded p-2 font-bold mt-10 active:scale-95 active:bg-blue-700 text-white transition-all"
           >
-            ok
+            {Texts?.ok}
           </button>
         </div>
       </motion.div>

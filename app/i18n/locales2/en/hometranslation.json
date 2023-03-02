@@ -1,0 +1,33 @@
+{
+  "search": "search for flights",
+  "oneway": "one way trip",
+  "round": "round trip",
+  "from": "from",
+  "to": "to",
+  "date": "date",
+  "passenger": "passenger",
+  "passengers": "passengers",
+  "selectyourtrip": "select your trip",
+  "selectyourdate": "select your date",
+  "departure": "departure date",
+  "returndate": "Return date",
+  "suggestions": "suggestions",
+  "passengersage": {
+    "adults": {
+      "name": "adults",
+      "age": "more than 12 years old"
+    },
+    "children": {
+      "name": "children",
+      "age": "2-12 years old"
+    },
+    "babies": {
+      "name": "babies",
+      "age": "0-2 years old"
+    }
+  },
+  "setdate": "Set date",
+  "ok": "ok",
+  "economy": "economy class",
+  "business": "business class"
+}

@@ -4,6 +4,7 @@ import { FiUsers } from "react-icons/fi";
 export default function PassengersInput({
   setShowPassengerComponent,
   FlightPassengers,
+  Texts,
 }) {
   return (
     <div
@@ -19,8 +20,8 @@ export default function PassengersInput({
         FlightPassengers.Children +
         FlightPassengers.Babies <
       2
-        ? "Passenger"
-        : "Passengers"}
+        ? Texts?.passenger
+        : Texts?.passengers}
     </div>
   );
 }

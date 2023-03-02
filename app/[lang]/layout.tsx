@@ -1,13 +1,15 @@
 import NavBar from "@/components/layouts/NavBar";
-import "../styles/globals.css";
+import "../../styles/globals.css";
+import { dir } from "i18next";
+import { languages } from "../i18n/settings";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export async function generateStaticParams() {
+  return languages.map((lang) => ({ lang }));
+}
+
+export default function RootLayout({ children, params: { lang } }) {
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir(lang)}>
       <head>
         <title>Travel Website - Explore the World with Us</title>
         <meta

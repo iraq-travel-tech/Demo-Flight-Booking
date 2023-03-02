@@ -1,0 +1,34 @@
+{
+  "search": "البحث عن الرحلات الجوية",
+  "oneway": "رحلة في اتجاه واحد",
+  "round": "جولة",
+  "from": "من",
+  "to": "الى",
+  "date": "تاريخ",
+  "passenger": "راكب",
+  "passengers": "ركاب",
+  "selectyourtrip": "حدد رحلتك",
+  "selectyourdate": "حدد تاريخك",
+  "departure": "تاريخ المغادرة",
+  "returndate": "تاريخ العودة",
+  "suggestions": "اقتراحات",
+  "passengersage": {
+    "adults": {
+      "name": "الكبار",
+      "age": "أكثر من 12 سنة"
+    },
+    "children": {
+      "name": "أطفال",
+      "age": "2-12 سنة"
+    },
+    "babies": {
+      "name": "أطفال",
+      "age": "0-2 سنة"
+    }
+  },
+  "setdate": "تحديد التاريخ",
+
+  "ok": "تم",
+  "economy": "الدرجة السياحية",
+  "business": "درجة الأعمال"
+}

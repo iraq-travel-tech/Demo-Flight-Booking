@@ -2,7 +2,7 @@
 
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImSpinner2 } from "react-icons/im";
 import DateInput from "./components/DateInput";
 import FromAndTo from "./components/FromAndTo";
@@ -11,8 +11,10 @@ import Passengers from "./components/Passengers";
 import PassengersInput from "./components/PassengersInput";
 import { TheDateComponent } from "./components/TheDateComponent";
 import TripType from "./components/TripType";
+import { useTranslation } from "@/app/i18n/client";
+import { LocaleType } from "@/app/i18n/locales2/localeType";
 
-export default function HomeSearch() {
+export default function HomeSearch({ lang }) {
   const [Loading, setLoading] = useState<true | false>(false);
   const [FlightPassengers, setFlightPassengers] = useState<{
     Adults: number;
@@ -36,6 +38,14 @@ export default function HomeSearch() {
     setTo(From);
   };
 
+  const [Texts, setTexts] = useState<null | LocaleType>(null);
+
+  useEffect(() => {
+    import(`@/app/i18n/locales2/${lang}/hometranslation.json`).then((data) => {
+      setTexts(data);
+    });
+  }, [lang]);
+
   const [OneWayStartDate, setOneWayStartDate] = useState("");
   const [TwoWaysTripDate, setTwoWaysTripDate] = useState<any>([
     {
@@ -53,21 +63,33 @@ export default function HomeSearch() {
 
   return (
     <div className="p-4 relative -top-32">
-      <TripType SelectedType={SelectedType} setSelectedType={setSelectedType} />
-      <FromAndTo From={From} setShowFullPage={setShowFullPage} To={To} />
+      <TripType
+        Texts={Texts}
+        SelectedType={SelectedType}
+        setSelectedType={setSelectedType}
+      />
+      <FromAndTo
+        Texts={Texts}
+        From={From}
+        setShowFullPage={setShowFullPage}
+        To={To}
+      />
       <DateInput
+        Texts={Texts}
         SelectedType={SelectedType}
         TwoWaysTripDate={TwoWaysTripDate}
         OneWayStartDate={OneWayStartDate}
         setShowDatePicker={setShowDatePicker}
       />
       <PassengersInput
+        Texts={Texts}
         setShowPassengerComponent={setShowPassengerComponent}
         FlightPassengers={FlightPassengers}
       />
       <AnimatePresence>
         {ShowFullPage && (
           <FullPageCom
+            Texts={Texts}
             setShowFullPage={setShowFullPage}
             From={From}
             To={To}
@@ -78,6 +100,7 @@ export default function HomeSearch() {
         {ShowDatePicker && (
           <>
             <TheDateComponent
+              Texts={Texts}
               setShowDatePicker={setShowDatePicker}
               SelectedType={SelectedType}
               TwoWaysTripDate={TwoWaysTripDate}
@@ -89,6 +112,7 @@ export default function HomeSearch() {
         )}
         {ShowPassengerComponent && (
           <Passengers
+            Texts={Texts}
             FlightClass={FlightClass}
             setFlightClass={setFlightClass}
             setFlightPassengers={setFlightPassengers}
@@ -113,12 +137,13 @@ export default function HomeSearch() {
           Loading && "bg-blue-800"
         }`}
       >
-        {!Loading ? (
-          "search for flights"
-        ) : (
+        {Loading ? (
           <div className="animate-spin">
             <ImSpinner2 />
           </div>
+        ) : (
+          // @ts-ignore
+          Texts?.search
         )}
       </Link>
     </div>

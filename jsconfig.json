@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@locales": ["./app/i18n/locales2"]
     }
   }
 }

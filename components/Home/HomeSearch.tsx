@@ -121,7 +121,7 @@ export default function HomeSearch({ lang }) {
         )}{" "}
       </AnimatePresence>
       <Link
-        href={`/flights?from=${From}&to=${To}&adults=${
+        href={`/${lang}/flights?from=${From}&to=${To}&adults=${
           FlightPassengers && FlightPassengers.Adults
         }&children=${FlightPassengers && FlightPassengers.Children}&babies=${
           FlightPassengers && FlightPassengers.Children

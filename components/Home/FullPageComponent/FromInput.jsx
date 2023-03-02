@@ -40,7 +40,7 @@ export default function FromInput({
         onBlur={() => onInputBlur("from")}
         value={From}
         type="search"
-        className="absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700 px-10 top-0 rounded left-0 w-full h-full"
+        className={`absolute border border-zinc-400 dark:bg-zinc-800 dark:border-zinc-700  top-0 rounded left-0 w-full h-full px-10`}
         placeholder={Texts.from}
       />
       <IoMdAirplane

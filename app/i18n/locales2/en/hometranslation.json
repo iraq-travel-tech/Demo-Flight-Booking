@@ -31,5 +31,7 @@
   "economy": "economy class",
   "business": "business class",
   "hidestops": "hide stops",
-  "showstops": "show stops"
+  "showstops": "show stops",
+  "stops": "stops",
+  "directflight": "Direct flight"
 }

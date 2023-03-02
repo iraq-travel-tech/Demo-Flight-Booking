@@ -33,7 +33,10 @@ export default function RootLayout({ children }) {
           className="absolute inset-0 bg-blue-600 dark:bg-zinc-900 top-0 left-0 -z-10 rounded-b-xl"
         ></motion.div>
 
-        <nav className="p-4 flex justify-between items-center text-white ">
+        <nav
+          dir="ltr"
+          className="p-4 flex justify-between items-center text-white "
+        >
           <motion.div
             animate={{
               opacity: [0, 1],
@@ -77,7 +80,9 @@ export default function RootLayout({ children }) {
           {/* <SwitchThemeButton /> */}
         </nav>
       </div>
-      <div className="flex flex-col gap-4 pt-1 px-2 pb-10">{children}</div>
+      <div dir="ltr" className="flex flex-col gap-4 pt-1 px-2 pb-10">
+        {children}
+      </div>
     </div>
   );
 }

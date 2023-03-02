@@ -33,4 +33,6 @@ export interface LocaleType {
   business: string;
   hidestops: string;
   showstops: string;
+  stops: string;
+  directflight: string;
 }

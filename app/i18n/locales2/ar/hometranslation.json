@@ -32,5 +32,7 @@
   "economy": "الدرجة السياحية",
   "business": "درجة الأعمال",
   "hidestops": "اخفي الوقوفات",
-  "showstops": "اعرض الوقوفات"
+  "showstops": "اعرض الوقوفات",
+  "stops": "عدد الوقوف",
+  "directflight": "Direct flight"
 }

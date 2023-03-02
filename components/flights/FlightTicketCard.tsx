@@ -16,7 +16,9 @@ export default function FlightTicketCard({
   texts: LocaleType | null;
 }) {
   return (
-    <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
+    <div
+      className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2"
+    >
       <div className="w-full flex justify-between items-center">
         <div className="flex gap-2">
           <div className="w-10 h-10 dark:bg-zinc-800 bg-zinc-100 rounded-full">
@@ -40,7 +42,7 @@ export default function FlightTicketCard({
           <div className="py-1 px-2 rounded-lg transition-all dark:bg-zinc-800 bg-zinc-100 text-sm shadow-lg">
             {flight.totalStops === 0
               ? "direct flight"
-              : `${flight.totalStops} Stop`}
+              : `${flight.totalStops} ${texts?.stops}`}
           </div>
         </div>
       </div>
@@ -96,8 +98,8 @@ export default function FlightTicketCard({
               <div className="flex gap-2 md:hidden flex-1 ">
                 <div className="dark:shadow-xl py-2  shadow-md w-full px-2 rounded-lg transition-all dark:bg-zinc-800 md:bg-zinc-200 bg-zinc-100 text-lg">
                   {flight.totalStops === 0
-                    ? "Direct flight"
-                    : `${flight.totalStops} Stop`}
+                    ? texts?.directflight
+                    : `${flight.totalStops} ${texts?.stops}`}
                 </div>
               </div>
               <div

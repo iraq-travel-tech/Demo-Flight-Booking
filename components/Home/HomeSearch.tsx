@@ -11,7 +11,6 @@ import Passengers from "./components/Passengers";
 import PassengersInput from "./components/PassengersInput";
 import { TheDateComponent } from "./components/TheDateComponent";
 import TripType from "./components/TripType";
-import { useTranslation } from "@/app/i18n/client";
 import { LocaleType } from "@/app/i18n/locales2/localeType";
 
 export default function HomeSearch({ lang }) {

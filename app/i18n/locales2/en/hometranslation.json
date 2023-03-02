@@ -29,5 +29,7 @@
   "setdate": "Set date",
   "ok": "ok",
   "economy": "economy class",
-  "business": "business class"
+  "business": "business class",
+  "hidestops": "hide stops",
+  "showstops": "show stops"
 }

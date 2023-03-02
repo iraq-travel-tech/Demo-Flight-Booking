@@ -5,15 +5,20 @@ import FlightDetails from "./FlightDetails";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { FlightSegment } from "../interface/Res";
 import { FlightSegmentsEntity } from "../apiFunctions/ResponseTypes";
+import { LocaleType } from "@/app/i18n/locales2/localeType";
 
 type FlightDetailsWrapperProps = {
   children: React.ReactNode;
   flightSegments?: FlightSegmentsEntity[];
+  texts: LocaleType | null;
+  lang: string;
 };
 
 export default function FlightDetailsWrapper({
   children,
   flightSegments,
+  texts,
+  lang,
 }: FlightDetailsWrapperProps) {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -41,6 +46,8 @@ export default function FlightDetailsWrapper({
                     flight={i.Flight}
                     FlightIndex={index}
                     key={index}
+                    texts={texts}
+                    lang={lang}
                   />
                 ))}
               </motion.div>
@@ -48,7 +55,6 @@ export default function FlightDetailsWrapper({
           </AnimatePresence>
         </div>
       </ShowDetailsContext.Provider>
-      
     </>
   );
 }

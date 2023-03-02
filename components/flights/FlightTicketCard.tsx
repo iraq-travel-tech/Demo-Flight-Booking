@@ -4,11 +4,16 @@ import { FlightOffering } from "@/interface/FlightOfferingsResponse";
 import FlightDetailsWrapper from "./FlightDetailsWrapper";
 import SeeDetailsButton from "./SeeDetailsButton";
 import { FlightOfferingEntity } from "../apiFunctions/ResponseTypes";
+import { LocaleType } from "@/app/i18n/locales2/localeType";
 
 export default function FlightTicketCard({
   flight,
+  lang,
+  texts,
 }: {
   flight: FlightOfferingEntity;
+  lang: string;
+  texts: LocaleType | null;
 }) {
   return (
     <div className="transition-all dark:bg-zinc-900 h-max bg-zinc-200 shadow-xl rounded-xl p-3 flex flex-col md:gap-2">
@@ -23,7 +28,7 @@ export default function FlightTicketCard({
           </div>
           <div className="flex flex-col">
             <div className="text-sm font-bold capitalize">
-              {flight.validatingCarrier.en}
+              {flight.validatingCarrier[lang]}
             </div>
             <div className="text-xs dark:text-zinc-400">
               {flight.Departure.date} | {flight.cabin}
@@ -39,7 +44,12 @@ export default function FlightTicketCard({
           </div>
         </div>
       </div>
-      <FlightDetailsWrapper flightSegments={flight.flightSegments}>
+
+      <FlightDetailsWrapper
+        lang={lang}
+        texts={texts}
+        flightSegments={flight.flightSegments}
+      >
         <div className="md:transition-all md:dark:bg-zinc-800 bg-zinc-100/0 md:bg-zinc-100 md:shadow-md dark:bg-zinc-900 transition-all md:py-4 py-1 md:px-5 px-0 rounded-lg flex md:flex-row flex-col gap-4 z-10 relative  mt-2 sm:mt-1">
           <div className="grid md:grid-cols-[10em_4em_10em] grid-cols-[1fr_4em_1fr] md:gap-5 gap-2 md:w-max w-full  md:bg-zinc-800/0 bg-zinc-100 dark:bg-zinc-800 rounded-lg md:p-0 p-4 transition-all">
             <div className="flex flex-col">
@@ -47,7 +57,7 @@ export default function FlightTicketCard({
                 {flight.Departure.date}
               </div>
               <div className="md:text-xl text-md font-bold">
-                {flight.Departure.location.en}
+                {flight.Departure.location[lang]}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Departure.time}
@@ -58,8 +68,8 @@ export default function FlightTicketCard({
               <div className="h-10 w-10 flex items-center justify-center rounded-full fill-zinc-400 rotate-90 bg-white transition-all dark:bg-zinc-700">
                 <RiPlaneFill className="fill-inherit" />
               </div>
-              <div className="transition-all dark:text-zinc-500 font-semibold text-xs mt-1">
-                {flight.totalDuration.en}
+              <div className="transition-all dark:text-zinc-500 font-semibold text-xs mt-1 min-w-max">
+                {flight.totalDuration[lang]}
               </div>
             </div>
 
@@ -68,7 +78,7 @@ export default function FlightTicketCard({
                 {flight.Arrival.date}
               </div>
               <div className="md:text-xl text-md font-bold">
-                {flight.Arrival.location.en}
+                {flight.Arrival.location[lang]}
               </div>
               <div className="transition-all dark:text-zinc-500 text-zinc-700 md:text-md text-sm">
                 {flight.Arrival.time}
@@ -80,9 +90,7 @@ export default function FlightTicketCard({
           <div
             className={`flex flex-col w-full gap-1 items-end 
           
-          ${flight.totalStops === 0 && "!justify-center"}
-
-          `}
+          ${flight.totalStops === 0 && "!justify-center"}`}
           >
             <div className="flex w-full md:w-max text-center gap-3">
               <div className="flex gap-2 md:hidden flex-1 ">
@@ -101,7 +109,7 @@ export default function FlightTicketCard({
               </div>
             </div>
 
-            {flight.totalStops > 0 && <SeeDetailsButton />}
+            {flight.totalStops > 0 && <SeeDetailsButton texts={texts} />}
           </div>
         </div>
       </FlightDetailsWrapper>

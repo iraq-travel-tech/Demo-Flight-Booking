@@ -1,5 +1,5 @@
+import { LocaleType } from "@/app/i18n/locales2/localeType";
 import { FlightOfferingEntity } from "@/components/apiFunctions/ResponseTypes";
-import FlightFilters from "@/components/flights/FlightFilters";
 import FlightTicketCard from "@/components/flights/FlightTicketCard";
 import {
   FlightsPageProps,
@@ -8,17 +8,29 @@ import {
 import { BASEURL } from "@/GlobalVars";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+export default async function page({
+  searchParams,
+  params,
+}: {
+  searchParams: SearchParamsProps;
+  params: { lang: string };
+}) {
+  let texts: LocaleType | null = null;
 
-export default async function page({ searchParams }: FlightsPageProps) {
-  const res =
-    await fetch(`${BASEURL}/api/v2/flights?adults=${searchParams?.adults}
+  import(`@/app/i18n/locales2/${params.lang}/hometranslation.json`).then(
+    (data) => {
+      texts = data;
+    }
+  );
+
+  const res = await fetch(
+    `${BASEURL}/api/v2/flights?adults=${searchParams?.adults}
   &from=${searchParams?.from}
   &to=${searchParams?.to}
   &departure=${searchParams?.departure}`,
-  {
-    cache:"no-store"
-  }
+    {
+      cache: "no-cache",
+    }
   );
   let data: FlightOfferingEntity[] | null = null;
 
@@ -28,7 +40,12 @@ export default async function page({ searchParams }: FlightsPageProps) {
     <div className="flex flex-col gap-10 pt-24 md:px-4 px-2 pb-10">
       {data ? (
         data.map((flight, index: number) => (
-          <FlightTicketCard flight={flight} key={index} />
+          <FlightTicketCard
+            texts={texts}
+            lang={params.lang}
+            flight={flight}
+            key={index}
+          />
         ))
       ) : (
         <div className="flex flex-col py-3 sm:px-5 px-4 rounded bg-zinc-200 transition-all dark:bg-zinc-800">

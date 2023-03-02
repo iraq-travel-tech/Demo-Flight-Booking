@@ -1,12 +1,17 @@
+import { LocaleType } from "@/app/i18n/locales2/localeType";
 import { RiPlaneFill } from "react-icons/ri";
 import { Flight } from "../apiFunctions/ResponseTypes";
 
 export default function FlightDetails({
   flight,
   FlightIndex,
+  texts,
+  lang,
 }: {
   flight: Flight;
   FlightIndex: number;
+  texts: LocaleType | null;
+  lang: string;
 }) {
   return (
     <div className="dark:bg-zinc-800 bg-zinc-300 py-3 px-4 md:px-7 md:w-max w-full rounded-xl relative flex gap-4 items-center justify-between md:mt-0 mt-[4em] self-end transition-all md:min-w-[33em]">
@@ -25,7 +30,7 @@ export default function FlightDetails({
           {flight.Departure.date}
         </div>
         <div className="md:text-xl text-sm font-bold">
-          {flight.Departure.location.en}
+          {flight.Departure.location[lang]}
         </div>
         <div className="text-sm dark:text-zinc-400 text-zinc-600 truncate w-10">
           {flight.Departure.time}
@@ -33,7 +38,7 @@ export default function FlightDetails({
       </div>
 
       <div className="flex flex-col w-2/6 transition-all md:w-max items-center md:overflow-auto overflow-hidden">
-        <div className="font-bold text-xs -mb-2">{flight.carrier.en}</div>
+        <div className="font-bold text-xs -mb-2">{flight.carrier[lang]}</div>
         <div className="dark:text-zinc-400 text-zinc-600 truncate">
           ...............................
         </div>
@@ -43,7 +48,7 @@ export default function FlightDetails({
         </div>
 
         <div className="dark:text-zinc-400 text-zinc-600 text-xs">
-          {flight.duration.en}
+          {flight.duration[lang]}
         </div>
       </div>
 
@@ -52,7 +57,7 @@ export default function FlightDetails({
           {flight.Arrival.date}
         </div>
         <div className="md:text-xl text-sm font-bold">
-          {flight.Arrival.location.en}
+          {flight.Arrival.location[lang]}
         </div>
         <div className="text-sm dark:text-zinc-400 text-zinc-600 truncate w-10">
           {flight.Arrival.time}

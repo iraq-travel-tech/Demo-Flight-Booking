@@ -31,4 +31,6 @@ export interface LocaleType {
   ok: string;
   economy: string;
   business: string;
+  hidestops: string;
+  showstops: string;
 }

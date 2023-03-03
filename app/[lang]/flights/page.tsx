@@ -7,6 +7,7 @@ import {
 } from "@/components/flights/types";
 import { BASEURL } from "@/GlobalVars";
 import Link from "next/link";
+import AllFlights from "./AllFlights";
 
 export default async function page({
   searchParams,
@@ -37,16 +38,9 @@ export default async function page({
   data = await res.json();
 
   return (
-    <div className="flex flex-col gap-10 pt-24 md:px-4 px-2 pb-10">
+    <div className="flex flex-col pt-24 md:px-4 px-2 pb-10">
       {data ? (
-        data.map((flight, index: number) => (
-          <FlightTicketCard
-            texts={texts}
-            lang={params.lang}
-            flight={flight}
-            key={index}
-          />
-        ))
+        <AllFlights texts={texts} lang={params.lang} data={data} />
       ) : (
         <div className="flex flex-col py-3 sm:px-5 px-4 rounded bg-zinc-200 transition-all dark:bg-zinc-800">
           <div className="text-3xl font-bold">

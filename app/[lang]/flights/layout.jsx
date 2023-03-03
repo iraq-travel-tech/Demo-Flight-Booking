@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
           {/* <SwitchThemeButton /> */}
         </nav>
       </div>
-      <div dir="ltr" className="flex flex-col gap-4 pt-1 px-2 pb-10">
+      <div dir="ltr" className="flex flex-col  pt-1 px-2 pb-10">
         {children}
       </div>
     </div>
